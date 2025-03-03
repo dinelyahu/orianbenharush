@@ -1,0 +1,283 @@
+
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+}
+
+.navbar-light {
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: #fdfdfdc8 !important;
+    padding: 10px 15px; /* ריווח פנימי */
+}
+.nav-item{
+    font-size:26px;
+}
+
+.nav-link:hover {
+    color: #0d0b0da7 !important;
+    font-size: 28px;
+
+}
+
+.landing {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #e9ecef;
+}
+
+.landing h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: hsl(56, 12%, 43%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: #c1a6cb;
+}
+
+.navbar{
+    height: 14%;
+    background-color:rgba(19, 14, 14, 0.3);
+    border-radius: 12px;
+}
+
+.container-fluid{
+    height: 100%;
+}
+.navbar-brand{
+    height:100%;
+    width: 200px;
+}
+#logo{
+    height:100% ;
+    width: auto;
+    border-radius: 20px;
+    filter: brightness(0.8); /* 80% בהירות */
+    transition: filter 0.3s ease; /* מעבר חלק */
+}
+#logo:hover{
+    height:110% ;
+    width: auto;
+    filter: brightness(1.1); /* 80% בהירות */
+    transition: filter 0.3s ease; /* מעבר חלק */
+}
+#home {
+    background-image: url("../images/background.jpg"); /* נתיב לתמונה */
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200vh; /* גובה מלא למסך */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* טקסט בלבן */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* צל לטקסט */
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+
+
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, 0.1); /* שקיפות 50% */
+    z-index: 1;
+    border-radius: 12px;
+
+}
+
+#home * {
+    position: relative;
+    z-index: 2;
+}
+.instagram-icon{
+    width: 18%;
+    height: auto;
+    border-radius: 8px;
+    filter: brightness(0.8); /* 80% בהירות */
+    transition: filter 0.3s ease; /* מעבר חלק */
+}
+.instagram-icon:hover{
+    filter: brightness(1.1); /* 80% בהירות */
+    transition: filter 0.3s ease; /* מעבר חלק */
+}
+
+.carousel-inner .row .col-4 img {
+    width: 100%; /* מבטיח שהתמונה תתאים לגבולות */
+    height: 500px; /* גובה קבוע לכל התמונות */
+    object-fit: cover; /* חיתוך מותאם כך שהתמונות לא ימתחו */
+    border-radius: 10px; /* עיגול פינות */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* צל עדין */
+    filter: brightness(0.8); /* 80% בהירות */
+    transition: filter 0.3s ease; /* מעבר חלק */
+}
+
+
+.carousel-inner .row .col-4 img:hover {
+border:10px solid rgba(181, 186, 142, 0.584);
+filter: brightness(1.1); /* 80% בהירות */
+transition: filter 0.6s ease; /* מעבר חלק */
+}
+/* עיצוב גלריית כלות*/
+#scroll-gallery {
+    margin-top: 1%;
+    background: linear-gradient(to bottom, rgba(199, 180, 139, 0.176), rgba(235, 184, 3, 0.11));
+    background-size: cover; /* התאמת התמונה למלוא השטח */
+    padding: 50px 0; /* ריווח פנימי לגלריה */
+    border-radius: 15px; /* עיגול פינות */
+    margin: 20px;
+
+}
+/* עיצוב גלריית שלמות ערב*/
+#evening-gallery{
+    margin-top: 1%;
+    background: linear-gradient(to bottom, rgba(199, 180, 139, 0.176), rgba(235, 184, 3, 0.11));
+    background-size: cover; /* התאמת התמונה למלוא השטח */
+    padding: 50px 0; /* ריווח פנימי לגלריה */
+    border-radius: 15px; /* עיגול פינות */
+    margin: 20px;
+}
+#submit-btn{
+background-color: rgba(180, 187, 139, 0.703);
+color: #1b1707;
+font-size: 20px;
+border: transparent;
+}
+#contact {
+    background: rgba(189, 185, 139, 0.523);
+    background-size: cover; /* התאמת התמונה למלוא השטח */
+    padding: 50px 20px; /* ריווח פנימי */
+    border-radius: 8px; /* עיגול פינות */
+    box-shadow: 0 4px 10px rgba(247, 239, 239, 0.2); /* צל עדין */
+    filter: brightness(0.9); /* 80% בהירות */
+transition: filter 0.6s ease; /* מעבר חלק */
+}
+/* עיצוב ה-Modal */
+.modal {
+    display: none; /* מוסתר כברירת מחדל */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* רקע כהה */
+    display: flex; /* מרכז תוכן אנכית ואופקית */
+    justify-content: center; /* יישור אופקי */
+    align-items: center; /* יישור אנכי */
+}
+
+/* התמונה בתוך ה-Modal */
+.modal-content {
+    max-width: 20%; /* מגביל את רוחב התמונה */
+    max-height: 20%; /* מגביל את גובה התמונה */
+    object-fit: contain; /* שומר על היחסים המקוריים של התמונה */
+    border-radius: 20px; /* עיגול פינות */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* צל */
+    overflow: hidden; /* מוודא שהתמונה לא תגלוש */
+    cursor: pointer; /* שינוי לסמן של יד */
+    transition: transform 0.3s ease; /* מעבר חלק */
+    background-color: transparent !important;
+    margin: 20%;
+    
+}
+
+
+
+/* כפתור הסגירה */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001; /* גבוה יותר מהתמונה *//
+}
+.close:hover {
+    color: #bbb;
+    text-decoration: none;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+/* מיכל לזכוכית המגדלת */
+
+.magnifier-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30%;
+}
+
+.modal-content {
+    max-width: 90%; /* גודל מקסימלי */
+    max-height: 90%; /* גובה מקסימלי */
+    object-fit: contain; /* שמירה על יחס התמונה */
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* מעבר חלק בין מצבים */
+    cursor: zoom-in;
+    z-index: 1000; /* תמונה מתחת לכפתור הסגירה */
+    
+}
+
+
+.magnifier {
+    position: absolute;
+    border: 2px solid #ccc;
+    border-radius: 50%; /* הופך את הזכוכית לעגולה */
+    cursor: zoom-in;
+    width: 100px; /* גודל זכוכית המגדלת */
+    height: 100px; /* גודל זכוכית המגדלת */
+    background-color: rgba(255, 255, 255, 0.4); /* שקיפות קלה */
+    display: none; /* מוסתרת כברירת מחדל */
+    pointer-events: none; /* מונע לחיצות על הזכוכית */
+}
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item:hover {
+    background-color: #e9ecef;
+    color: #495057;
+}
+/*עיצוב חלונית לבחירת הגלריה*/
+.navbar .dropdown-menu {
+    background-color: #a8726b86 !important;
+    text-align: center !important;
+    border:none !important;
+}
+.dropdown-item{
+    color: #ebe9e3 !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+}
+.dropdown-item:hover{
+    background-color: #a8726b5b !important;
+}
