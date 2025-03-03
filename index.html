@@ -8,41 +8,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Gallery
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
-                            <li><a class="dropdown-item" href="#scroll-gallery">שמלות כלה</a></li>
-                            <li><a class="dropdown-item" href="#evening-gallery">שמלות ערב</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://www.instagram.com/orian_benharush/" target="_blank" class="ms-auto">
-                            <img class="instagram-icon" src="images/instagram-icon.jpg" alt="אינסטגרם">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <a class="navbar-brand" href="#">
-                <img id="logo" src="images/logo.jpg" alt="לוגו">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container-fluid">
+        <!-- כפתור תפריט המבורגר - יוצג רק במסכים קטנים -->
+        <button id="menu-toggle" class="menu-toggle d-md-none">
+            ☰
+        </button>
+
+        <a class="navbar-brand" href="#">
+            <img id="logo" src="images/logo.jpg" alt="לוגו">
+        </a>
+    </div>
+</nav>
+
+<!-- תפריט צד למסכים קטנים בלבד -->
+<div id="mobile-nav" class="mobile-nav d-md-none">
+    <ul>
+        <li><a href="#home">דף הבית</a></li>
+        <li><a href="#scroll-gallery">שמלות כלה</a></li>
+        <li><a href="#evening-gallery">שמלות ערב</a></li>
+        <li><a href="#contact">צור קשר</a></li>
+        <li>
+            <a href="https://www.instagram.com/orian_benharush/" target="_blank">
+                <img class="instagram-icon" src="images/instagram-icon.jpg" alt="אינסטגרם">
             </a>
-        </div>
-    </nav>
+        </li>
+    </ul>
+</div>
+
 
     <!-- Landing Section -->
     <section id="home" class="landing">
