@@ -281,3 +281,24 @@ transition: filter 0.6s ease; /* מעבר חלק */
 .dropdown-item:hover{
     background-color: #a8726b5b !important;
 }
+#home {
+    background-image: url("../images/background.jpg");
+    background-size: cover; /* התמונה תתפוס את כל הרוחב */
+    background-position: center; /* ממקם את התמונה במרכז */
+    height: 200vh; /* גובה מלא למסך */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    #home {
+        height: 100vh; /* גובה מותאם למסכים קטנים */
+        background-size: cover; /* התאמת התמונה לגודל המסך */
+        background-position: center; /* ממקם את התמונה במרכז */
+    }
+}
