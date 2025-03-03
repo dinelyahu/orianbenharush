@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orian Ben</title>
-
-  <!-- כאן מצביעים ישר על style_sheet.css שנמצא באותה תיקייה כמו index.html -->
+  
+  <!-- CSS מותאם למובייל -->
   <link rel="stylesheet" href="style_sheet.css">
-
-  <!-- בוטסטראפ מה-CDN -->
+  
+  <!-- Bootstrap -->
   <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
-    rel="stylesheet"
-  >
+    rel="stylesheet">
 </head>
 <body>
   <!-- Navbar -->
@@ -41,20 +40,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
           </li>
-          <li class="nav-item">
-            <a 
-              href="https://www.instagram.com/orian_benharush/" 
-              target="_blank" 
-              class="ms-auto"
-            >
-              <!-- איקון אינסטגרם מתוך תיקיית images -->
-              <img class="instagram-icon" src="images/instagram-icon.jpg" alt="אינסטגרם">
-            </a>
-          </li>
         </ul>
       </div>
       <a class="navbar-brand" href="#">
-        <!-- הלוגו מתוך תיקיית images -->
         <img id="logo" src="images/logo.jpg" alt="לוגו">
       </a>
     </div>
@@ -75,158 +63,26 @@
       <h2>Bridal</h2>
       <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <!-- קבוצה ראשונה של 3 תמונות -->
           <div class="carousel-item active">
             <div class="row">
-              <div class="col-4">
-                <img src="images/bridal/img1.jpg" class="d-block w-100" alt="תמונה 1" onclick="openModal(this)">
+              <div class="col-12 col-md-4">
+                <img src="images/bridal/img1.jpg" class="d-block w-100" alt="תמונה 1">
               </div>
-              <div class="col-4">
-                <img src="images/bridal/img2.jpg" class="d-block w-100" alt="תמונה 2" onclick="openModal(this)">
+              <div class="col-12 col-md-4">
+                <img src="images/bridal/img2.jpg" class="d-block w-100" alt="תמונה 2">
               </div>
-              <div class="col-4">
-                <img src="images/bridal/img3.jpg" class="d-block w-100" alt="תמונה 3" onclick="openModal(this)">
-              </div>
-            </div>
-          </div>
-          <!-- קבוצה שנייה של 3 תמונות -->
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-4">
-                <img src="images/bridal/img4.jpg" class="d-block w-100" alt="תמונה 4" onclick="openModal(this)">
-              </div>
-              <div class="col-4">
-                <img src="images/bridal/img5.jpg" class="d-block w-100" alt="תמונה 5" onclick="openModal(this)">
-              </div>
-              <div class="col-4">
-                <img src="images/bridal/img6.jpg" class="d-block w-100" alt="תמונה 6" onclick="openModal(this)">
-              </div>
-            </div>
-          </div>
-          <!-- קבוצה שלישית של 3 תמונות -->
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-4">
-                <img src="images/bridal/img7.jpg" class="d-block w-100" alt="תמונה 7" onclick="openModal(this)">
-              </div>
-              <div class="col-4">
-                <img src="images/bridal/img8.jpg" class="d-block w-100" alt="תמונה 8" onclick="openModal(this)">
-              </div>
-              <div class="col-4">
-                <img src="images/bridal/img9.jpg" class="d-block w-100" alt="תמונה 9" onclick="openModal(this)">
+              <div class="col-12 col-md-4">
+                <img src="images/bridal/img3.jpg" class="d-block w-100" alt="תמונה 3">
               </div>
             </div>
           </div>
         </div>
-        <!-- כפתורי ניווט -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">הקודם</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">הבא</span>
-        </button>
       </div>
     </div>
   </section>
 
-  <!-- גלריה - שמלות ערב -->
-  <section id="evening-gallery" class="py-5 bg-light">
-    <div class="container text-center">
-      <h2>Evening</h2>
-      <div id="carouselEvening" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <!-- קבוצה ראשונה של 3 תמונות -->
-          <div class="carousel-item active">
-            <div class="row">
-              <div class="col-4">
-                <img src="images/evening/image1.jpg" class="d-block w-100" alt="שמלת ערב 1" onclick="openModal(this)">
-              </div>
-              <div class="col-4">
-                <img src="images/evening/image2.jpg" class="d-block w-100" alt="שמלת ערב 2" onclick="openModal(this)">
-              </div>
-              <div class="col-4">
-                <img src="images/evening/image3.jpg" class="d-block w-100" alt="שמלת ערב 3" onclick="openModal(this)">
-              </div>
-            </div>
-          </div>
-          <!-- קבוצה שנייה של 3 תמונות -->
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-4">
-                <img src="images/evening/image4.jpg" class="d-block w-100" alt="שמלת ערב 4" onclick="openModal(this)">
-              </div>
-              <div class="col-4">
-                <img src="images/evening/image5.jpg" class="d-block w-100" alt="שמלת ערב 5" onclick="openModal(this)">
-              </div>
-              <div class="col-4">
-                <img src="images/evening/image6.jpg" class="d-block w-100" alt="שמלת ערב 6" onclick="openModal(this)">
-              </div>
-            </div>
-          </div>
-          <!-- קבוצה שלישית של 3 תמונות -->
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-4">
-                <img src="images/evening/image7.jpg" class="d-block w-100" alt="שמלת ערב 7" onclick="openModal(this)">
-              </div>
-              <div class="col-4">
-                <img src="images/evening/image8.jpg" class="d-block w-100" alt="שמלת ערב 8" onclick="openModal(this)">
-              </div>
-              <div class="col-4">
-                <img src="images/evening/image9.jpg" class="d-block w-100" alt="שמלת ערב 9" onclick="openModal(this)">
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- כפתורי ניווט -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselEvening" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">הקודם</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselEvening" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">הבא</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- חלון הגדלת התמונה -->
-  <div id="imageModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <div class="magnifier-container">
-      <img class="modal-content" id="modalImage" alt="תמונה מוגדלת">
-    </div>
-    <div id="caption"></div>
-  </div>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-5 bg-light">
-    <div class="container text-center">
-      <h2>צרי קשר</h2>
-      <form class="mt-4 mx-auto" style="max-width: 400px;">
-        <div class="mb-3">
-          <label for="name" class="form-label">שם:</label>
-          <input type="text" id="name" name="name" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">אימייל:</label>
-          <input type="email" id="email" name="email" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">הודעה:</label>
-          <textarea id="message" name="message" rows="4" class="form-control" required></textarea>
-        </div>
-        <button id="submit-btn" type="submit" class="btn btn-primary w-100">שלחי</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- JS - בוטסטראפ -->
+  <!-- סקריפטים -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- קובץ script.js מתוך אותה תיקייה יחד עם index.html -->
   <script src="script.js"></script>
 </body>
 </html>
