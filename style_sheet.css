@@ -5,7 +5,7 @@ body {
 }
 
 .navbar-light {
-    background-color: #f8f9fa;
+    background-color: transparent !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
