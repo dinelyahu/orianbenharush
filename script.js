@@ -157,3 +157,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const homeSection = document.getElementById("home");
+
+    // מערך של תמונות רקע
+    const images = [
+        "images/background1.jpg",
+        "images/background2.jpg",
+        "images/background3.jpg",
+        "images/background4.jpg"
+    ];
+
+    let currentIndex = 0;
+
+    function changeBackground() {
+        homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
+        currentIndex = (currentIndex + 1) % images.length; // לעבור לתמונה הבאה, ואם מגיעים לסוף - להתחיל מחדש
+    }
+
+    // הפעלת שינוי רקע כל 5 שניות
+    setInterval(changeBackground, 5000);
+
+    // הצגת תמונה ראשונה מיד עם טעינת הדף
+    changeBackground();
+});
