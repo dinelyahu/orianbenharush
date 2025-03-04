@@ -4,7 +4,7 @@ body {
 }
 
 .container-fluid{
-    height: 150px;
+    height: 50px;
     margin-top: 100px;
 }
 @media(max-width: 768px){
@@ -557,7 +557,7 @@ h2{
     font-family: 'Playwrite IT Moderna', sans-serif;
 }
 .navbar-nav{
-    margin-top:80px;
+    margin-top:30px;
 }
 /* ברירת מחדל - הניווט יהיה קבוע במסכים גדולים */
 .navbar {
@@ -597,7 +597,7 @@ h2{
     top: 10px;
 }
 .navbar-logo {
-    height: 200px; /* גובה גדול יותר */
+    height: 120px; /* גובה גדול יותר */
     width: auto; /* רוחב משתנה */
 }
 
@@ -614,9 +614,4 @@ h2{
         height: 100px; /* גובה גדול יותר */
         width: auto; /* רוחב משתנה */
     }
-}
-/* שינוי צבע רק לזמן קצר כשהכפתור נלחץ */
-#language-toggle.active-click {
-    background-color: white !important;
-    color: black !important;
 }

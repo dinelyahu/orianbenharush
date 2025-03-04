@@ -92,7 +92,7 @@ if (languageToggle) {
                 send: "שלחי",
                 bridalHeader: "שמלות כלה",
                 eveningHeader: "שמלות ערב",
-                contactHeader: "צרי קשר",
+                contactHeader: "צרו קשר",
                 nameLabel: "שם:",
                 emailLabel: "אימייל:",
                 messageLabel: "הודעה:",
