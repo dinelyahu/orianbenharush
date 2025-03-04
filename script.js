@@ -130,30 +130,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// הוספת פונקציה להעלמת הניווט בעת גלילה במסכים קטנים
-document.addEventListener("DOMContentLoaded", function () {
-    const navbar = document.querySelector(".navbar");
-    let lastScrollTop = 0;
-
-    function isSmallScreen() {
-        return window.innerWidth <= 768;
-    }
-
-    window.addEventListener("scroll", function () {
-        if (!isSmallScreen()) return;
-        let scrollTop = window.scrollY || document.documentElement.scrollTop;
-        navbar.style.top = scrollTop > lastScrollTop ? "-100px" : "0";
-        lastScrollTop = scrollTop;
-    });
-});
-document.addEventListener("DOMContentLoaded", function () {
-    let navbar = document.querySelector(".navbar");
-
-    window.addEventListener("scroll", function () {
-        if (window.scrollY === 0) {
-            navbar.classList.add("show"); // מציג את הניווט כשהגענו לראש הדף
-        } else {
-            navbar.classList.remove("show"); // מסתיר את הניווט בגלילה מטה
-        }
-    });
-});
