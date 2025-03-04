@@ -648,3 +648,34 @@ h2{
 .navbar-nav{
     margin-top:-50px;
 }
+/* ברירת מחדל - הניווט יהיה קבוע במסכים גדולים */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(19, 14, 14, 0.3);
+    border-radius: 12px;
+    transition: top 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* במסכים קטנים - הסרת הקביעות של הניווט */
+@media (max-width: 768px) {
+    .navbar {
+        margin-bottom: -200px;
+        position: relative !important; /* הניווט לא יהיה קבוע */
+    }
+
+    /* כפתור התפריט יהיה קבוע במסך */
+    .menu-toggle {
+        position: fixed;
+        top: 30px;
+        right: 15px;
+        font-size: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        z-index: 1010;
+    }
+}

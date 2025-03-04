@@ -146,3 +146,14 @@ document.addEventListener("DOMContentLoaded", function () {
         lastScrollTop = scrollTop;
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    let navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY === 0) {
+            navbar.classList.add("show"); // מציג את הניווט כשהגענו לראש הדף
+        } else {
+            navbar.classList.remove("show"); // מסתיר את הניווט בגלילה מטה
+        }
+    });
+});
