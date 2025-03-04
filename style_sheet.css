@@ -633,5 +633,10 @@ transition: filter 0.6s ease; /* מעבר חלק */
 @media (max-width:786px) {
     .navbar-brand-container {
         top: 0;
+        
 }
+    .navbar-brand-text {
+        font-size: 15px;
+
+    }
 }

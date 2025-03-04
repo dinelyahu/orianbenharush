@@ -57,20 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
             event.stopPropagation(); // מונע מהכפתור לגרום לסגירת התפריט
             const htmlTag = document.documentElement;
             const currentLang = htmlTag.lang;
+            const newLang = currentLang === "he" ? "en" : "he";
 
-            if (currentLang === "he") {
-                htmlTag.lang = "en";
-                htmlTag.dir = "ltr";
-                updateTextContent("en");
-            } else {
-                htmlTag.lang = "he";
-                htmlTag.dir = "rtl";
-                updateTextContent("he");
-            }
+            htmlTag.lang = newLang;
+            htmlTag.dir = newLang === "he" ? "rtl" : "ltr";
+            updateTextContent(newLang);
         });
     }
 
-    // פונקציה לעדכון הטקסטים בהתאם לשפה שנבחרה
     function updateTextContent(lang) {
         const translations = {
             he: {
@@ -79,7 +73,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 evening: "קולקציית שמלות ערב",
                 about: "אודות",
                 contact: "צרי קשר",
-                send: "שלחי"
+                send: "שלחי",
+                title: "Orian Ben Harush",
+                bridalHeader: "שמלות כלה",
+                eveningHeader: "שמלות ערב",
+                contactHeader: "צרי קשר",
+                nameLabel: "שם:",
+                emailLabel: "אימייל:",
+                messageLabel: "הודעה:",
+                sendButton: "שלחי"
             },
             en: {
                 home: "Home",
@@ -87,18 +89,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 evening: "Evening Collection",
                 about: "About",
                 contact: "Contact",
-                send: "Send"
+                send: "Send",
+                title: "Orian Ben Harush",
+                bridalHeader: "Bridal",
+                eveningHeader: "Evening",
+                contactHeader: "Contact",
+                nameLabel: "Name:",
+                emailLabel: "Email:",
+                messageLabel: "Message:",
+                sendButton: "Send"
             }
         };
 
-        // עדכון תפריט הניווט הראשי
+        document.title = translations[lang].title;
+        document.querySelector(".navbar-brand-text").textContent = translations[lang].title;
+
         document.querySelector("a[href='#home']").textContent = translations[lang].home;
         document.querySelector("a[href='#scroll-gallery']").textContent = translations[lang].bridal;
         document.querySelector("a[href='#evening-gallery']").textContent = translations[lang].evening;
         document.querySelector("a[href='#about']").textContent = translations[lang].about;
         document.querySelector("a[href='#contact']").textContent = translations[lang].contact;
 
-        // עדכון כפתורי התפריט הצדדי (Mobile Nav)
         const mobileNavLinks = document.querySelectorAll("#mobile-nav ul li a");
         if (mobileNavLinks.length >= 5) {
             mobileNavLinks[0].textContent = translations[lang].home;
@@ -108,32 +119,30 @@ document.addEventListener("DOMContentLoaded", function () {
             mobileNavLinks[4].textContent = translations[lang].contact;
         }
 
-        // עדכון כפתור השליחה בטופס יצירת קשר
-        const submitBtn = document.getElementById("submit-btn");
-        if (submitBtn) {
-            submitBtn.textContent = translations[lang].send;
-        }
+        document.querySelector("#scroll-gallery h2").textContent = translations[lang].bridalHeader;
+        document.querySelector("#evening-gallery h2").textContent = translations[lang].eveningHeader;
+        document.querySelector("#contact h2").textContent = translations[lang].contactHeader;
+
+        document.querySelector("label[for='name']").textContent = translations[lang].nameLabel;
+        document.querySelector("label[for='email']").textContent = translations[lang].emailLabel;
+        document.querySelector("label[for='message']").textContent = translations[lang].messageLabel;
+        document.getElementById("submit-btn").textContent = translations[lang].sendButton;
     }
 });
+
+// הוספת פונקציה להעלמת הניווט בעת גלילה במסכים קטנים
 document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.querySelector(".navbar");
     let lastScrollTop = 0;
 
-    // בדיקה האם מדובר במסך קטן
     function isSmallScreen() {
         return window.innerWidth <= 768;
     }
 
-    // מאזין לאירוע גלילה
     window.addEventListener("scroll", function () {
-        if (!isSmallScreen()) return; // פועל רק במסכים קטנים
-
+        if (!isSmallScreen()) return;
         let scrollTop = window.scrollY || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop) {
-            navbar.style.top = "-100px"; // מסתיר את הניווט בגלילה למטה
-        } else {
-            navbar.style.top = "0"; // מציג את הניווט בגלילה למעלה
-        }
+        navbar.style.top = scrollTop > lastScrollTop ? "-100px" : "0";
         lastScrollTop = scrollTop;
     });
 });
