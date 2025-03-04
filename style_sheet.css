@@ -460,9 +460,9 @@ transition: filter 0.6s ease; /* מעבר חלק */
     position: fixed;
     top: 0;
     right: -250px; /* מוסתר כברירת מחדל */
-    width: 200px;
+    width: 180px;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
     transition: right 0.4s ease-in-out;
     z-index: 1000;
@@ -495,18 +495,23 @@ transition: filter 0.6s ease; /* מעבר חלק */
     list-style: none;
     padding: 0;
     text-align: center;
+    margin-top: 30px;
 }
 
 .mobile-nav ul li {
-    margin: 20px 0;
+    margin: 20px;
+
+    border-bottom: 1px solid rgba(74, 71, 71, 0.689);
+
 }
 
 .mobile-nav ul li a {
-    color: white;
+    color: rgba(74, 71, 71, 0.687);
     text-decoration: none;
     font-size: 14px;
     font-weight: bold;
     transition: color 0.3s;
+    margin-bottom: 30px;
 }
 
 .mobile-nav ul li a:hover {
