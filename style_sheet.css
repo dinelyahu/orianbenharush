@@ -734,15 +734,3 @@ h2{
 .view-more-button:hover, .back-button:hover {
     background: rgba(180, 187, 139, 1);
 }
-/* עיצוב כללי לגלריה */
-.gallery {
-    text-align: center;
-    padding: 20px 0;
-}
-
-.gallery h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-
