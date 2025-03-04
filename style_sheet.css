@@ -5,7 +5,7 @@ body {
 
 .navbar-light {
 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.011);
 }
 
 
@@ -41,15 +41,10 @@ body {
 
 .container-fluid{
     height: 100%;
+    margin-top: 100px;
 }
 
-#logo{
-    height:100% ;
-    width: auto;
-    border-radius: 20px;
-    filter: brightness(0.8); /* 80% בהירות */
-    transition: filter 0.3s ease; /* מעבר חלק */
-}
+
 
 #home {
     background-image: url("images/background.jpg"); /* נתיב לתמונה */
@@ -399,7 +394,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 #language-toggle {
-    font-size: 18px;
+    font-size: 12px;
     background-color: transparent;
     border: 2px solid #fff;
     color: #fff;
@@ -409,7 +404,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 #language-toggle:hover {
-    background-color: #e8a3e7;
+    background-color: #dadada;
     color: #000;
 }
 
@@ -428,7 +423,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 .social-icon:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.4);
 }
 
 /* לוודא שהתמונות נשמרות עם רקע שקוף */
@@ -547,4 +542,96 @@ transition: filter 0.6s ease; /* מעבר חלק */
         top: 10px;
         left: 20px; /* מזיז את הכפתור לצד שמאל */
     }
+}
+.navbar-brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    height: 100%;
+    z-index: 1001;
+    pointer-events: none; /* מונע לחיצות עליהם */
+}
+
+.navbar-logo {
+    width: 50px; /* גודל הלוגו */
+    height: auto;
+    margin-right: 10px;
+}
+
+.navbar-brand-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.social-icon {
+    width: 15px !important;  /* רוחב 15 פיקסלים */
+    height: 15px !important; /* גובה 15 פיקסלים */
+}
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(19, 14, 14, 0.3);
+    border-radius: 12px;
+    height: auto;
+    padding-top: 10px; /* מוסיף מקום קטן */
+}
+
+/* מחלקת קונטיינר חדשה לאייקונים ולכפתור */
+.navbar-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* מיקוד האייקונים לחלק השמאלי */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    top: 0;
+    left: 10px; /* קרוב לקצה השמאלי */
+}
+
+/* התאמה לכפתור HE/EN */
+.language-toggle {
+    position: relative;
+    right: 10px;
+    top: 0;
+}
+/* כברירת מחדל, הניווט קבוע במסכים גדולים */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: top 0.3s ease-in-out;
+    background-color: rgba(19, 14, 14, 0.3);
+    border-radius: 12px;
+}
+
+/* במסכים קטנים - הניווט יוסתר בגלילה */
+@media (max-width: 768px) {
+    .navbar {
+        position: absolute; /* הופך אותו לסטטי בגלילה */
+        top: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width:786px) {
+    .navbar-brand-container {
+        top: 0;
+}
 }

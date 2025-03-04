@@ -115,3 +115,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector(".navbar");
+    let lastScrollTop = 0;
+
+    // בדיקה האם מדובר במסך קטן
+    function isSmallScreen() {
+        return window.innerWidth <= 768;
+    }
+
+    // מאזין לאירוע גלילה
+    window.addEventListener("scroll", function () {
+        if (!isSmallScreen()) return; // פועל רק במסכים קטנים
+
+        let scrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            navbar.style.top = "-100px"; // מסתיר את הניווט בגלילה למטה
+        } else {
+            navbar.style.top = "0"; // מציג את הניווט בגלילה למעלה
+        }
+        lastScrollTop = scrollTop;
+    });
+});
