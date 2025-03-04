@@ -51,19 +51,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // שינוי שפה ולוקליזציה
-    if (languageToggle) {
-        languageToggle.addEventListener("click", function (event) {
-            event.stopPropagation(); // מונע מהכפתור לגרום לסגירת התפריט
-            const htmlTag = document.documentElement;
-            const currentLang = htmlTag.lang;
-            const newLang = currentLang === "he" ? "en" : "he";
+// שינוי שפה ולוקליזציה + שינוי צבע זמני
+// שינוי שפה ולוקליזציה + שינוי צבע זמני
+if (languageToggle) {
+    languageToggle.addEventListener("click", function (event) {
+        event.stopPropagation(); // מונע מהכפתור לגרום לסגירת התפריט
+        const htmlTag = document.documentElement;
+        const currentLang = htmlTag.lang;
+        const newLang = currentLang === "he" ? "en" : "he";
 
-            htmlTag.lang = newLang;
-            htmlTag.dir = newLang === "he" ? "rtl" : "ltr";
-            updateTextContent(newLang);
-        });
-    }
+        // שינוי השפה
+        htmlTag.lang = newLang;
+        htmlTag.dir = newLang === "he" ? "rtl" : "ltr";
+        updateTextContent(newLang);
+
+        // שמירת הצבעים המקוריים
+        const originalBgColor = languageToggle.style.backgroundColor;
+        const originalTextColor = languageToggle.style.color;
+
+        // שינוי צבע הכפתור לזמן קצר
+        languageToggle.style.backgroundColor = "white";
+        languageToggle.style.color = "black";
+
+        // החזרת הצבעים המקוריים אחרי 300 מילי-שניות
+        setTimeout(() => {
+            languageToggle.style.backgroundColor = originalBgColor || "transparent";
+            languageToggle.style.color = originalTextColor || "white";
+        }, 200);
+    });
+}
 
     function updateTextContent(lang) {
         const translations = {
@@ -72,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 bridal: "קולקציית שמלות כלה",
                 evening: "קולקציית שמלות ערב",
                 about: "אודות",
-                contact: "צרי קשר",
+                contact: "צרו קשר",
                 send: "שלחי",
                 bridalHeader: "שמלות כלה",
                 eveningHeader: "שמלות ערב",
@@ -124,6 +140,20 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("label[for='email']").textContent = translations[lang].emailLabel;
         document.querySelector("label[for='message']").textContent = translations[lang].messageLabel;
         document.getElementById("submit-btn").textContent = translations[lang].sendButton;
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileNav = document.getElementById("mobile-nav");
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileNavLinks = document.querySelectorAll("#mobile-nav ul li a");
+
+    if (mobileNav && menuToggle) {
+        // הוספת אירוע לכל קישור בתפריט
+        mobileNavLinks.forEach(link => {
+            link.addEventListener("click", function () {
+                mobileNav.classList.remove("open"); // סגירת התפריט
+            });
+        });
     }
 });
 
