@@ -1,68 +1,18 @@
 body {
+    font-family:Arial, Helvetica, sans-serif;
     direction: rtl;
 }
 
-
-
-.navbar-light {
-
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.011);
-}
-
-
-
-.landing {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: #e9ecef;
-}
-
-.landing h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.cta-button {
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    background-color: hsl(56, 12%, 43%);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.cta-button:hover {
-    background-color: #c1a6cb;
-}
-
-
 .container-fluid{
-    height: 100%;
+    height: 150px;
     margin-top: 100px;
 }
-
-
-
-#home {
-    background-image: url("images/background.jpg"); /* נתיב לתמונה */
-    background-size:100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 200vh; /* גובה מלא למסך */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white; /* טקסט בלבן */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* צל לטקסט */
-    font-size: 20px;
-    border-radius: 12px;
+@media(max-width: 768px){
+    .container-fluid{
+        height: 50px;
+        margin-top: 50px;
+    }
 }
-
-
 
 #home::before {
     content: "";
@@ -77,10 +27,7 @@ body {
 
 }
 
-#home * {
-    position: relative;
-    z-index: 2;
-}
+
 
 
 .carousel-inner .row .col-4 img {
@@ -151,8 +98,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 
 /* התמונה בתוך ה-Modal */
 .modal-content {
-    max-width: 20%; /* מגביל את רוחב התמונה */
-    max-height: 20%; /* מגביל את גובה התמונה */
+
     object-fit: contain; /* שומר על היחסים המקוריים של התמונה */
     border-radius: 20px; /* עיגול פינות */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* צל */
@@ -164,8 +110,6 @@ transition: filter 0.6s ease; /* מעבר חלק */
     margin-top: 100%;
     
 }
-
-
 
 /* כפתור הסגירה */
 .close {
@@ -373,7 +317,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 .nav-item {
-    font-size: 16px;
+    font-size: 20px;
     margin: 0 10px; /* ריווח בין הכפתורים */
 }
 
@@ -386,7 +330,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 .nav-link:hover {
     color: #ffffff !important; /* שינוי צבע בעת מעבר */
     opacity: 1.4;
-    font-size: 16px;
+
 }
 
 /* עיצוב כפתור HE/EN */
@@ -396,7 +340,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 #language-toggle {
-    font-size: 12px;
+    font-size: 15px;
     background-color: transparent;
     border: 2px solid #fff;
     color: #fff;
@@ -410,23 +354,8 @@ transition: filter 0.6s ease; /* מעבר חלק */
     color: #000;
 }
 
-.social-icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
 
-.social-icon {
-    width: 30px;
-    height: 30px;
-    filter: brightness(0.8);
-    transition: filter 0.3s ease-in-out;
-    background-color: transparent; /* לוודא שהרקע שקוף */
-}
 
-.social-icon:hover {
-    filter: brightness(1.4);
-}
 
 /* לוודא שהתמונות נשמרות עם רקע שקוף */
 .social-icon img {
@@ -522,7 +451,10 @@ transition: filter 0.6s ease; /* מעבר חלק */
         display: none !important;
     }
 }
-
+.social-icon {
+    width: 25px !important;  /* רוחב 15 פיקסלים */
+    height: 25px !important; /* גובה 15 פיקסלים */
+}
 /* התאמה למסכים קטנים בלבד */
 @media (max-width: 768px) {
     .social-icons {
@@ -545,18 +477,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
         top: 10px;
     }
 }
-.navbar-brand-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0;
-    height: 100%;
-    z-index: 1001;
-    pointer-events: none; /* מונע לחיצות עליהם */
-}
+
 
 .navbar-logo {
     width: 50px; /* גודל הלוגו */
@@ -566,16 +487,14 @@ transition: filter 0.6s ease; /* מעבר חלק */
 
 .navbar-brand-text {
     font-size: 30px;
-    font-family: 'Playwrite IT Moderna', sans-serif;
+    font-family: 'Didot', serif;
     margin-top: -50px;
     color: white;
     letter-spacing: 2px;
     margin-bottom: 0;
 }
-.social-icon {
-    width: 15px !important;  /* רוחב 15 פיקסלים */
-    height: 15px !important; /* גובה 15 פיקסלים */
-}
+
+
 .navbar {
     display: flex;
     flex-direction: column;
@@ -633,20 +552,12 @@ transition: filter 0.6s ease; /* מעבר חלק */
     }
 }
 
-@media (max-width:786px) {
-    .navbar-brand-container {
-        top: 0;        
-}
-    .navbar-brand-text {
-        font-size: 15px;
 
-    }
-}
 h2{
     font-family: 'Playwrite IT Moderna', sans-serif;
 }
 .navbar-nav{
-    margin-top:-50px;
+    margin-top:80px;
 }
 /* ברירת מחדל - הניווט יהיה קבוע במסכים גדולים */
 .navbar {
@@ -677,5 +588,30 @@ h2{
         cursor: pointer;
         color: white;
         z-index: 1010;
+    }
+}
+.navbar-logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+}
+.navbar-logo {
+    height: 200px; /* גובה גדול יותר */
+    width: auto; /* רוחב משתנה */
+}
+
+
+
+@media (max-width: 768px) {
+    .navbar-logo-container {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 5px;
+    }
+
+    .navbar-logo {
+        height: 100px; /* גובה גדול יותר */
+        width: auto; /* רוחב משתנה */
     }
 }

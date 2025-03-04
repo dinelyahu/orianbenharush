@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 about: "אודות",
                 contact: "צרי קשר",
                 send: "שלחי",
-                title: "Orian Ben Harush",
                 bridalHeader: "שמלות כלה",
                 eveningHeader: "שמלות ערב",
                 contactHeader: "צרי קשר",
@@ -90,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 about: "About",
                 contact: "Contact",
                 send: "Send",
-                title: "Orian Ben Harush",
                 bridalHeader: "Bridal",
                 eveningHeader: "Evening",
                 contactHeader: "Contact",
@@ -101,8 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         };
 
-        document.title = translations[lang].title;
-        document.querySelector(".navbar-brand-text").textContent = translations[lang].title;
+
 
         document.querySelector("a[href='#home']").textContent = translations[lang].home;
         document.querySelector("a[href='#scroll-gallery']").textContent = translations[lang].bridal;
