@@ -70,7 +70,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 0%;
     background-color: rgba(0, 0, 0, 0.1); /* שקיפות 50% */
     z-index: 1;
     border-radius: 12px;
@@ -358,7 +358,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 .navbar {
     background-color: rgba(19, 14, 14, 0.3);
     border-radius: 12px;
-    height: 14%;
+    height: 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -378,14 +378,15 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 .nav-link {
-    color: #ffffff !important;
+    color: #bebbbb !important;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
 }
 
 .nav-link:hover {
-    color: #f0b1f7 !important; /* שינוי צבע בעת מעבר */
-    font-size: 18px;
+    color: #ffffff !important; /* שינוי צבע בעת מעבר */
+    opacity: 1.4;
+    font-size: 16px;
 }
 
 /* עיצוב כפתור HE/EN */
@@ -511,7 +512,8 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 .mobile-nav ul li a:hover {
-    color: #f0b1f7;
+    color: #000000;
+    opacity: 1.4;
 }
 
 /* התאמה למסכים קטנים - הסתרת הניווט הראשי */
@@ -541,7 +543,6 @@ transition: filter 0.6s ease; /* מעבר חלק */
     .language-toggle {
         position: absolute;
         top: 10px;
-        left: 20px; /* מזיז את הכפתור לצד שמאל */
     }
 }
 .navbar-brand-container {
@@ -550,7 +551,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     justify-content: center;
     width: 100%;
     position: absolute;
-    top: -30px;
+    top: 0px;
     left: 0;
     height: 100%;
     z-index: 1001;
@@ -566,9 +567,10 @@ transition: filter 0.6s ease; /* מעבר חלק */
 .navbar-brand-text {
     font-size: 30px;
     font-family: 'Playwrite IT Moderna', sans-serif;
-
+    margin-top: -50px;
     color: white;
     letter-spacing: 2px;
+    margin-bottom: 0;
 }
 .social-icon {
     width: 15px !important;  /* רוחב 15 פיקסלים */
@@ -578,7 +580,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(19, 14, 14, 0.3);
+    background-color: rgba(19, 14, 14, 0);
     border-radius: 12px;
     height: auto;
     padding-top: 10px; /* מוסיף מקום קטן */
@@ -609,7 +611,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 /* התאמה לכפתור HE/EN */
 .language-toggle {
     position: relative;
-    right: 10px;
+    right: 0px;
     top: 0;
 }
 /* כברירת מחדל, הניווט קבוע במסכים גדולים */
@@ -618,7 +620,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     top: 0;
     width: 100%;
     transition: top 0.3s ease-in-out;
-    background-color: rgba(19, 14, 14, 0.3);
+    background-color: rgba(19, 14, 14, 0.057);
     border-radius: 12px;
 }
 
@@ -633,11 +635,16 @@ transition: filter 0.6s ease; /* מעבר חלק */
 
 @media (max-width:786px) {
     .navbar-brand-container {
-        top: 0;
-        
+        top: 0;        
 }
     .navbar-brand-text {
         font-size: 15px;
 
     }
+}
+h2{
+    font-family: 'Playwrite IT Moderna', sans-serif;
+}
+.navbar-nav{
+    margin-top:-50px;
 }
