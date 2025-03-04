@@ -58,3 +58,11 @@ document.addEventListener("DOMContentLoaded", function() {
         new bootstrap.Dropdown(dropdownElement);
     }
 });
+document.getElementById("language-toggle").addEventListener("click", function() {
+    const currentLang = document.documentElement.lang;
+    if (currentLang === "he") {
+        document.documentElement.lang = "en";
+    } else {
+        document.documentElement.lang = "he";
+    }
+});

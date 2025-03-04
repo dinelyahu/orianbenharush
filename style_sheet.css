@@ -386,3 +386,128 @@ transition: filter 0.6s ease; /* מעבר חלק */
         height: 100%;
     }
 }
+/* התאמת הקרוסלה למסכים קטנים */
+@media (max-width: 768px) {
+    .carousel-inner {
+        width: 100%;
+        margin:0%;
+    }
+
+    .carousel-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0%
+    }
+
+    .carousel-item img {
+        width: 100vw; /* תמונה תתפרס על כל רוחב המסך */
+        height: auto;
+        object-fit: cover;
+        margin: 0%;
+    }
+
+    /* ודא שהקרוסלה עצמה ממלאת את המסך */
+    #scroll-gallery, #evening-gallery {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-radius: 5%;
+    }
+}
+.navbar {
+    background-color: rgba(19, 14, 14, 0.3);
+    border-radius: 12px;
+    height: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+/* עיצוב התפריט המרכזי */
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.nav-item {
+    font-size: 22px;
+    margin: 0 15px; /* ריווח בין הכפתורים */
+}
+
+.nav-link {
+    color: #ffffff !important;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #ffc107 !important; /* שינוי צבע בעת מעבר */
+}
+
+/* עיצוב כפתור HE/EN */
+.language-toggle {
+    position: absolute;
+    right: 20px;
+}
+
+#language-toggle {
+    font-size: 18px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 15px;
+    transition: 0.3s ease-in-out;
+}
+
+#language-toggle:hover {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0.8);
+    transition: filter 0.3s ease-in-out;
+    background-color: transparent; /* לוודא שהרקע שקוף */
+}
+
+.social-icon:hover {
+    filter: brightness(1.2);
+}
+
+/* לוודא שהתמונות נשמרות עם רקע שקוף */
+.social-icon img {
+    display: block;
+    background: none;
+}
+
+
+/* התאמה למסכים קטנים */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+}
