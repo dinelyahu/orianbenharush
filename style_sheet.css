@@ -212,21 +212,6 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 
-
-#home {
-    background-image: url("../images/background.jpg");
-    background-size: cover; /* התמונה תתפוס את כל הרוחב */
-    background-position: center; /* ממקם את התמונה במרכז */
-    height: 200vh; /* גובה מלא למסך */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    font-size: 20px;
-    border-radius: 12px;
-}
-
 @media (max-width: 768px) {
     #home {
         height: 100vh; /* גובה מותאם למסכים קטנים */
@@ -347,15 +332,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
         border-radius: 5%;
     }
 }
-.navbar {
-    background-color: rgba(19, 14, 14, 0.3);
-    border-radius: 12px;
-    height: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-}
+
 
 /* עיצוב התפריט המרכזי */
 .navbar-nav {
@@ -388,7 +365,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 #language-toggle {
-    font-size: 15px;
+    font-size: 12px;
     background-color: transparent;
     border: 2px solid #fff;
     color: #fff;
@@ -423,7 +400,8 @@ transition: filter 0.6s ease; /* מעבר חלק */
     }
 
     .social-icons {
-        margin-top: 10px;
+        margin-top: 0px;
+        margin-left: 0px;
     }
 }
 /* תפריט צד */
@@ -497,18 +475,18 @@ transition: filter 0.6s ease; /* מעבר חלק */
     }
 }
 .social-icon {
-    width: 25px !important;  /* רוחב 15 פיקסלים */
-    height: 25px !important; /* גובה 15 פיקסלים */
+    width: 20px !important;  /* רוחב 15 פיקסלים */
+    height: 20px !important; /* גובה 15 פיקסלים */
 }
 /* התאמה למסכים קטנים בלבד */
 @media (max-width: 768px) {
     .social-icons {
         position: absolute;
-        left: 10px; /* יישור לצד שמאל */
-        top: 10px; /* מתחת לכפתור שלושת הפסים */
         display: flex;
         flex-direction: row; /* מסדר את האייקונים בשורה */
         gap: 15px; /* ריווח ביניהם */
+        margin-top: -15px;
+        margin-left: -15px;
     }
 
     .social-icons img {
@@ -516,12 +494,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
         height: 28px;
     }
 }
-@media (max-width: 768px) {
-    .language-toggle {
-        position: absolute;
-        top: 10px;
-    }
-}
+
 
 
 .navbar-logo {
@@ -540,15 +513,6 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 
-.navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(19, 14, 14, 0);
-    border-radius: 12px;
-    height: auto;
-    padding-top: 10px; /* מוסיף מקום קטן */
-}
 
 /* מחלקת קונטיינר חדשה לאייקונים ולכפתור */
 .navbar-top {
@@ -569,24 +533,16 @@ transition: filter 0.6s ease; /* מעבר חלק */
     gap: 10px;
     position: relative;
     top: 0;
-    left: 10px; /* קרוב לקצה השמאלי */
+    left: 2px; /* קרוב לקצה השמאלי */
 }
 
 /* התאמה לכפתור HE/EN */
 .language-toggle {
     position: relative;
-    right: 0px;
+    right: -15px;
     top: 0;
 }
-/* כברירת מחדל, הניווט קבוע במסכים גדולים */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    transition: top 0.3s ease-in-out;
-    background-color: rgba(19, 14, 14, 0.057);
-    border-radius: 12px;
-}
+
 
 /* במסכים קטנים - הניווט יוסתר בגלילה */
 @media (max-width: 768px) {
@@ -609,7 +565,7 @@ h2{
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(19, 14, 14, 0.3);
+    background-color: rgba(19, 14, 14, 0);
     border-radius: 12px;
     transition: top 0.3s ease-in-out;
     z-index: 1000;
@@ -625,7 +581,7 @@ h2{
     /* כפתור התפריט יהיה קבוע במסך */
     .menu-toggle {
         position: fixed;
-        top: 30px;
+        top: 40px;
         right: 15px;
         font-size: 30px;
         background: none;
