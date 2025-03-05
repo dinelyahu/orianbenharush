@@ -155,7 +155,25 @@
             </form>
         </div>
     </section>
+<!-- כפתור נגישות -->
+<button id="accessibility-button">♿</button>
 
+<!-- תפריט נגישות (מוסתר כברירת מחדל) -->
+<div id="accessibility-menu" class="hidden">
+    <button onclick="increaseFontSize()">הגדלת פונט ➕</button>
+    <button onclick="decreaseFontSize()">הקטנת פונט ➖</button>
+    <button onclick="toggleHighContrast()">ניגודיות גבוהה</button>
+    <button onclick="toggleLinksHighlight()">הדגשת קישורים</button>
+    <button onclick="disableAnimations()">חסימת אנימציות</button>
+    <button onclick="resetAccessibility()">איפוס הגדרות</button>
+    <button onclick="toggleMonochrome()">מצב מונוכרום</button>
+
+
+</div>
+
+
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 
