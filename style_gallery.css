@@ -97,3 +97,30 @@
         filter: brightness(100%); /* מתבהר כשהתמונה נכנסת לתצוגה */
     }
 }
+/* עיצוב התמונות - כהה כברירת מחדל */
+.gallery-grid img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(20%); /* תמונות כהות */
+    transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* במחשבים - הבהרה עם מעבר עכבר */
+@media (min-width: 769px) {
+    .gallery-grid img:hover {
+        filter: brightness(100%);
+        transform: scale(1.02);
+    }
+}
+
+/* במובייל - שינוי הכהות בגלילה */
+@media (max-width: 768px) {
+    .gallery-grid img {
+        transition: filter 0.5s ease-in-out;
+    }
+    
+    .gallery-grid img.active {
+        filter: brightness(100%); /* מתבהר כשהתמונה נראית במסך */
+    }
+}
