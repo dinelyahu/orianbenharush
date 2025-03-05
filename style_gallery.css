@@ -1,48 +1,99 @@
-/* עיצוב גלריה */
+/* עיצוב כללי של הגלריה */
 .gallery {
     text-align: center;
-    padding: 50px 0;
+    padding: 0;
+    background-color: #111; /* רקע שחור */
 }
 
-.gallery h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-/* רשת התמונות */
+/* רשת תמונות - 2 תמונות בשורה */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    padding: 0 20px;
+    grid-template-columns: repeat(2, 1fr); /* שני טורים */
+    gap: 0; /* בלי מרווחים */
+    width: 100vw; /* תופס את כל רוחב המסך */
 }
 
+/* עיצוב התמונות */
 .gallery-grid img {
     width: 100%;
-    height: 250px;
+    height: 100vh; /* כל תמונה תופסת גובה של מסך אחד */
     object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
+    filter: brightness(20%); /* תמונות כהות כברירת מחדל */
+    transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out;
 }
 
+/* אפקט בהירות בזמן מעבר עכבר */
 .gallery-grid img:hover {
-    transform: scale(1.05);
+    filter: brightness(100%); /* הופך את התמונה לבהירה */
+    transform: scale(1.02); /* הוספת הגדלה קלה */
 }
 
-/* כפתור "לצפייה מלאה" */
-.view-more-button, .back-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    background: rgba(180, 187, 139, 0.7);
-    color: #fff;
+/* התאמה למסכים קטנים - תמונה אחת בשורה */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* רק תמונה אחת בכל שורה */
+    }
+}
+/* עיצוב כפתור חזרה */
+.back-button {
+    position: fixed; /* קבוע בראש הדף */
+    bottom: 20px; /* מרווח מלמעלה */
+    left: 50%;
+    transform: translateX(-50%); /* ממרכז את הכפתור */
+    background: rgba(0, 0, 0, 0.7); /* רקע כהה חצי-שקוף */
+    color: white;
     text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: 0.3s;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+    z-index: 1000; /* מבטיח שהכפתור תמיד יהיה מעל התמונות */
 }
 
-.view-more-button:hover, .back-button:hover {
-    background: rgba(180, 187, 139, 1);
+/* אפקטים כשהעכבר עובר על הכפתור */
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2); /* רקע בהיר יותר */
+    transform: translateX(-50%) scale(1.05); /* מגדיל קצת את הכפתור */
+}
+
+/* עיצוב נוסף למובייל */
+@media (max-width: 768px) {
+    .back-button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+#bridal-gallery h2 , #evening-gallery h2{
+    z-index: 10000;
+    color: rgb(186, 181, 181);
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* עיצוב בסיסי של התמונות - ברירת מחדל כהה */
+.gallery-grid img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(20%); /* כהה כברירת מחדל */
+    transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* אפקט מעבר עכבר למחשבים */
+@media (min-width: 769px) {
+    .gallery-grid img:hover {
+        filter: brightness(100%);
+        transform: scale(1.02);
+    }
+}
+
+/* אפקט בהירות בגלילה למובייל */
+@media (max-width: 768px) {
+    .gallery-grid img {
+        transition: filter 0.5s ease-in-out;
+    }
+    
+    .gallery-grid img.active {
+        filter: brightness(100%); /* מתבהר כשהתמונה נכנסת לתצוגה */
+    }
 }
