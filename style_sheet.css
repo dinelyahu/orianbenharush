@@ -55,7 +55,6 @@ transition: filter 0.6s ease; /* מעבר חלק */
     background-position: center;
     background-repeat: no-repeat;
     padding: 50px 0;
-    border-radius: 2px;
     margin: 0px;
     margin-top: 5px;
     color: #fff;
@@ -90,7 +89,6 @@ transition: filter 0.6s ease; /* מעבר חלק */
     background-position: center;
     background-repeat: no-repeat;
     padding: 50px 0;
-    border-radius: 2px;
     margin: 0px;
     margin-top: 5px;
     color: #fff;
@@ -105,7 +103,6 @@ transition: filter 0.6s ease; /* מעבר חלק */
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.559); /* 0.5 = 50% כהות, אפשר לשנות ל-0.7 אם רוצים כהה יותר */
-    border-radius: 2px; /* לשמור על הפינות המעוגלות */
     z-index: 1;
 }
 /* מבטיח שהתוכן של הגלריה לא יושפע מהשכבה */
@@ -144,20 +141,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     align-items: center; /* יישור אנכי */
 }
 
-/* התמונה בתוך ה-Modal */
-.modal-content {
 
-    object-fit: contain; /* שומר על היחסים המקוריים של התמונה */
-    border-radius: 20px; /* עיגול פינות */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* צל */
-    overflow: hidden; /* מוודא שהתמונה לא תגלוש */
-    cursor: pointer; /* שינוי לסמן של יד */
-    transition: transform 0.3s ease; /* מעבר חלק */
-    background-color: transparent !important;
-    margin: 20%;
-    margin-top: 100%;
-    
-}
 
 /* כפתור הסגירה */
 .close {
@@ -187,16 +171,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     margin: 30%;
 }
 
-.modal-content {
-    max-width: 90%; /* גודל מקסימלי */
-    max-height: 90%; /* גובה מקסימלי */
-    object-fit: contain; /* שמירה על יחס התמונה */
-    border-radius: 10px;
-    transition: transform 0.3s ease; /* מעבר חלק בין מצבים */
-    cursor: zoom-in;
-    z-index: 1000; /* תמונה מתחת לכפתור הסגירה */
-    
-}
+
 
 
 .magnifier {
@@ -302,37 +277,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
         height: 100%;
     }
 }
-/* התאמת הקרוסלה למסכים קטנים */
-@media (max-width: 768px) {
-    .carousel-inner {
-        width: 100%;
-        margin:0%;
-    }
 
-    .carousel-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin: 0%
-    }
-
-    .carousel-item img {
-        width: 100vw; /* תמונה תתפרס על כל רוחב המסך */
-        height: auto;
-        object-fit: cover;
-        margin: 0%;
-    }
-
-    /* ודא שהקרוסלה עצמה ממלאת את המסך */
-    #scroll-gallery, #evening-gallery {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        border-radius: 5%;
-        margin-top: 1%;
-    }
-}
 
 
 /* עיצוב התפריט המרכזי */
