@@ -308,3 +308,17 @@ window.toggleBoldText = function () {
         }
     });
 };
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("aboutVideo");
+    const toggleButton = document.getElementById("toggleVideo");
+
+    toggleButton.addEventListener("click", function () {
+        if (video.paused) {
+            video.play();
+            toggleButton.textContent = "⏸️"; // סימן עצירה
+        } else {
+            video.pause();
+            toggleButton.textContent = "▶️"; // סימן ניגון
+        }
+    });
+});
