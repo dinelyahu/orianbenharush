@@ -268,9 +268,28 @@ document.addEventListener("DOMContentLoaded", function () {
     window.resetAccessibility = function () {
         fontSize = 16; // איפוס גודל הטקסט
         updateFontSize();
+        
+        // איפוס ניגודיות גבוהה
         document.body.classList.remove("high-contrast");
+    
+        // איפוס הדגשת קישורים
         document.querySelectorAll("a").forEach(link => link.style.textDecoration = "none");
+    
+        // איפוס חסימת אנימציות
+        document.body.style.animation = "";
+        document.body.style.transition = "";
+    
+        // איפוס מצב מונוכרום
+        document.body.classList.remove("monochrome-mode");
+    
+        // איפוס טקסט מודגש
+        document.body.classList.remove("bold-text");
+    
+        // איפוס הדגשת טקסט בתפריט הצד
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav ul li a");
+        mobileNavLinks.forEach(link => link.style.fontWeight = "normal");
     };
+    
 });
 window.toggleMonochrome = function () {
     document.body.classList.toggle("monochrome-mode");
