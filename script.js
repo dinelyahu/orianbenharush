@@ -181,3 +181,36 @@ document.addEventListener("DOMContentLoaded", function () {
     // הצגת תמונה ראשונה מיד עם טעינת הדף
     changeBackground();
 });
+document.addEventListener("DOMContentLoaded", function () {
+    // רשימות התמונות לכל גלריה
+    const bridalImages = [
+        "images/bridal/img1.jpg",
+        "images/bridal/img2.jpg",
+        "images/bridal/img3.jpg",
+        "images/bridal/img4.jpg",
+        "images/bridal/img5.jpg"
+    ];
+    const eveningImages = [
+        "images/evening/image1.jpeg",
+        "images/evening/image2.jpeg",
+        "images/evening/image3.jpeg",
+        "images/evening/image4.jpeg",
+        "images/evening/image5.jpeg"
+    ];
+
+    let bridalIndex = 0;
+    let eveningIndex = 0;
+
+    function changeImage() {
+        if (window.innerWidth <= 768) { // מחליף רק במסכים קטנים
+            document.getElementById("bridal-single-image").src = bridalImages[bridalIndex];
+            document.getElementById("evening-single-image").src = eveningImages[eveningIndex];
+
+            bridalIndex = (bridalIndex + 1) % bridalImages.length;
+            eveningIndex = (eveningIndex + 1) % eveningImages.length;
+        }
+    }
+
+    // החלפת תמונה כל שנייה
+    setInterval(changeImage, 2000);
+});

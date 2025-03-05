@@ -347,13 +347,13 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 .nav-link {
-    color: #bebbbb !important;
+    color: #ffffff !important;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
 }
 
 .nav-link:hover {
-    color: #ffffff !important; /* שינוי צבע בעת מעבר */
+    color: #9a9595 !important; /* שינוי צבע בעת מעבר */
     opacity: 1.4;
 
 }
@@ -689,4 +689,35 @@ h2{
 
 .view-more-button:hover, .back-button:hover {
     background: rgba(180, 187, 139, 1);
+}
+/* ברירת מחדל – הצגת הגלריה הרגילה */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 0 20px;
+}
+
+/* תמונה בודדת – מוסתרת כברירת מחדל */
+.single-image-container {
+    display: none;
+    text-align: center;
+}
+
+.single-image-container img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* במסכים קטנים – מסתירים את הגלריה ומראים תמונה אחת */
+@media (max-width: 768px) {
+    .gallery-grid {
+        display: none;
+    }
+
+    .single-image-container {
+        display: block;
+    }
 }
