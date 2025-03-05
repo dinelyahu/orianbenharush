@@ -1,9 +1,8 @@
-/* עיצוב כללי של הגלריה */
-.gallery {
-    text-align: center;
-    padding: 0;
-    background-color: #111; /* רקע שחור */
+
+body {
+    background-color: #000000; /* רקע שחור */  
 }
+
 
 /* רשת תמונות - 2 תמונות בשורה */
 .gallery-grid {
@@ -19,7 +18,7 @@
     height: 100vh; /* כל תמונה תופסת גובה של מסך אחד */
     object-fit: cover;
     filter: brightness(20%); /* תמונות כהות כברירת מחדל */
-    transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out;
+    transition: filter 0.8s ease-in-out, transform 0.3s ease-in-out;
 }
 
 /* אפקט בהירות בזמן מעבר עכבר */
@@ -33,7 +32,12 @@
     .gallery-grid {
         grid-template-columns: 1fr; /* רק תמונה אחת בכל שורה */
     }
+    /* עיצוב התמונות */
+    .gallery-grid img {
+        width: 100vh;
+    }
 }
+
 /* עיצוב כפתור חזרה */
 .back-button {
     position: fixed; /* קבוע בראש הדף */
@@ -50,38 +54,35 @@
     transition: background 0.3s, transform 0.2s;
     z-index: 1000; /* מבטיח שהכפתור תמיד יהיה מעל התמונות */
 }
+
 @media (max-width: 768px) {
 
-/* הופך את הגלריה לגלילה חכמה */
-.gallery-grid {
-    display: flex;
-    flex-direction: column;
-    scroll-snap-type: y mandatory; /* גלילה חלקה מאונכת */
-    overflow-y: scroll;
-    height: 100vh; /* הגלריה תופסת את כל גובה המסך */
-    scrollbar-width: none; /* מסתיר את פס הגלילה */
-    -ms-overflow-style: none;
-}
-
-/* כל תמונה "ננעלת" בנקודה בגלילה */
-.gallery-grid img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    filter: brightness(20%);
-    transition: filter 0.5s ease-in-out;
-    scroll-snap-align: start; /* הגלילה "ננעלת" על כל תמונה */
-}
-
-/* כשהתמונה במרכז המסך – היא מתבהרת */
-.gallery-grid img {
-    filter: brightness(100%);
-}
-
-/* מסתיר את פס הגלילה בדפדפן */
-.gallery-grid::-webkit-scrollbar {
-    display: none;
-}
+    .gallery-grid {
+        display: flex;
+        flex-direction: column;
+        scroll-snap-type: y mandatory; /* גלילה חלקה מאונכת */
+        overflow-y: scroll;
+        height: 100vh; /* הגלריה תופסת את כל גובה המסך */
+        scrollbar-width: none; /* מסתיר את פס הגלילה */
+        -ms-overflow-style: none;
+    }
+    
+    /* כל תמונה "ננעלת" בנקודה בגלילה */
+    .gallery-grid img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        filter: brightness(20%);
+        transition: filter 0.9s ease-in-out;
+        scroll-snap-align: start; /* הגלילה "ננעלת" על כל תמונה */
+        margin-top: 1%;
+        filter: brightness(100%);
+    }
+    
+    /* מסתיר את פס הגלילה בדפדפן */
+    .gallery-grid::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 #bridal-gallery h2 , #evening-gallery h2{
