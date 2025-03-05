@@ -32,10 +32,7 @@ body {
     .gallery-grid {
         grid-template-columns: 1fr; /* רק תמונה אחת בכל שורה */
     }
-    /* עיצוב התמונות */
-    .gallery-grid img {
-        width: 100vh;
-    }
+
 }
 
 /* עיצוב כפתור חזרה */
@@ -89,4 +86,10 @@ body {
     text-align: center;
     color: white;
     font-size: 30px;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden; /* מונע גלילה אופקית */
 }
