@@ -50,77 +50,42 @@
     transition: background 0.3s, transform 0.2s;
     z-index: 1000; /* מבטיח שהכפתור תמיד יהיה מעל התמונות */
 }
-
-/* אפקטים כשהעכבר עובר על הכפתור */
-.back-button:hover {
-    background: rgba(255, 255, 255, 0.2); /* רקע בהיר יותר */
-    transform: translateX(-50%) scale(1.05); /* מגדיל קצת את הכפתור */
-}
-
-/* עיצוב נוסף למובייל */
 @media (max-width: 768px) {
-    .back-button {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
+
+/* הופך את הגלריה לגלילה חכמה */
+.gallery-grid {
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory; /* גלילה חלקה מאונכת */
+    overflow-y: scroll;
+    height: 100vh; /* הגלריה תופסת את כל גובה המסך */
+    scrollbar-width: none; /* מסתיר את פס הגלילה */
+    -ms-overflow-style: none;
 }
+
+/* כל תמונה "ננעלת" בנקודה בגלילה */
+.gallery-grid img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(20%);
+    transition: filter 0.5s ease-in-out;
+    scroll-snap-align: start; /* הגלילה "ננעלת" על כל תמונה */
+}
+
+/* כשהתמונה במרכז המסך – היא מתבהרת */
+.gallery-grid img {
+    filter: brightness(100%);
+}
+
+/* מסתיר את פס הגלילה בדפדפן */
+.gallery-grid::-webkit-scrollbar {
+    display: none;
+}
+}
+
 #bridal-gallery h2 , #evening-gallery h2{
-    z-index: 10000;
-    color: rgb(186, 181, 181);
+    text-align: center;
+    color: white;
     font-size: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-/* עיצוב בסיסי של התמונות - ברירת מחדל כהה */
-.gallery-grid img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    filter: brightness(20%); /* כהה כברירת מחדל */
-    transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out;
-}
-
-/* אפקט מעבר עכבר למחשבים */
-@media (min-width: 769px) {
-    .gallery-grid img:hover {
-        filter: brightness(100%);
-        transform: scale(1.02);
-    }
-}
-
-/* אפקט בהירות בגלילה למובייל */
-@media (max-width: 768px) {
-    .gallery-grid img {
-        transition: filter 0.5s ease-in-out;
-    }
-    
-    .gallery-grid img.active {
-        filter: brightness(100%); /* מתבהר כשהתמונה נכנסת לתצוגה */
-    }
-}
-/* עיצוב התמונות - כהה כברירת מחדל */
-.gallery-grid img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    filter: brightness(20%); /* תמונות כהות */
-    transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out;
-}
-
-/* במחשבים - הבהרה עם מעבר עכבר */
-@media (min-width: 769px) {
-    .gallery-grid img:hover {
-        filter: brightness(100%);
-        transform: scale(1.02);
-    }
-}
-
-/* במובייל - שינוי הכהות בגלילה */
-@media (max-width: 768px) {
-    .gallery-grid img {
-        transition: filter 0.5s ease-in-out;
-    }
-    
-    .gallery-grid img.active {
-        filter: brightness(100%); /* מתבהר כשהתמונה נראית במסך */
-    }
 }
