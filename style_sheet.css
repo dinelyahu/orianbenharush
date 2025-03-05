@@ -943,3 +943,44 @@ h1, h2, h3, h4, h5, h6,
         margin-bottom: 20px;
     }
 }
+.full-screen{
+    height: 100vh;
+    
+}
+
+.about-section{
+    height: 150vh;
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        height: auto;
+    }
+}
+/* עיצוב ברירת מחדל של הניווט */
+.navbar {
+    position: fixed;
+    top: 50px; /* בהתחלה, הוא ממוקם אחרי הלוגו */
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0);
+    transition: top 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* כשהמשתמש גולל – הניווט עולה לחלק העליון */
+.navbar.scrolled {
+    top: -120px; /* עכשיו הניווט יהיה בדיוק למעלה */
+    background: rgba(0, 0, 0, 0.249); /* מחזק את הרקע */
+}
+
+/* אנימציה להעלמת הלוגו */
+.navbar-logo {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* כשהמשתמש גולל – הלוגו נעלם */
+.navbar.scrolled .navbar-logo {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none; /* מונע לחיצות על הלוגו כשהוא מוסתר */
+}

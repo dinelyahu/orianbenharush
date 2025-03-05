@@ -343,3 +343,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled"); // כשהמשתמש גולל, הניווט יעלה למעלה
+        } else {
+            navbar.classList.remove("scrolled"); // כשהמשתמש חוזר למעלה, הלוגו יחזור והניווט יחזור למקומו
+        }
+    });
+});
