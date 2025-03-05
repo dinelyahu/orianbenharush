@@ -81,48 +81,59 @@ if (languageToggle) {
     });
 }
 
-    function updateTextContent(lang) {
-        const translations = {
-            he: {
-                home: "דף הבית",
-                bridal: "קולקציית שמלות כלה",
-                evening: "קולקציית שמלות ערב",
-                about: "אודות",
-                contact: "צרו קשר",
-                send: "שלחי",
-                bridalHeader: "שמלות כלה",
-                eveningHeader: "שמלות ערב",
-                contactHeader: "צרו קשר",
-                nameLabel: "שם:",
-                emailLabel: "אימייל:",
-                messageLabel: "הודעה:",
-                sendButton: "שלחי"
-            },
-            en: {
-                home: "Home",
-                bridal: "Bridal Collection",
-                evening: "Evening Collection",
-                about: "About",
-                contact: "Contact",
-                send: "Send",
-                bridalHeader: "Bridal",
-                eveningHeader: "Evening",
-                contactHeader: "Contact",
-                nameLabel: "Name:",
-                emailLabel: "Email:",
-                messageLabel: "Message:",
-                sendButton: "Send"
-            }
-        };
+function updateTextContent(lang) {
+    const translations = {
+        he: {
+            home: "דף הבית",
+            bridal: "קולקציית שמלות כלה",
+            evening: "קולקציית שמלות ערב",
+            about: "אודות",
+            contact: "צרו קשר",
+            sendButton: "שלחי",
+            bridalHeader: "שמלות כלה",
+            eveningHeader: "שמלות ערב",
+            contactHeader: "צרו קשר",
+            nameLabel: "שם:",
+            emailLabel: "אימייל:",
+            messageLabel: "הודעה:",
+            aboutTitle: "אודות",
+            aboutText: "המסע שלי בעולם האופנה התחיל מתוך תשוקה עזה לעיצוב, יופי ויצירתיות. מאז שהייתי ילדה, חלמתי ליצור שמלות שיגרמו לכל אישה להרגיש כמו מלכה. אחרי שנים של לימודים וניסיון, הפכתי את החלום למציאות – עיצוב שמלות כלה וערב בעבודת יד, תוך הקפדה על כל פרט ופרט. כל שמלה נתפרת באהבה, תוך התאמה אישית לחלומות של הלקוחה.",
+            processTitle: "התהליך שלי",
+            processText: "כשאת מגיעה לסטודיו, אני מקשיבה לחלום שלך ומתחילה בתהליך יצירה משותף. משלב הסקיצה ועד השמלה המושלמת, כל פרט נתפר בקפידה, כדי לוודא שהשמלה שלך תהיה לא פחות ממושלמת.",
+            uniquenessTitle: "הייחודיות שלי",
+            uniquenessText: "העיצובים שלי משלבים קלאסיקה עם חדשנות, תוך שימוש בחומרי הגלם האיכותיים ביותר. אני מאמינה שכל אישה צריכה להרגיש מיוחדת ביום הגדול שלה, ולכן אני מציעה התאמה אישית מלאה לכל שמלה.",
+            contactButton: "רוצה שמלה בהתאמה אישית? צרו קשר"
+        },
+        en: {
+            home: "Home",
+            bridal: "Bridal Collection",
+            evening: "Evening Collection",
+            about: "About",
+            contact: "Contact",
+            sendButton: "Send",
+            bridalHeader: "Bridal Collection",
+            eveningHeader: "Evening Collection",
+            contactHeader: "Contact Us",
+            nameLabel: "Name:",
+            emailLabel: "Email:",
+            messageLabel: "Message:",
+            aboutTitle: "About",
+            aboutText: "My journey in the fashion world began with a deep passion for design, beauty, and creativity. Since I was a child, I dreamed of creating dresses that would make every woman feel like a queen. After years of study and experience, I turned my dream into reality – designing bridal and evening gowns by hand, with attention to every detail. Each dress is sewn with love, tailored to the client's dreams.",
+            processTitle: "My Process",
+            processText: "When you come to the studio, I listen to your dream and begin a joint creative process. From the sketch stage to the perfect dress, every detail is carefully crafted to ensure your dress is nothing short of perfect.",
+            uniquenessTitle: "My Uniqueness",
+            uniquenessText: "My designs combine classic elements with innovation, using the highest quality materials. I believe that every woman should feel special on her big day, which is why I offer full customization for every dress.",
+            contactButton: "Want a custom dress? Contact us"
+        }
+    };
 
-
-
-        document.querySelector("a[href='#home']").textContent = translations[lang].home;
-        document.querySelector("a[href='#scroll-gallery']").textContent = translations[lang].bridal;
-        document.querySelector("a[href='#evening-gallery']").textContent = translations[lang].evening;
-        document.querySelector("a[href='#about']").textContent = translations[lang].about;
-        document.querySelector("a[href='#contact']").textContent = translations[lang].contact;
-
+    // עדכון כל האלמנטים בדף
+    document.querySelector("a[href='#home']").textContent = translations[lang].home;
+    document.querySelector("a[href='#scroll-gallery']").textContent = translations[lang].bridal;
+    document.querySelector("a[href='#evening-gallery']").textContent = translations[lang].evening;
+    document.querySelector("a[href='#about']").textContent = translations[lang].about;
+    document.querySelector("a[href='#contact']").textContent = translations[lang].contact;
+        // עדכון כל הקישורים בתפריט הצד (mobile-nav)
         const mobileNavLinks = document.querySelectorAll("#mobile-nav ul li a");
         if (mobileNavLinks.length >= 5) {
             mobileNavLinks[0].textContent = translations[lang].home;
@@ -131,16 +142,26 @@ if (languageToggle) {
             mobileNavLinks[3].textContent = translations[lang].about;
             mobileNavLinks[4].textContent = translations[lang].contact;
         }
+    // עדכון כותרות
+    document.querySelector("#scroll-gallery h2").textContent = translations[lang].bridalHeader;
+    document.querySelector("#evening-gallery h2").textContent = translations[lang].eveningHeader;
+    document.querySelector("#contact h2").textContent = translations[lang].contactHeader;
 
-        document.querySelector("#scroll-gallery h2").textContent = translations[lang].bridalHeader;
-        document.querySelector("#evening-gallery h2").textContent = translations[lang].eveningHeader;
-        document.querySelector("#contact h2").textContent = translations[lang].contactHeader;
+    // עדכון טופס יצירת קשר
+    document.querySelector("label[for='name']").textContent = translations[lang].nameLabel;
+    document.querySelector("label[for='email']").textContent = translations[lang].emailLabel;
+    document.querySelector("label[for='message']").textContent = translations[lang].messageLabel;
+    document.getElementById("submit-btn").textContent = translations[lang].sendButton;
 
-        document.querySelector("label[for='name']").textContent = translations[lang].nameLabel;
-        document.querySelector("label[for='email']").textContent = translations[lang].emailLabel;
-        document.querySelector("label[for='message']").textContent = translations[lang].messageLabel;
-        document.getElementById("submit-btn").textContent = translations[lang].sendButton;
-    }
+    // עדכון קטע האודות
+    document.querySelector(".about-section h2").textContent = translations[lang].aboutTitle;
+    document.querySelector(".about-text p").textContent = translations[lang].aboutText;
+    document.querySelector(".about-text h3:nth-of-type(1)").textContent = translations[lang].processTitle;
+    document.querySelector(".about-text p:nth-of-type(2)").textContent = translations[lang].processText;
+    document.querySelector(".about-text h3:nth-of-type(2)").textContent = translations[lang].uniquenessTitle;
+    document.querySelector(".about-text p:nth-of-type(3)").textContent = translations[lang].uniquenessText;
+    document.querySelector(".contact-button").textContent = translations[lang].contactButton;
+}
 });
 document.addEventListener("DOMContentLoaded", function () {
     const mobileNav = document.getElementById("mobile-nav");
