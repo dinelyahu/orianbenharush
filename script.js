@@ -214,3 +214,78 @@ document.addEventListener("DOMContentLoaded", function () {
     // החלפת תמונה כל שנייה
     setInterval(changeImage, 2000);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const accessibilityButton = document.getElementById("accessibility-button");
+    const accessibilityMenu = document.getElementById("accessibility-menu");
+
+    // פתיחה וסגירה של תפריט הנגישות
+    accessibilityButton.addEventListener("click", function (event) {
+        event.stopPropagation();
+        accessibilityMenu.style.display = (accessibilityMenu.style.display === "none" || accessibilityMenu.style.display === "") ? "flex" : "none";
+    });
+
+    // סגירה אוטומטית בלחיצה מחוץ לתפריט
+    document.addEventListener("click", function (event) {
+        if (!accessibilityMenu.contains(event.target) && event.target !== accessibilityButton) {
+            accessibilityMenu.style.display = "none";
+        }
+    });
+
+    let fontSize = 16; // גודל פונט ברירת מחדל
+
+    function updateFontSize() {
+        document.documentElement.style.setProperty("--font-size", fontSize + "px");
+    }
+
+    window.increaseFontSize = function () {
+        fontSize += 2; // הגדלה של 2px
+        updateFontSize();
+    };
+
+    window.decreaseFontSize = function () {
+        if (fontSize > 10) { // מונע פונט קטן מדי
+            fontSize -= 2;
+            updateFontSize();
+        }
+    };
+
+    window.toggleHighContrast = function () {
+        document.body.classList.toggle("high-contrast");
+    };
+
+    window.toggleLinksHighlight = function () {
+        document.querySelectorAll("a").forEach(link => {
+            link.style.textDecoration = link.style.textDecoration === "underline" ? "none" : "underline";
+        });
+    };
+
+    window.disableAnimations = function () {
+        document.body.style.animation = "none";
+        document.body.style.transition = "none";
+    };
+
+    window.resetAccessibility = function () {
+        fontSize = 16; // איפוס גודל הטקסט
+        updateFontSize();
+        document.body.classList.remove("high-contrast");
+        document.querySelectorAll("a").forEach(link => link.style.textDecoration = "none");
+    };
+});
+window.toggleMonochrome = function () {
+    document.body.classList.toggle("monochrome-mode");
+};
+window.toggleBoldText = function () {
+    document.body.classList.toggle("bold-text");
+
+    // בוחרים את כל הכפתורים בתפריט הצד
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav ul li a");
+
+    mobileNavLinks.forEach(link => {
+        if (document.body.classList.contains("bold-text")) {
+            link.style.fontWeight = "bold";
+        } else {
+            link.style.fontWeight = "normal";
+        }
+    });
+};
