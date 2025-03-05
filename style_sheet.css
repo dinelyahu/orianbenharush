@@ -557,6 +557,12 @@ transition: filter 0.6s ease; /* מעבר חלק */
 
 h2{
     font-family: 'Playwrite IT Moderna', sans-serif;
+    font-size: 5px;
+}
+@media(max-width: 768px){
+    h2{
+        font-size: 2px;
+    }
 }
 .navbar-nav{
     margin-top:30px;
@@ -649,10 +655,16 @@ h2{
 }
 
 .gallery h2 {
-    font-size: 28px;
+    font-size: 22px;
     margin-bottom: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    .gallery h2 {
+        font-size: 20px;
+    }
+    
+}
 /* רשת התמונות */
 .gallery-grid {
     display: grid;
@@ -679,6 +691,7 @@ h2{
 .view-more-button, .back-button {
     display: inline-block;
     margin-top: 20px;
+    margin-bottom: 10px;
     padding: 10px 15px;
     background: rgba(180, 187, 139, 0.7);
     color: #fff;
