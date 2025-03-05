@@ -790,13 +790,13 @@ h1, h2, h3, h4, h5, h6,
 /* עיצוב כפתור הנגישות */
 #accessibility-button {
     position: fixed !important;  /* מבטיח שהכפתור יישאר צף */
-    bottom: 20px !important; /* מרחק מהתחתית */
-    left: 20px !important;  /* מרחק מהצד */
+    bottom: 100px !important; /* מרחק מהתחתית */
+    left: 100px !important;  /* מרחק מהצד */
     width: 50px;
     height: 50px;
-    background: black;
+    background: transparent;
     color: white;
-    font-size: 24px;
+    font-size: 50px;
     border: none;
     border-radius: 50%;
     cursor: pointer;
