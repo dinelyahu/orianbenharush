@@ -116,15 +116,7 @@ color: #1b1707;
 font-size: 20px;
 border: transparent;
 }
-#contact {
-    background: rgba(189, 185, 139, 0.523);
-    background-size: cover; /* התאמת התמונה למלוא השטח */
-    padding: 50px 20px; /* ריווח פנימי */
-    border-radius: 8px; /* עיגול פינות */
-    box-shadow: 0 4px 10px rgba(247, 239, 239, 0.2); /* צל עדין */
-    filter: brightness(0.9); /* 80% בהירות */
-transition: filter 0.6s ease; /* מעבר חלק */
-}
+
 /* עיצוב ה-Modal */
 .modal {
     display: none; /* מוסתר כברירת מחדל */
@@ -983,4 +975,115 @@ h1, h2, h3, h4, h5, h6,
     opacity: 0;
     transform: translateY(-20px);
     pointer-events: none; /* מונע לחיצות על הלוגו כשהוא מוסתר */
+}
+.contact-section {
+    position: relative;
+    background-image: url("images/logo/logo.jpg");
+    padding: 50px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 0.5%;
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(241, 241, 241, 0.763); /* משנה את רמת הכהות */
+    z-index: 1;
+    border-radius: 8px;
+}
+
+/* ודא שהתוכן יוצג מעל השכבה */
+.contact-section * {
+    position: relative;
+    z-index: 2;
+    color:rgb(252, 252, 252);
+    text-align: center;
+    font-size: 18px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    
+}
+
+.contact-middle{
+    background-color: rgba(0, 0, 0, 0.228);
+    margin: auto;
+}
+.contact-form {
+    background: rgba(0, 0, 0, 0.397); /* רקע שקוף עם כהות קלה */
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.185); /* אפקט עומק עדין */
+    width: 50%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+.contact-map{
+    width: 80%;
+    max-width: 1000px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0); /* אפקט עומק עדין */
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: transparent; /* רקע שקוף לשדות */
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6); /* קו דק ועדין */
+    color: white;
+    font-size: 16px;
+    outline: none;
+    direction: ltr;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background: rgb(69, 67, 67);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+.waze-btn {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+}
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
 }
