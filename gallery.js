@@ -25,3 +25,4 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", checkVisibility);
     checkVisibility(); // בדיקה ראשונית כשהדף נטען
 });
+
