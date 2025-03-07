@@ -274,6 +274,10 @@ document.addEventListener("DOMContentLoaded", function () {
             uniquenessText: "העיצובים שלי משלבים קלאסיקה עם חדשנות, תוך שימוש בחומרי הגלם האיכותיים ביותר. אני מאמינה שכל אישה צריכה להרגיש מיוחדת ביום הגדול שלה, ולכן אני מציעה התאמה אישית מלאה לכל שמלה.",
             consultButton: "רוצה לתאם פגישת ייעוץ ולהרשם מהקולקציה? צרי קשר",
             contactTitle: "צרו קשר",
+            namePlaceholder: "שם מלא",
+            emailPlaceholder: "אימייל",
+            messagePlaceholder: "הודעה",
+            weddingDateLabel: "תאריך החתונה",
             nameLabel: "שם מלא:",
             emailLabel: "אימייל:",
             messageLabel: "הודעה:",
@@ -306,9 +310,10 @@ document.addEventListener("DOMContentLoaded", function () {
             uniquenessText: "My designs combine classic elegance with innovation, using only the highest quality materials. I believe that every woman should feel special on her big day, which is why I offer full customization for each dress.",
             consultButton: "Want to schedule a consultation and register for the collection? Contact us",
             contactTitle: "Contact Us",
-            nameLabel: "Full Name:",
-            emailLabel: "Email:",
-            messageLabel: "Message:",
+            namePlaceholder: "Full Name",
+            emailPlaceholder: "Email",
+            messagePlaceholder: "Message",
+            weddingDateLabel: "Wedding Date",
             sendButton: "Send",
             accessibility: "Accessibility Menu",
             increaseFont: "Increase Font ➕",
@@ -342,6 +347,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".about-section .about-text p:nth-of-type(3)").textContent = translations[lang].uniquenessText;
         
         document.querySelector(".contact-button").textContent = translations[lang].consultButton;
+        document.querySelector("#contact h2").textContent = translations[lang].contactTitle;
+
+        document.getElementById("name").placeholder = translations[lang].namePlaceholder;
+        document.getElementById("email").placeholder = translations[lang].emailPlaceholder;
+        document.getElementById("message").placeholder = translations[lang].messagePlaceholder;
+        document.querySelector("label[for='wedding-date']").textContent = translations[lang].weddingDateLabel;
+        
+        document.querySelector("#form button[type='submit']").textContent = translations[lang].sendButton;
 
         document.querySelector("#about h2").textContent = translations[lang].aboutTitle;
         document.querySelector("#about .about-text p").textContent = translations[lang].aboutText;
