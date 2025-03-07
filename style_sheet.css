@@ -299,7 +299,7 @@ border: transparent;
 /* עיצוב כפתור HE/EN */
 
 
-#language-toggle {
+#language-toggle-en , #language-toggle-he , .language-separator {
     font-size: 12px;
     background-color: transparent;
     border: 2px solid transparent;
@@ -312,7 +312,7 @@ border: transparent;
     top: 10px;
 }
 
-#language-toggle:hover {
+#language-toggle-en:hover , #language-toggle-he:hover {
     background-color: #dadada;
     color: #000;
 }
@@ -609,7 +609,7 @@ h2{
 
 .gallery-grid img {
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     object-fit: cover;
     border-radius: 3px;
     transition: transform 0.3s ease-in-out;
@@ -624,11 +624,12 @@ h2{
 /* כפתור "לצפייה מלאה" */
 .view-more-button, .back-button {
     display: inline-block;
-    margin-top: 20px;
+    margin-top:3%;
     margin-bottom: 10px;
     padding: 10px 15px;
-    background: rgba(180, 187, 139, 0.7);
-    color: #fff;
+    background:transparent;
+    border :2px solid #a29b9b;
+    color: #777272;
     text-decoration: none;
     font-size: 18px;
     border-radius: 5px;
@@ -636,7 +637,7 @@ h2{
 }
 
 .view-more-button:hover, .back-button:hover {
-    background: rgba(180, 187, 139, 1);
+    background: rgba(255, 255, 255, 0.657);
 }
 /* ברירת מחדל – הצגת הגלריה הרגילה */
 .gallery-grid {
@@ -720,6 +721,7 @@ p, button, a, label, input, textarea,
 h1, h2, h3, h4, h5, h6, 
 #scroll-gallery h2, #evening-gallery h2 {
     font-size: var(--font-size);
+    color:#5d5555
 }
 /* עיצוב תפריט הצד במסכים קטנים */
 @media (max-width: 768px) {
