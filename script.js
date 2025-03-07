@@ -241,20 +241,7 @@ window.toggleBoldText = function () {
         }
     });
 };
-document.addEventListener("DOMContentLoaded", function () {
-    const video = document.getElementById("aboutVideo");
-    const toggleButton = document.getElementById("toggleVideo");
 
-    toggleButton.addEventListener("click", function () {
-        if (video.paused) {
-            video.play();
-            toggleButton.textContent = "⏸️"; // סימן עצירה
-        } else {
-            video.pause();
-            toggleButton.textContent = "▶️"; // סימן ניגון
-        }
-    });
-});
 document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.querySelector(".navbar");
 
@@ -359,11 +346,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#about h2").textContent = translations[lang].aboutTitle;
         document.querySelector("#about .about-text p").textContent = translations[lang].aboutText;
 
-        document.querySelector("#contact h2").textContent = translations[lang].contactTitle;
-        document.querySelector("label[for='name']").textContent = translations[lang].nameLabel;
-        document.querySelector("label[for='email']").textContent = translations[lang].emailLabel;
-        document.querySelector("label[for='message']").textContent = translations[lang].messageLabel;
-        document.querySelector("button[type='submit']").textContent = translations[lang].sendButton;
+
 
         // תפריט נגישות
         document.querySelector("#accessibility-menu button:nth-child(1)").textContent = translations[lang].increaseFont;

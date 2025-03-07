@@ -975,7 +975,7 @@ h1, h2, h3, h4, h5, h6,
     background-repeat: no-repeat;
     padding: 50px 20px;
     margin-top: 0.5%;
-    height: 150vh;
+    height: 100vh;
 }
 
 .contact-section::before {
@@ -984,7 +984,7 @@ h1, h2, h3, h4, h5, h6,
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(128, 120, 120, 0.674); /* משנה את רמת הכהות */
     z-index: 1;
 }
@@ -993,46 +993,22 @@ h1, h2, h3, h4, h5, h6,
 .contact-section * {
     position: relative;
     z-index: 2;
-    color:rgb(252, 252, 252);
+    color:rgb(252, 252, 252) !important;
     text-align: center;
     font-size: 18px;
 }
 
-.contact-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-    
-}
+
 
 .contact-middle{
     background-color: rgba(255, 255, 255, 0);
     margin: auto;
     height: 100%;
 }
-.contact-form {
-    background: rgba(0, 0, 0, 0); /* רקע שקוף עם כהות קלה */
-    border-radius: 3px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.185); /* אפקט עומק עדין */
-    height: 50vh;
-    width: 80%;
-    margin: auto;
-    margin-bottom: 5%;
-    padding: 5%;
-}
 
 
-.contact-map{
 
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border-radius: 10px;
-    margin: auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0); /* אפקט עומק עדין */
-    height: 50vh;
-    width: 80%;
-}
+
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -1070,18 +1046,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 
-.waze-btn {
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
-}
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-    }
-}
+
+
 
 .contact-container {
     display: flex;
@@ -1089,35 +1055,37 @@ h1, h2, h3, h4, h5, h6,
     align-items: center;
     gap: 20px;
     flex-wrap: wrap; /* כדי להתאים למסכים קטנים */
+    height: 100%;
 }
 
 .contact-form, .contact-text {
     flex: 1;
-    height: 100%;
 }
+
 
 .contact-text {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     direction: ltr;
 }
 
 /* הפיכת כל שורה לפריסה אופקית (לוגו + טקסט בשורה אחת) */
 .contact-item {
     display: flex;
-    align-items: center;
-    gap: 10px; /* רווח בין האייקון לטקסט */
+    gap: 20px !important; /* רווח בין האייקון לטקסט */
+    margin:auto;
 }
 
 .contact-item img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
 }
 
 .contact-item p {
     margin: 0;
     font-size: 20px;
+    font-weight: 100;
 }
 
 /* התאמה למסכים קטנים */
@@ -1159,6 +1127,29 @@ background-color: #f0e6e633 !important;
 outline: none !important; /* מסיר את המסגרת הכחולה */
 box-shadow: 0 0 10px #f9f9f8 !important; /* אפקט זוהר עדין */
 }
+.date-label {
+    color: rgba(255, 255, 255, 0.652); /* הופך את התווית ללבנה */
+    display: block;
+    margin-bottom: 5px;
+    text-align: right;
+}
+.date-container {
+    display: flex;
+    align-items: center; /* יישור אנכי */
+    gap: 10px; /* ריווח קטן בין התווית לשדה */
+}
+
+.date-container label {
+    white-space: nowrap; /* מונע מהתווית לעבור שורה */
+
+}
+
+.date-container input {
+    flex: 1; /* גורם לשדה להתפרס כדי שייראה מסודר */
+    min-width: 150px; /* מבטיח שלא יהיה קטן מדי */
+}
+
+
 
 .submit-btn{
     display: inline-block;

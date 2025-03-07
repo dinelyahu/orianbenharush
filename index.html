@@ -172,7 +172,7 @@
                 
                 <!-- טופס יצירת קשר -->
                 <div class="contact-form">
-                    <form>
+                    <form id="form" >
                         <div class="mb-3">
                             <input type="text" id="name" name="name" class="form-control" required placeholder="שם מלא">
                         </div>
@@ -182,6 +182,11 @@
                         <div class="mb-3">
                             <textarea id="message" name="message" rows="4" class="form-control" required placeholder="הודעה"></textarea>
                         </div>
+                        <div class="mb-3 date-container">
+                            <label for="wedding-date" class="date-label">תאריך החתונה</label>
+                            <input type="date" id="wedding-date" name="wedding-date" class="form-control" required placeholder="תאריך החתונה">
+                        </div>
+                        
                         <button type="submit" class="submit-btn btn btn-primary w-100">שלח</button>
                     </form>
                 </div>
@@ -191,21 +196,22 @@
                         <p>+972-528782204</p>
                     </div>
                     <div class="contact-item">
-                        <img src="images/logo/adress (3).png" alt="Address Icon">
+                        <img src="images/logo/location_transparent.png" alt="Address Icon">
                         <p>שדרות אח"י אילת 5, חיפה</p>
                     </div>
                     <div class="contact-item">
-                        <img src="images/logo/email.jpg" alt="Email Icon">
+                        <img src="images/logo/email_transparent.png" alt="Email Icon">
                         <p>orianbenharush@gmail.com</p>
                     </div>
-                </div>
-                
-            </div>
-                <!-- מפה עם קישור ל-Waze -->
+                    <div class="contact-item">
+                        <a href="https://waze.com/ul?ll=32.82337,35.06589&navigate=yes" target="_blank"><img src="images/logo/waze_transparent_waze.png"></a>
+                        <p>נווט עם waze</p>
+                    </div>
+                                    <!-- מפה עם קישור ל-Waze -->
                 <div class="contact-map">
                     <iframe 
-                    width="100%" 
-                    height="300" 
+                    width="70%"
+                    height="200"
                     style="border:0; border-radius: 10px;" 
                     loading="lazy" 
                     allowfullscreen 
@@ -213,8 +219,11 @@
                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBf96unBH9kUpH8SCIJf-7Cedr-0zXfSvg&q=32.82337,35.06589">
                 </iframe>
                 
-                    <a href="https://waze.com/ul?ll=32.82337,35.06589&navigate=yes" target="_blank" class="btn btn-success waze-btn">נווט עם Waze</a>
                 </div>
+                </div>
+                
+            </div>
+
         </div>
     </section>
 <!-- כפתור נגישות -->
