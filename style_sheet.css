@@ -14,20 +14,6 @@ body {
     }
 }
 
-#home::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background-color: rgba(0, 0, 0, 0.1); /* שקיפות 50% */
-    z-index: 1;
-    border-radius: 12px;
-
-}
-
-
 
 
 .carousel-inner .row .col-4 img {
