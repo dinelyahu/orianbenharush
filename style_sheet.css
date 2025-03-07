@@ -316,6 +316,11 @@ border: transparent;
     background-color: #dadada;
     color: #000;
 }
+.language-toggle button.active {
+    background-color: rgba(128, 128, 128, 0.337) !important;
+    color: white !important;
+}
+
 
 /* לוודא שהתמונות נשמרות עם רקע שקוף */
 .social-icon img {

@@ -35,51 +35,43 @@ document.addEventListener("DOMContentLoaded", function () {
     // תפריט צד במסכים קטנים
     const menuToggle = document.getElementById("menu-toggle");
     const mobileNav = document.getElementById("mobile-nav");
-    const languageToggle = document.getElementById("language-toggle");
+    const languageButtonEn = document.getElementById("language-toggle-en");
+    const languageButtonHe = document.getElementById("language-toggle-he");
 
     if (menuToggle && mobileNav) {
         menuToggle.addEventListener("click", function (event) {
             event.stopPropagation();
             mobileNav.classList.toggle("open");
+
+            // שינוי צבע הכפתורים בהתאם למצב התפריט
+            const isOpen = mobileNav.classList.contains("open");
+            if (isOpen) {
+            languageButtonEn.classList.add("active");
+            languageButtonHe.classList.add("active");
+            } else {
+            languageButtonEn.classList.remove("active");
+            languageButtonHe.classList.remove("active");
+            }
         });
 
         // סגירה בלחיצה מחוץ לתפריט - אבל לא בלחיצה על כפתור שינוי השפה
         document.addEventListener("click", function (event) {
-            if (!mobileNav.contains(event.target) && event.target !== menuToggle && event.target !== languageToggle) {
+            const languageButtonEn = document.getElementById("language-toggle-en");
+            const languageButtonHe = document.getElementById("language-toggle-he");
+        
+            if (!mobileNav.contains(event.target) && 
+                event.target !== menuToggle && 
+                event.target !== languageButtonEn && 
+                event.target !== languageButtonHe) {
                 mobileNav.classList.remove("open");
+                languageButtonEn.classList.remove("active");
+                languageButtonHe.classList.remove("active");
             }
         });
+        
     }
 
-// שינוי שפה ולוקליזציה + שינוי צבע זמני
-// שינוי שפה ולוקליזציה + שינוי צבע זמני
-if (languageToggle) {
-    languageToggle.addEventListener("click", function (event) {
-        event.stopPropagation(); // מונע מהכפתור לגרום לסגירת התפריט
-        const htmlTag = document.documentElement;
-        const currentLang = htmlTag.lang;
-        const newLang = currentLang === "he" ? "en" : "he";
 
-        // שינוי השפה
-        htmlTag.lang = newLang;
-        htmlTag.dir = newLang === "he" ? "rtl" : "ltr";
-        updateTextContent(newLang);
-
-        // שמירת הצבעים המקוריים
-        const originalBgColor = languageToggle.style.backgroundColor;
-        const originalTextColor = languageToggle.style.color;
-
-        // שינוי צבע הכפתור לזמן קצר
-        languageToggle.style.backgroundColor = "white";
-        languageToggle.style.color = "black";
-
-        // החזרת הצבעים המקוריים אחרי 300 מילי-שניות
-        setTimeout(() => {
-            languageToggle.style.backgroundColor = originalBgColor || "transparent";
-            languageToggle.style.color = originalTextColor || "white";
-        }, 200);
-    });
-}
 
 
 });
@@ -382,6 +374,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#accessibility-menu button:nth-child(6)").textContent = translations[lang].monochromeMode;
         document.querySelector("#accessibility-menu button:nth-child(7)").textContent = translations[lang].boldText;
         document.querySelector("#accessibility-menu button:nth-child(8)").textContent = translations[lang].resetSettings;
+
+
+            // עדכון קישורי התפריט הצדדי (Mobile Nav)
+    const mobileNavLinks = document.querySelectorAll("#mobile-nav ul li a");
+    if (mobileNavLinks.length >= 5) {
+        mobileNavLinks[0].textContent = translations[lang].home;
+        mobileNavLinks[1].textContent = translations[lang].bridal;
+        mobileNavLinks[2].textContent = translations[lang].evening;
+        mobileNavLinks[3].textContent = translations[lang].about;
+        mobileNavLinks[4].textContent = translations[lang].contact;
+    }
 
         // שמירה ב-localStorage כדי שהשפה תישמר גם לאחר רענון
         localStorage.setItem("language", lang);
