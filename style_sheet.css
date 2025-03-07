@@ -1,5 +1,5 @@
 body {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     direction: rtl;
 }
 
@@ -50,14 +50,14 @@ transition: filter 0.6s ease; /* מעבר חלק */
 #scroll-gallery {
     position: relative;
     margin-top: 20%;
-    background-image: url("images/background2.jpg"); /* תמונה כרקע */
+    background-image: url("images/logo/back.png"); /* תמונה כרקע */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 50px 0;
     margin: 0px;
     margin-top: 5px;
-    color: #fff;
+    color: #030303;
     font-size: 30px;
 }
 
@@ -69,7 +69,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.559); /* 0.5 = 50% כהות, אפשר לשנות ל-0.7 אם רוצים כהה יותר */
+    background-color: rgb(238, 233, 221); /* 0.5 = 50% כהות, אפשר לשנות ל-0.7 אם רוצים כהה יותר */
     border-radius: 2px; /* לשמור על הפינות המעוגלות */
     z-index: 1;
 }
@@ -102,7 +102,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.559); /* 0.5 = 50% כהות, אפשר לשנות ל-0.7 אם רוצים כהה יותר */
+    background-color: rgb(238, 233, 221); /* 0.5 = 50% כהות, אפשר לשנות ל-0.7 אם רוצים כהה יותר */
     z-index: 1;
 }
 /* מבטיח שהתוכן של הגלריה לא יושפע מהשכבה */
@@ -297,19 +297,19 @@ border: transparent;
 }
 
 /* עיצוב כפתור HE/EN */
-.language-toggle {
-    position: absolute;
-    right: 20px;
-}
+
 
 #language-toggle {
     font-size: 12px;
     background-color: transparent;
-    border: 2px solid #fff;
+    border: 2px solid transparent;
     color: #fff;
     border-radius: 5px;
     padding: 5px 15px;
     transition: 0.3s ease-in-out;
+    position: relative;
+    right: -10px;
+    top: 10px;
 }
 
 #language-toggle:hover {
@@ -443,7 +443,7 @@ border: transparent;
 
 .navbar-brand-text {
     font-size: 30px;
-    font-family: 'Didot', serif;
+    font-family: Arial,Helvetica,sans-serif;
     margin-top: -50px;
     color: white;
     letter-spacing: 2px;
@@ -474,12 +474,7 @@ border: transparent;
     left: 2px; /* קרוב לקצה השמאלי */
 }
 
-/* התאמה לכפתור HE/EN */
-.language-toggle {
-    position: relative;
-    right: -15px;
-    top: 0;
-}
+
 
 
 /* במסכים קטנים - הניווט יוסתר בגלילה */
@@ -493,7 +488,7 @@ border: transparent;
 
 
 h2{
-    font-family: 'Playwrite IT Moderna', sans-serif;
+    font-family: Arial,Helvetica,sans-serif;
     font-size: 5px;
 }
 @media(max-width: 768px){
@@ -592,8 +587,8 @@ h2{
 }
 
 .gallery h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 27px !important;
+    margin-bottom: 50px;
 }
 
 @media screen and (max-width: 768px) {
@@ -614,7 +609,7 @@ h2{
 
 .gallery-grid img {
     width: 100%;
-    height: 400px;
+    height: 70vh;
     object-fit: cover;
     border-radius: 3px;
     transition: transform 0.3s ease-in-out;
@@ -674,21 +669,7 @@ h2{
         display: block;
     }
 }
-/* עיצוב כפתור הנגישות */
-#accessibility-button {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    background: #000;
-    color: white;
-    font-size: 24px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 1000;
-}
+
 
 /* תפריט נגישות - מוסתר כברירת מחדל */
 #accessibility-menu {
@@ -790,7 +771,6 @@ h1, h2, h3, h4, h5, h6,
     color: white;
     font-size: 50px;
     border: none;
-    border-radius: 50%;
     cursor: pointer;
     z-index: 9999 !important; /* וידוא שהכפתור יהיה מעל כל האלמנטים */
 }
@@ -982,6 +962,7 @@ h1, h2, h3, h4, h5, h6,
     padding: 50px 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     margin-top: 0.5%;
+    height: 150vh;
 }
 
 .contact-section::before {
@@ -1016,27 +997,29 @@ h1, h2, h3, h4, h5, h6,
 .contact-middle{
     background-color: rgba(0, 0, 0, 0.228);
     margin: auto;
+    height: 100%;
 }
 .contact-form {
-    background: rgba(0, 0, 0, 0.397); /* רקע שקוף עם כהות קלה */
-    padding: 0px;
-    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.698); /* רקע שקוף עם כהות קלה */
+    border-radius: 3px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.185); /* אפקט עומק עדין */
-    width: 50%;
-    max-width: 1000px;
+    height: 50vh;
+    width: 80%;
     margin: auto;
+    margin-bottom: 5%;
+    padding: 5%;
 }
 
 
 .contact-map{
-    width: 80%;
-    max-width: 1000px;
+
     padding-top: 30px;
     padding-bottom: 30px;
-
     border-radius: 10px;
     margin: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0); /* אפקט עומק עדין */
+    height: 50vh;
+    width: 80%;
 }
 .contact-form input,
 .contact-form textarea {
