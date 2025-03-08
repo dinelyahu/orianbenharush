@@ -1063,22 +1063,30 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 100;
 }
 
-/* התאמה למסכים קטנים */
+/* התאמת פריסת טופס יצירת קשר למסכים קטנים */
 @media (max-width: 994px) {
     .contact-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact-form, .contact-text {
-        max-width: 100%;
+        flex-direction: column; /* מסדר את כל האלמנטים בטור */
+        align-items: center; /* ממרכז את התוכן */
         text-align: center;
     }
 
-    .contact-item {
-        justify-content: center;
+    .contact-form {
+        order: 1; /* מציב את הטופס קודם */
+        width: 100%; /* מוודא שהתוכן יתפרס לרוחב */
+    }
+
+    .contact-text {
+        order: 2; /* מציב את הטקסט אחרי הטופס */
+        width: 100%;
+    }
+
+    .contact-map {
+        order: 3; /* מציב את המפה מתחת */
+        width: 100%;
     }
 }
+
 
 input::placeholder, 
 textarea::placeholder {
