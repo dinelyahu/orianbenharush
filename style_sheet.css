@@ -975,10 +975,10 @@ h2{
 
 @media (max-width: 994px) {
     .contact-section {
-    height: 120vh;   
+    height: 160vh;   
     }
     .contact-section::before {
-    height: 120vh !important;
+    height: 160vh !important;
     }
 }
 
