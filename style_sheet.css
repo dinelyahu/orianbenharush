@@ -42,7 +42,6 @@ transition: filter 0.6s ease; /* מעבר חלק */
 #scroll-gallery {
     position: relative;
     margin-top: 20%;
-    background-image: url("images/logo/back.png"); /* תמונה כרקע */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -109,7 +108,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
         margin-top:0px !important;
     }
     #evening-gallery , #scroll-gallery{
-        height: 120vh;
+        height: 140vh;
     }
 
     
@@ -701,29 +700,8 @@ h2{
 #accessibility-menu button:hover {
     background: #ddd;
 }
-/* משתנה גלובלי שמנהל את גודל הגופן בכל האתר */
-:root {
-    --font-size: 16px;
-}
 
-/* החלת גודל הגופן על כל האתר */
-body {
-    font-size: var(--font-size);
-}
 
-/* ודא שכל האלמנטים מקבלים את השינוי */
-.navbar, .navbar-nav, .nav-item, .nav-link, 
-h1, h2, h3, h4, h5, h6, 
-p, button, a, label, input, textarea, 
-#contact, #scroll-gallery, #evening-gallery {
-    font-size: var(--font-size);
-}
-/* ודא שכל הכותרות מקבלות את הגדרת הפונט הדינמית */
-h1, h2, h3, h4, h5, h6, 
-#scroll-gallery h2, #evening-gallery h2 {
-    font-size: var(--font-size);
-    color:#5d5555
-}
 /* עיצוב תפריט הצד במסכים קטנים */
 @media (max-width: 994px) {
     .mobile-nav ul li a {
@@ -975,16 +953,6 @@ h1, h2, h3, h4, h5, h6,
 
 }
 
-@media (max-width: 994px) {
-    .contact-section {
-    height: 120vh;    }
-    .contact-section::before {
-
-    height: 120vh !important;
-
-    }
-}
-
 .contact-section::before {
     content: "";
     position: absolute;
@@ -1004,6 +972,19 @@ h1, h2, h3, h4, h5, h6,
     text-align: center;
     font-size: 18px;
 }
+
+@media (max-width: 994px) {
+    .contact-section {
+    height: 120vh;   
+    }
+    .contact-section::before {
+    height: 120vh !important;
+    }
+}
+
+
+
+
 
 .contact-container{
     height: 100vh !important;
