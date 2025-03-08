@@ -1,6 +1,10 @@
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    background-color: #000000; /* רקע שחור */  
+    background-color: #afa3731e; /* רקע שחור */  
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 
@@ -11,21 +15,63 @@ body {
     gap: 0; /* בלי מרווחים */
     width: 100vw; /* תופס את כל רוחב המסך */
 }
-
-/* עיצוב התמונות */
-.gallery-grid img {
+/* עוטף כל תמונה ויוצר שכבה לבנה עליה */
+.bridal-wrapper , .evening-wrapper {
+    position: relative;
+    display: inline-block;
     width: 100%;
-    height: 100vh; /* כל תמונה תופסת גובה של מסך אחד */
-    object-fit: cover;
-    filter: brightness(20%); /* תמונות כהות כברירת מחדל */
-    transition: filter 0.8s ease-in-out, transform 0.3s ease-in-out;
+    height: 100vh;
+    overflow: hidden; /* מוודא ששום דבר לא יחרוג מהמסגרת */
 }
 
-/* אפקט בהירות בזמן מעבר עכבר */
-.gallery-grid img:hover {
-    filter: brightness(100%); /* הופך את התמונה לבהירה */
-    transform: scale(1.02); /* הוספת הגדלה קלה */
+/* שכבה לבנה מעל התמונה */
+.bridal-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7); /* שכבת הלובן */
+    transition: opacity 1s ease-in-out;
+    opacity: 1; /* שכבה לבנה כברירת מחדל */
+    z-index: 2; /* מעל התמונה */
 }
+/* שכבה לבנה מעל התמונה */
+.evening-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* שכבת הלובן */
+    transition: opacity 1s ease-in-out;
+    opacity: 1; /* שכבה לבנה כברירת מחדל */
+    z-index: 2; /* מעל התמונה */
+}
+
+/* התמונה עצמה */
+.bridal-wrapper img , .evening-wrapper img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease-in-out; /* מוסיף אנימציה */
+}
+
+/* כשהעכבר מעל, השכבה הלבנה נעלמת והתמונה מוגדלת */
+.bridal-wrapper:hover::before, .evening-wrapper:hover::before {
+    opacity: 0;
+    
+}
+
+/* מוסיף הגדלה של התמונה בזמן מעבר עכבר */
+.bridal-wrapper:hover img , .evening-wrapper:hover img {
+    transform: scale(1.02); /* התמונה גדלה */
+    z-index: 1;
+}
+
 
 /* התאמה למסכים קטנים - תמונה אחת בשורה */
 @media (max-width: 768px) {
@@ -41,15 +87,19 @@ body {
     bottom: 20px; /* מרווח מלמעלה */
     left: 50%;
     transform: translateX(-50%); /* ממרכז את הכפתור */
-    background: rgba(0, 0, 0, 0.7); /* רקע כהה חצי-שקוף */
+    background: rgba(158, 144, 144, 0.7); /* רקע כהה חצי-שקוף */
     color: white;
     text-decoration: none;
     font-size: 20px;
-    font-weight: bold;
     padding: 12px 25px;
     border-radius: 8px;
     transition: background 0.3s, transform 0.2s;
     z-index: 1000; /* מבטיח שהכפתור תמיד יהיה מעל התמונות */
+}
+
+.back-button:hover {
+    color:#4b4942a8;
+    background: rgba(255, 255, 255, 0.9); /* רקע כהה חצי-שקוף */
 }
 
 @media (max-width: 768px) {
@@ -84,13 +134,28 @@ body {
 
 #bridal-gallery h2 , #evening-gallery h2{
     text-align: center;
-    color: white;
+    color: rgba(122, 111, 111, 0.712);
     font-size: 30px;
+    font-weight:100 !important;
 }
 html, body {
     margin: 0;
     padding: 0;
     width: 100vw;
     overflow-x: hidden; /* מונע גלילה אופקית */
+}
+
+/* לוגו צף במרכז המסך */
+.floating-logo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%; /* ניתן לשנות לפי הצורך */
+    height: auto;
+    opacity: 0.5; /* הופך את הלוגו לשקוף חלקית */
+    pointer-events: none; /* מונע מהמשתמש ללחוץ עליו */
+    z-index: 999; /* מעל כל האלמנטים האחרים */
+    transition: opacity 0.3s ease-in-out;
 }
 
