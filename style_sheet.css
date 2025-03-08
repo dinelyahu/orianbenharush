@@ -70,7 +70,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 #evening-gallery{
     position: relative;
     margin-top: 1%;
-    background-image: url("images/background1.jpg"); /* תמונה כרקע */
+    background-image: url("images/bridal/background1.jpg"); /* תמונה כרקע */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -813,10 +813,7 @@ h1, h2, h3, h4, h5, h6,
     position: relative;
     z-index: 2;
 }
-#about-title{
 
-    margin-right: 0 !important;
-}
 
 
 /* סידור האלמנטים של הטקסט והתמונה */
@@ -836,12 +833,7 @@ h1, h2, h3, h4, h5, h6,
     max-width: 500px;
 }
 
-.about-text h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    
-}
+
 
 
 
@@ -857,12 +849,7 @@ h1, h2, h3, h4, h5, h6,
     color: #716868;
 }
 
-.container h2{
-    font-size: 22px;
-    margin-bottom: 20px;
-    color:#332e2e;
-;
-}
+
 
 /* עיצוב הוידאו */
 .about-video {
@@ -1180,14 +1167,3 @@ box-shadow: 0 0 10px #f9f9f8 !important; /* אפקט זוהר עדין */
     text-align: right;
 }
 
-#about-title {
-    align-self: flex-start; /* מוודא שהכותרת נצמדת לימין */
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #332e2e;
-    margin-right: 22% !important;
-    top: 150px;
-    font-size: 28px;
-    color: #4d4646;
-}

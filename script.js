@@ -95,10 +95,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // מערך של תמונות רקע
     const images = [
-        "images/background1.jpg",
-        "images/background2.jpg",
-        "images/background3.jpg",
-        "images/background4.jpg"
+        "images/bridal/background1.jpg",
+        "images/bridal/background2.jpg",
+        "images/bridal/background3.jpg",
+        "images/bridal/background4.jpg"
     ];
 
     let currentIndex = 0;
@@ -339,11 +339,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#evening-gallery h2").textContent = translations[lang].eveningCollection;
         document.querySelector("#scroll-gallery .view-more-button").textContent = translations[lang].viewMoreBridal;
         document.querySelector("#evening-gallery .view-more-button").textContent = translations[lang].viewMoreEvening;
-        document.querySelector(".about-section h2").textContent = translations[lang].processTitle;
-        document.querySelector(".about-section .about-text p:nth-of-type(1)").textContent = translations[lang].processText;
-        document.querySelector(".about-section h3:nth-of-type(1)").textContent = translations[lang].processTitle;
+
+        document.querySelector(".about-section .about-text p:nth-of-type(1)").textContent = translations[lang].aboutText;
+        document.querySelector(".about-section h3:nth-of-type(1)").textContent = translations[lang].aboutTitle;
         document.querySelector(".about-section .about-text p:nth-of-type(2)").textContent = translations[lang].processText;
-        document.querySelector(".about-section h3:nth-of-type(2)").textContent = translations[lang].uniquenessTitle;
+        document.querySelector(".about-section h3:nth-of-type(2)").textContent = translations[lang].processTitle;
+        document.querySelector(".about-section h3:nth-of-type(3)").textContent = translations[lang].uniquenessTitle;
         document.querySelector(".about-section .about-text p:nth-of-type(3)").textContent = translations[lang].uniquenessText;
         
         document.querySelector(".contact-button").textContent = translations[lang].consultButton;
@@ -356,7 +357,6 @@ document.addEventListener("DOMContentLoaded", function () {
         
         document.querySelector("#form button[type='submit']").textContent = translations[lang].sendButton;
 
-        document.querySelector("#about h2").textContent = translations[lang].aboutTitle;
         document.querySelector("#about .about-text p").textContent = translations[lang].aboutText;
 
 
