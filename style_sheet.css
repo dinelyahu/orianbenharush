@@ -1006,6 +1006,15 @@ h2{
     direction: rtl;
 }
 
+@media (max-width: 994px) {
+    .contact-form {
+        max-width: 100%;
+        }
+        .date-container input {
+            flex: 1; /* גורם לשדה להתפרס כדי שייראה מסודר */
+            min-width: 40% !important; /* מבטיח שלא יהיה קטן מדי */
+        }
+}
 
 
 .contact-form input,
