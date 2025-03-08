@@ -332,7 +332,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".nav-link[href='#home']").textContent = translations[lang].home;
         document.querySelector(".nav-link[href='bridal.html']").textContent = translations[lang].bridal;
         document.querySelector(".nav-link[href='evening.html']").textContent = translations[lang].evening;
-        document.querySelector(".nav-link[href='#about']").textContent = translations[lang].about;
         document.querySelector(".nav-link[href='#contact']").textContent = translations[lang].contact;
 
         document.querySelector("#scroll-gallery h2").textContent = translations[lang].bridalCollection;
@@ -341,7 +340,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#evening-gallery .view-more-button").textContent = translations[lang].viewMoreEvening;
 
         document.querySelector(".about-section .about-text p:nth-of-type(1)").textContent = translations[lang].aboutText;
-        document.querySelector(".about-section h3:nth-of-type(1)").textContent = translations[lang].aboutTitle;
         document.querySelector(".about-section .about-text p:nth-of-type(2)").textContent = translations[lang].processText;
         document.querySelector(".about-section h3:nth-of-type(2)").textContent = translations[lang].processTitle;
         document.querySelector(".about-section h3:nth-of-type(3)").textContent = translations[lang].uniquenessTitle;
