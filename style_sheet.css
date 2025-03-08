@@ -511,7 +511,7 @@ h2{
         position: fixed;
         top: 40px;
         right: 15px;
-        font-size: 30px;
+        font-size: 50px;
         background: none;
         border: none;
         cursor: pointer;
@@ -721,6 +721,7 @@ h1, h2, h3, h4, h5, h6,
     /* אם הכפתורים עדיין גדולים מדי, ניתן להוריד עוד את הערכים */
     .mobile-nav ul {
         padding: 10px 0; /* ריווח פנימי קטן יותר */
+        margin-top: 80px !important;
     }
 
     .mobile-nav ul li {
