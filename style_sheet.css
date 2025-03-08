@@ -658,6 +658,7 @@ h2{
     max-height: 400px;
     object-fit: cover;
     border-radius: 5px;
+    border:1px solid #ffffff;
 }
 
 /* במסכים קטנים – מסתירים את הגלריה ומראים תמונה אחת */
