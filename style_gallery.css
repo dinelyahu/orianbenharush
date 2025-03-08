@@ -7,6 +7,12 @@ body {
     font-family:Arial,Helvetica,sans-serif;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden; /* מונע גלילה אופקית */
+}
 
 /* רשת תמונות - 2 תמונות בשורה */
 .gallery-grid {
@@ -73,13 +79,6 @@ body {
 }
 
 
-/* התאמה למסכים קטנים - תמונה אחת בשורה */
-@media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: 1fr; /* רק תמונה אחת בכל שורה */
-    }
-
-}
 
 /* עיצוב כפתור חזרה */
 .back-button {
@@ -102,48 +101,7 @@ body {
     background: rgba(255, 255, 255, 0.9); /* רקע כהה חצי-שקוף */
 }
 
-@media (max-width: 768px) {
 
-    .gallery-grid {
-        display: flex;
-        flex-direction: column;
-        scroll-snap-type: y mandatory; /* גלילה חלקה מאונכת */
-        overflow-y: scroll;
-        height: 100vh; /* הגלריה תופסת את כל גובה המסך */
-        scrollbar-width: none; /* מסתיר את פס הגלילה */
-        -ms-overflow-style: none;
-    }
-    
-    /* כל תמונה "ננעלת" בנקודה בגלילה */
-    .gallery-grid img {
-        width: 100%;
-        height: 100vh;
-        object-fit: cover;
-        filter: brightness(20%);
-        transition: filter 0.9s ease-in-out;
-        scroll-snap-align: start; /* הגלילה "ננעלת" על כל תמונה */
-        margin-top: 1%;
-        filter: brightness(100%);
-    }
-    
-    /* מסתיר את פס הגלילה בדפדפן */
-    .gallery-grid::-webkit-scrollbar {
-        display: none;
-    }
-}
-
-#bridal-gallery h2 , #evening-gallery h2{
-    text-align: center;
-    color: rgba(122, 111, 111, 0.712);
-    font-size: 30px;
-    font-weight:100 !important;
-}
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    overflow-x: hidden; /* מונע גלילה אופקית */
-}
 
 /* לוגו צף במרכז המסך */
 .floating-logo {
@@ -159,3 +117,20 @@ html, body {
     transition: opacity 0.3s ease-in-out;
 }
 
+@media (max-width: 994px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* טור אחד במקום שניים */
+    }
+    .bridal-wrapper img , .evening-wrapper img {
+        height: 100vh; /* גובה תמונה נמוך יותר */
+        margin-top: 2%;
+    }
+
+    .floating-logo {
+        width: 30%; /* גודל לוגו גדול יותר */
+    }
+    .bridal-wrapper::before , .evening-wrapper::before{
+        display: none;
+
+    }
+}
