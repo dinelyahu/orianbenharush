@@ -210,7 +210,6 @@ transition: filter 0.6s ease; /* מעבר חלק */
     color: white;
     text-decoration: none;
     font-size: 20px;
-    font-weight: bold;
     transition: color 0.3s;
 }
 
@@ -287,6 +286,14 @@ transition: filter 0.6s ease; /* מעבר חלק */
     top: 10px;
 }
 
+@media(max-width: 994px){
+    #language-toggle-en , #language-toggle-he , .language-separator {
+        font-size: 10px;
+        padding: 5px 10px;
+        padding-left: 0;
+    }
+}
+
 #language-toggle-en:hover , #language-toggle-he:hover {
     background-color: #dadada;
     color: #000;
@@ -317,10 +324,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
         align-items: center;
     }
 
-    .social-icons {
-        margin-top: 0px;
-        margin-left: 0px;
-    }
+
 }
 /* תפריט צד */
 .mobile-nav {
@@ -357,21 +361,20 @@ transition: filter 0.6s ease; /* מעבר חלק */
 .mobile-nav ul li {
     margin: 20px;
 
-    border-bottom: 1px solid rgba(74, 71, 71, 0.689);
+    border-bottom: 1px solid rgba(74, 71, 71, 0.192);
 
 }
 
 .mobile-nav ul li a {
-    color: rgba(74, 71, 71, 0.687);
+    color: rgba(87, 77, 77, 0.984);
     text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 15px;
     transition: color 0.3s;
     margin-bottom: 30px;
 }
 
 .mobile-nav ul li a:hover {
-    color: #000000;
+    color: #464242;
     opacity: 1.4;
 }
 
@@ -386,21 +389,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     height: 20px !important; /* גובה 15 פיקסלים */
 }
 /* התאמה למסכים קטנים בלבד */
-@media (max-width: 994px) {
-    .social-icons {
-        position: absolute;
-        display: flex;
-        flex-direction: row; /* מסדר את האייקונים בשורה */
-        gap: 15px; /* ריווח ביניהם */
-        margin-top: -15px;
-        margin-left: -15px;
-    }
 
-    .social-icons img {
-        width: 28px; /* הקטנת האייקונים במסכים קטנים */
-        height: 28px;
-    }
-}
 
 
 
@@ -455,6 +444,25 @@ transition: filter 0.6s ease; /* מעבר חלק */
     height: 60px !important;
 }
 
+@media(max-width: 994px){
+    #sidelogo{
+        display: none;
+    }
+    .social-icons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        top: 10px;
+        left: 0px; /* קרוב לקצה השמאלי */
+
+    }
+    .social-icon {
+        width: 15px !important;  /* רוחב 15 פיקסלים */
+        height: 15px !important; /* גובה 15 פיקסלים */
+    }
+
+}
 
 
 
@@ -707,7 +715,6 @@ h1, h2, h3, h4, h5, h6,
 /* עיצוב תפריט הצד במסכים קטנים */
 @media (max-width: 994px) {
     .mobile-nav ul li a {
-        font-size: calc(var(--font-size) * 0.8); /* מקטין את הכפתורים */
         padding: 8px 10px; /* מקטין ריווח */
     }
 
@@ -718,7 +725,10 @@ h1, h2, h3, h4, h5, h6,
 
     .mobile-nav ul li {
         margin: 10px 0; /* מקטין את הריווח בין הפריטים */
+        margin-bottom: 15%;
+        
     }
+
 }
 .high-contrast {
     background-color: black !important; /* רקע שחור */
@@ -762,10 +772,7 @@ h1, h2, h3, h4, h5, h6,
 .monochrome-mode main, .monochrome-mode section, .monochrome-mode footer {
     filter: grayscale(100%);
 }
-.bold-text *,
-.bold-text .mobile-nav ul li a {
-    font-weight: bold !important;
-}
+
 .about-section {
     position: relative;
     background-image: url("images/logo/b2a0d058bb6d39985a55e015a86a512e.jpg");
@@ -848,6 +855,8 @@ h1, h2, h3, h4, h5, h6,
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border:5px solid #6b656551;
+    max-height: 120vh;
+
 }
 
 /* כפתור ניגון/עצירה */
@@ -948,9 +957,9 @@ h1, h2, h3, h4, h5, h6,
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 50px 20px;
+    padding: 50px ;
     margin-top: 0.5%;
-    height: 100vh;
+
 }
 
 .contact-section::before {
@@ -973,14 +982,25 @@ h1, h2, h3, h4, h5, h6,
     font-size: 18px;
 }
 
-
-
-.contact-middle{
-    background-color: rgba(255, 255, 255, 0);
-    margin: auto;
+.contact-container{
+    height: 100vh !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; /* כדי להתאים למסכים קטנים */
     height: 100%;
 }
+.contact-form {
+    flex: 1;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+}
 
 
 
@@ -1023,18 +1043,8 @@ h1, h2, h3, h4, h5, h6,
 
 
 
-
-.contact-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap; /* כדי להתאים למסכים קטנים */
-    height: 100%;
-}
-
 .contact-form, .contact-text {
-    flex: 1;
+    margin: auto;
 }
 
 
@@ -1063,29 +1073,8 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 100;
 }
 
-/* התאמת פריסת טופס יצירת קשר למסכים קטנים */
-@media (max-width: 994px) {
-    .contact-container {
-        flex-direction: column; /* מסדר את כל האלמנטים בטור */
-        align-items: center; /* ממרכז את התוכן */
-        text-align: center;
-    }
 
-    .contact-form {
-        order: 1; /* מציב את הטופס קודם */
-        width: 100%; /* מוודא שהתוכן יתפרס לרוחב */
-    }
 
-    .contact-text {
-        order: 2; /* מציב את הטקסט אחרי הטופס */
-        width: 100%;
-    }
-
-    .contact-map {
-        order: 3; /* מציב את המפה מתחת */
-        width: 100%;
-    }
-}
 
 
 input::placeholder, 
