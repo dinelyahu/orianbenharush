@@ -109,7 +109,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
         margin-top:0px !important;
     }
     #evening-gallery , #scroll-gallery{
-        height: 70vh;
+        height: 80vh;
     }
 
     
@@ -521,7 +521,7 @@ h2{
     .menu-toggle {
         position: fixed;
         top: 40px;
-        right: 15px;
+        right: 10px;
         font-size: 50px;
         background: none;
         border: none;
