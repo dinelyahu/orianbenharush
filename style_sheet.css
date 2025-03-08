@@ -975,6 +975,16 @@ h1, h2, h3, h4, h5, h6,
 
 }
 
+@media (max-width: 994px) {
+    .contact-section {
+    height: 120vh;    }
+    .contact-section::before {
+
+    height: 120vh !important;
+
+    }
+}
+
 .contact-section::before {
     content: "";
     position: absolute;
