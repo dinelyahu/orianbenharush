@@ -103,6 +103,17 @@ transition: filter 0.6s ease; /* מעבר חלק */
     z-index: 2;
 }
 
+
+@media(max-width: 994px){
+    #evening-gallery h2 , #scroll-gallery h2{
+        margin-top:0px !important;
+    }
+    #evening-gallery , #scroll-gallery{
+        height: 70vh;
+    }
+
+    
+}
 /* עיצוב ה-Modal */
 .modal {
     display: none; /* מוסתר כברירת מחדל */
