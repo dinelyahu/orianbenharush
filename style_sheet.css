@@ -757,6 +757,7 @@ h2{
     border: none;
     cursor: pointer;
     z-index: 9999 !important; /* וידוא שהכפתור יהיה מעל כל האלמנטים */
+    
 }
 
 
@@ -987,7 +988,7 @@ h2{
 
 
 .contact-container{
-    height: 100vh !important;
+    height: 80vh !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
