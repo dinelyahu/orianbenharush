@@ -1,80 +1,45 @@
-// משתנים גלובליים
 document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("imageModal");
-    const modalImage = document.getElementById("modalImage");
-    let isMagnified = false;
-
-    // פתיחת ה-Modal
-    window.openModal = function (image) {
-        modal.style.display = "flex";
-        modalImage.src = image.src;
-        isMagnified = false;
-        modalImage.style.transform = "scale(1)";
-    };
-
-    // סגירת ה-Modal
-    window.closeModal = function () {
-        modal.style.display = "none";
-        modalImage.style.transform = "scale(1)";
-        isMagnified = false;
-    };
-
-    // הגדלה והקטנה של תמונות
-    modalImage.addEventListener("click", () => {
-        isMagnified = !isMagnified;
-        modalImage.style.transform = isMagnified ? "scale(2)" : "scale(1)";
-    });
-
-    // סגירה של ה-Modal בלחיצה מחוץ לתמונה
-    window.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-
-    // תפריט צד במסכים קטנים
     const menuToggle = document.getElementById("menu-toggle");
     const mobileNav = document.getElementById("mobile-nav");
     const languageButtonEn = document.getElementById("language-toggle-en");
     const languageButtonHe = document.getElementById("language-toggle-he");
 
-    if (menuToggle && mobileNav) {
-        menuToggle.addEventListener("click", function (event) {
-            event.stopPropagation();
-            mobileNav.classList.toggle("open");
-
-            // שינוי צבע הכפתורים בהתאם למצב התפריט
-            const isOpen = mobileNav.classList.contains("open");
-            if (isOpen) {
-            languageButtonEn.classList.add("active");
-            languageButtonHe.classList.add("active");
-            } else {
-            languageButtonEn.classList.remove("active");
-            languageButtonHe.classList.remove("active");
-            }
-        });
-
-        // סגירה בלחיצה מחוץ לתפריט - אבל לא בלחיצה על כפתור שינוי השפה
-        document.addEventListener("click", function (event) {
-            const languageButtonEn = document.getElementById("language-toggle-en");
-            const languageButtonHe = document.getElementById("language-toggle-he");
-        
-            if (!mobileNav.contains(event.target) && 
-                event.target !== menuToggle && 
-                event.target !== languageButtonEn && 
-                event.target !== languageButtonHe) {
-                mobileNav.classList.remove("open");
-                languageButtonEn.classList.remove("active");
-                languageButtonHe.classList.remove("active");
-            }
-        });
-        
+    // פונקציה לפתיחת/סגירת התפריט
+    function toggleMenu(event) {
+        event.stopPropagation();
+        mobileNav.classList.toggle("open");
     }
 
+    // האזנה ללחיצה על כפתור התפריט
+    if (menuToggle && mobileNav) {
+        menuToggle.addEventListener("click", toggleMenu);
+    }
 
+    // סגירת התפריט בלחיצה מחוץ לתפריט (אבל לא על כפתורי השפה)
+    document.addEventListener("click", function (event) {
+        const isClickOnLanguageButton = (event.target === languageButtonEn || event.target === languageButtonHe);
+        if (!mobileNav.contains(event.target) && event.target !== menuToggle && !isClickOnLanguageButton) {
+            mobileNav.classList.remove("open");
+        }
+    });
 
+    // כפתורי השפה **לא** יסגרו את התפריט
+    languageButtonEn.addEventListener("click", function (event) {
+        event.stopPropagation(); // מונע סגירה לא רצויה
+    });
 
+    languageButtonHe.addEventListener("click", function (event) {
+        event.stopPropagation(); // מונע סגירה לא רצויה
+    });
+
+    // סגירת התפריט אם לוחצים על אחד מהקישורים בתפריט
+    document.querySelectorAll("#mobile-nav ul li a").forEach(link => {
+        link.addEventListener("click", function () {
+            mobileNav.classList.remove("open");
+        });
+    });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
     const mobileNav = document.getElementById("mobile-nav");
     const menuToggle = document.getElementById("menu-toggle");
@@ -91,64 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const homeSection = document.getElementById("home");
-
-    // מערך של תמונות רקע
-    const images = [
-        "images/bridal/background1.jpg",
-        "images/bridal/background2.jpg",
-        "images/bridal/background3.jpg",
-        "images/bridal/background4.jpg"
-    ];
-
-    let currentIndex = 0;
-
-    function changeBackground() {
-        homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
-        currentIndex = (currentIndex + 1) % images.length; // לעבור לתמונה הבאה, ואם מגיעים לסוף - להתחיל מחדש
-    }
-
-    // הפעלת שינוי רקע כל 5 שניות
-    setInterval(changeBackground, 5000);
-
-    // הצגת תמונה ראשונה מיד עם טעינת הדף
-    changeBackground();
-});
-document.addEventListener("DOMContentLoaded", function () {
-    // רשימות התמונות לכל גלריה
-    const bridalImages = [
-        "images/bridal/img1.jpg",
-        "images/bridal/img2.jpg",
-        "images/bridal/img3.jpg",
-        "images/bridal/img4.jpg",
-        "images/bridal/img5.jpg"
-    ];
-    const eveningImages = [
-        "images/evening/image1.jpeg",
-        "images/evening/image2.jpeg",
-        "images/evening/image3.jpeg",
-        "images/evening/image4.jpeg",
-        "images/evening/image5.jpeg"
-    ];
-
-    let bridalIndex = 0;
-    let eveningIndex = 0;
-
-    function changeImage() {
-        if (window.innerWidth <= 994) { // מחליף רק במסכים קטנים
-            document.getElementById("bridal-single-image").src = bridalImages[bridalIndex];
-            document.getElementById("evening-single-image").src = eveningImages[eveningIndex];
-
-            bridalIndex = (bridalIndex + 1) % bridalImages.length;
-            eveningIndex = (eveningIndex + 1) % eveningImages.length;
-        }
-    }
-
-    // החלפת תמונה כל שנייה
-    setInterval(changeImage, 2000);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
     const accessibilityButton = document.getElementById("accessibility-button");
     const accessibilityMenu = document.getElementById("accessibility-menu");
 
@@ -158,9 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
         accessibilityMenu.style.display = (accessibilityMenu.style.display === "none" || accessibilityMenu.style.display === "") ? "flex" : "none";
     });
 
-    // סגירה אוטומטית בלחיצה מחוץ לתפריט
+    // סגירה אוטומטית בלחיצה מחוץ לתפריט (אבל לא על כפתורי השפה)
     document.addEventListener("click", function (event) {
-        if (!accessibilityMenu.contains(event.target) && event.target !== accessibilityButton) {
+        const isClickOnLanguageButton = (event.target.id === "language-toggle-en" || event.target.id === "language-toggle-he");
+        if (!accessibilityMenu.contains(event.target) && event.target !== accessibilityButton && !isClickOnLanguageButton) {
             accessibilityMenu.style.display = "none";
         }
     });
@@ -242,6 +150,68 @@ window.toggleBoldText = function () {
     });
 };
 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const homeSection = document.getElementById("home");
+
+    // מערך של תמונות רקע
+    const images = [
+        "images/bridal/background1.jpg",
+        "images/bridal/background2.jpg",
+        "images/bridal/background3.jpg",
+        "images/bridal/background4.jpg"
+    ];
+
+    let currentIndex = 0;
+
+    function changeBackground() {
+        homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
+        currentIndex = (currentIndex + 1) % images.length; // לעבור לתמונה הבאה, ואם מגיעים לסוף - להתחיל מחדש
+    }
+
+    // הפעלת שינוי רקע כל 5 שניות
+    setInterval(changeBackground, 5000);
+
+    // הצגת תמונה ראשונה מיד עם טעינת הדף
+    changeBackground();
+});
+document.addEventListener("DOMContentLoaded", function () {
+    // רשימות התמונות לכל גלריה
+    const bridalImages = [
+        "images/bridal/img1.jpg",
+        "images/bridal/img2.jpg",
+        "images/bridal/img3.jpg",
+        "images/bridal/img4.jpg",
+        "images/bridal/img5.jpg"
+    ];
+    const eveningImages = [
+        "images/evening/image1.jpeg",
+        "images/evening/image2.jpeg",
+        "images/evening/image3.jpeg",
+        "images/evening/image4.jpeg",
+        "images/evening/image5.jpeg"
+    ];
+
+    let bridalIndex = 0;
+    let eveningIndex = 0;
+
+    function changeImage() {
+        if (window.innerWidth <= 994) { // מחליף רק במסכים קטנים
+            document.getElementById("bridal-single-image").src = bridalImages[bridalIndex];
+            document.getElementById("evening-single-image").src = eveningImages[eveningIndex];
+
+            bridalIndex = (bridalIndex + 1) % bridalImages.length;
+            eveningIndex = (eveningIndex + 1) % eveningImages.length;
+        }
+    }
+
+    // החלפת תמונה כל שנייה
+    setInterval(changeImage, 2000);
+});
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.querySelector(".navbar");
 
@@ -253,45 +223,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
-    // אובייקט שמכיל את התרגומים לכל האלמנטים באתר
+    const languageButtonEn = document.getElementById("language-toggle-en");
+    const languageButtonHe = document.getElementById("language-toggle-he");
+
+    // אובייקט עם התרגומים
     const translations = {
-        he: {
-            home: "דף הבית",
-            bridal: "שמלות כלה",
-            evening: "שמלות ערב",
-            about: "אודות",
-            contact: "צרו קשר",
-            bridalCollection: "קולקציית שמלות כלה",
-            eveningCollection: "קולקציית שמלות ערב",
-            viewMoreBridal: "לקולקציית שמלות הכלה",
-            viewMoreEvening: "לקולקציית שמלות הערב",
-            aboutTitle: "אודות",
-            aboutText: "המסע שלי בעולם האופנה התחיל מתוך תשוקה עזה לעיצוב, יופי ויצירתיות. מאז שהייתי ילדה, חלמתי ליצור שמלות שיגרמו לכל אישה להרגיש כמו מלכה. אחרי שנים של לימודים וניסיון, הפכתי את החלום למציאות – עיצוב שמלות כלה וערב בעבודת יד, תוך הקפדה על כל פרט ופרט. כל שמלה נתפרת באהבה, תוך התאמה אישית לחלומות של הלקוחה.",
-            processTitle: "התהליך שלי",
-            processText: "כשאת מגיעה לסטודיו, אני מקשיבה לחלום שלך ומתחילה בתהליך יצירה משותף. משלב הסקיצה ועד השמלה המושלמת, כל פרט נתפר בקפידה, כדי לוודא שהשמלה שלך תהיה לא פחות ממושלמת.",
-            uniquenessTitle: "הייחודיות שלי",
-            uniquenessText: "העיצובים שלי משלבים קלאסיקה עם חדשנות, תוך שימוש בחומרי הגלם האיכותיים ביותר. אני מאמינה שכל אישה צריכה להרגיש מיוחדת ביום הגדול שלה, ולכן אני מציעה התאמה אישית מלאה לכל שמלה.",
-            consultButton: "רוצה לתאם פגישת ייעוץ ולהרשם מהקולקציה? צרי קשר",
-            contactTitle: "צרו קשר",
-            namePlaceholder: "שם מלא",
-            emailPlaceholder: "אימייל",
-            messagePlaceholder: "הודעה",
-            weddingDateLabel: "תאריך החתונה",
-            nameLabel: "שם מלא:",
-            emailLabel: "אימייל:",
-            messageLabel: "הודעה:",
-            sendButton: "שלח",
-            accessibility: "תפריט נגישות",
-            increaseFont: "הגדלת פונט ➕",
-            decreaseFont: "הקטנת פונט ➖",
-            highContrast: "ניגודיות גבוהה",
-            highlightLinks: "הדגשת קישורים",
-            disableAnimations: "חסימת אנימציות",
-            monochromeMode: "מצב מונוכרום",
-            boldText: "הדגשת טקסט (Bold)",
-            resetSettings: "איפוס הגדרות"
-        },
         en: {
             home: "Home",
             bridal: "Bridal Dresses",
@@ -300,66 +238,96 @@ document.addEventListener("DOMContentLoaded", function () {
             contact: "Contact",
             bridalCollection: "Bridal Collection",
             eveningCollection: "Evening Collection",
-            viewMoreBridal: "View Bridal Collection",
-            viewMoreEvening: "View Evening Collection",
-            aboutTitle: "About",
-            aboutText: "My journey in the fashion world began with a deep passion for design, beauty, and creativity. Since I was a child, I dreamed of creating dresses that would make every woman feel like a queen. After years of study and experience, I turned my dream into reality—designing bridal and evening gowns by hand, with meticulous attention to every detail. Each dress is crafted with love, tailored to the unique dreams of each client.",
-            processTitle: "My Process",
-            processText: "When you arrive at the studio, I listen to your dream and begin a shared creative process. From the sketch stage to the perfect dress, every detail is carefully crafted to ensure that your dress is nothing less than perfect.",
-            uniquenessTitle: "My Uniqueness",
-            uniquenessText: "My designs combine classic elegance with innovation, using only the highest quality materials. I believe that every woman should feel special on her big day, which is why I offer full customization for each dress.",
-            consultButton: "Want to schedule a consultation and register for the collection? Contact us",
             contactTitle: "Contact Us",
             namePlaceholder: "Full Name",
+            phonePlaceholder: "Phone",
             emailPlaceholder: "Email",
             messagePlaceholder: "Message",
             weddingDateLabel: "Wedding Date",
-            sendButton: "Send",
-            accessibility: "Accessibility Menu",
-            increaseFont: "Increase Font ➕",
-            decreaseFont: "Decrease Font ➖",
-            highContrast: "High Contrast",
+            submitButton: "Send",
+            address: "Achi Eilat 5, Haifa",
+            navigateWaze: "Navigate with Waze",
+            viewBridal: "View Bridal Collection",
+            viewEvening: "View Evening Collection",
+            accessibilityMenu: "Accessibility Menu",
+            increaseFont: "Increase Font Size ➕",
+            decreaseFont: "Decrease Font Size ➖",
+            highContrast: "High Contrast Mode",
             highlightLinks: "Highlight Links",
             disableAnimations: "Disable Animations",
             monochromeMode: "Monochrome Mode",
             boldText: "Bold Text",
             resetSettings: "Reset Settings"
+        },
+        he: {
+            home: "דף הבית",
+            bridal: "שמלות כלה",
+            evening: "שמלות ערב",
+            about: "אודות",
+            contact: "צרו קשר",
+            bridalCollection: "קולקציית כלות",
+            eveningCollection: "קולקציית ערב",
+            contactTitle: "צרו קשר",
+            namePlaceholder: "שם מלא",
+            phonePlaceholder: "טלפון",
+            emailPlaceholder: "אימייל",
+            messagePlaceholder: "הודעה",
+            weddingDateLabel: "תאריך החתונה",
+            submitButton: "שלח",
+            address: "שדרות אח\"י אילת 5, חיפה",
+            navigateWaze: "נווט עם Waze",
+            viewBridal: "לקולקציית שמלות הכלה",
+            viewEvening: "לקולקציית שמלות הערב",
+            accessibilityMenu: "תפריט נגישות",
+            increaseFont: "הגדלת פונט ➕",
+            decreaseFont: "הקטנת פונט ➖",
+            highContrast: "מצב ניגודיות גבוהה",
+            highlightLinks: "הדגשת קישורים",
+            disableAnimations: "חסימת אנימציות",
+            monochromeMode: "מצב מונוכרום",
+            boldText: "הדגשת טקסט",
+            resetSettings: "איפוס הגדרות"
         }
     };
 
-    // פונקציה לעדכון התוכן באתר בהתאם לשפה שנבחרה
-    function updateLanguage(lang) {
+    // פונקציה להחלפת שפה
+    function changeLanguage(lang) {
+        document.documentElement.lang = lang; // שינוי השפה של הדף
+
+        // תפריט ראשי
         document.querySelector(".nav-link[href='#home']").textContent = translations[lang].home;
         document.querySelector(".nav-link[href='bridal.html']").textContent = translations[lang].bridal;
         document.querySelector(".nav-link[href='evening.html']").textContent = translations[lang].evening;
+        document.querySelector(".nav-link[href='about.html']").textContent = translations[lang].about;
         document.querySelector(".nav-link[href='#contact']").textContent = translations[lang].contact;
 
+        // כותרות גלריה
         document.querySelector("#scroll-gallery h2").textContent = translations[lang].bridalCollection;
         document.querySelector("#evening-gallery h2").textContent = translations[lang].eveningCollection;
-        document.querySelector("#scroll-gallery .view-more-button").textContent = translations[lang].viewMoreBridal;
-        document.querySelector("#evening-gallery .view-more-button").textContent = translations[lang].viewMoreEvening;
 
-        document.querySelector(".about-section .about-text p:nth-of-type(1)").textContent = translations[lang].aboutText;
-        document.querySelector(".about-section .about-text p:nth-of-type(2)").textContent = translations[lang].processText;
-        document.querySelector(".about-section h3:nth-of-type(2)").textContent = translations[lang].processTitle;
-        document.querySelector(".about-section h3:nth-of-type(3)").textContent = translations[lang].uniquenessTitle;
-        document.querySelector(".about-section .about-text p:nth-of-type(3)").textContent = translations[lang].uniquenessText;
-        
-        document.querySelector(".contact-button").textContent = translations[lang].consultButton;
-        document.querySelector("#contact h2").textContent = translations[lang].contactTitle;
-
+        // טופס יצירת קשר
+        document.querySelector(".contact-title").textContent = translations[lang].contactTitle;
         document.getElementById("name").placeholder = translations[lang].namePlaceholder;
+        document.getElementById("phone").placeholder = translations[lang].phonePlaceholder;
         document.getElementById("email").placeholder = translations[lang].emailPlaceholder;
         document.getElementById("message").placeholder = translations[lang].messagePlaceholder;
-        document.querySelector("label[for='wedding-date']").textContent = translations[lang].weddingDateLabel;
-        
-        document.querySelector("#form button[type='submit']").textContent = translations[lang].sendButton;
+        document.querySelector(".date-label").textContent = translations[lang].weddingDateLabel;
+        document.querySelector(".submit-btn").textContent = translations[lang].submitButton;
+        document.querySelectorAll(".contact-item p")[1].textContent = translations[lang].address;
+        document.querySelectorAll(".contact-item p")[3].textContent = translations[lang].navigateWaze;
 
-        document.querySelector("#about .about-text p").textContent = translations[lang].aboutText;
+        // כפתורים של קולקציות שמלות
+        document.querySelector(".view-more-button[href='bridal.html']").textContent = translations[lang].viewBridal;
+        document.querySelector(".view-more-button[href='evening.html']").textContent = translations[lang].viewEvening;
 
+        // תפריט הצד (MobileNav)
+        document.querySelector("#mobile-nav ul li a[href='#home']").textContent = translations[lang].home;
+        document.querySelector("#mobile-nav ul li a[href='#scroll-gallery']").textContent = translations[lang].bridal;
+        document.querySelector("#mobile-nav ul li a[href='#evening-gallery']").textContent = translations[lang].evening;
+        document.querySelector("#mobile-nav ul li a[href='#about']").textContent = translations[lang].about;
+        document.querySelector("#mobile-nav ul li a[href='#contact']").textContent = translations[lang].contact;
 
-
-        // תפריט נגישות
+        // תפריט הנגישות
         document.querySelector("#accessibility-menu button:nth-child(1)").textContent = translations[lang].increaseFont;
         document.querySelector("#accessibility-menu button:nth-child(2)").textContent = translations[lang].decreaseFont;
         document.querySelector("#accessibility-menu button:nth-child(3)").textContent = translations[lang].highContrast;
@@ -369,31 +337,26 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#accessibility-menu button:nth-child(7)").textContent = translations[lang].boldText;
         document.querySelector("#accessibility-menu button:nth-child(8)").textContent = translations[lang].resetSettings;
 
+        // שינוי מצב הכפתורים
+        languageButtonHe.classList.toggle("active", lang === "en");
+        languageButtonEn.classList.toggle("active", lang === "he");
 
-            // עדכון קישורי התפריט הצדדי (Mobile Nav)
-    const mobileNavLinks = document.querySelectorAll("#mobile-nav ul li a");
-    if (mobileNavLinks.length >= 5) {
-        mobileNavLinks[0].textContent = translations[lang].home;
-        mobileNavLinks[1].textContent = translations[lang].bridal;
-        mobileNavLinks[2].textContent = translations[lang].evening;
-        mobileNavLinks[3].textContent = translations[lang].about;
-        mobileNavLinks[4].textContent = translations[lang].contact;
+        // שמירת השפה שנבחרה ב-Local Storage כדי שתישמר גם בטעינות הבאות
+        localStorage.setItem("selectedLanguage", lang);
     }
 
-        // שמירה ב-localStorage כדי שהשפה תישמר גם לאחר רענון
-        localStorage.setItem("language", lang);
-    }
-
-    // כפתורי החלפת השפה
-    document.getElementById("language-toggle-en").addEventListener("click", function () {
-        updateLanguage("he");
+    // אירועי לחיצה על כפתורי השפה
+    languageButtonEn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        changeLanguage("he");
     });
 
-    document.getElementById("language-toggle-he").addEventListener("click", function () {
-        updateLanguage("en");
+    languageButtonHe.addEventListener("click", (event) => {
+        event.stopPropagation();
+        changeLanguage("en");
     });
 
-    // בדיקה אם יש שפה שמורה ב-localStorage
-    const savedLang = localStorage.getItem("language") || "he"; // ברירת מחדל לעברית
-    updateLanguage(savedLang);
+    // בדיקת השפה השמורה והגדרתה מחדש
+    const savedLang = localStorage.getItem("selectedLanguage") || "he";
+    changeLanguage(savedLang);
 });
