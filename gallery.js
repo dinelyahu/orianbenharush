@@ -1,28 +1,21 @@
+// Description: This file contains the JavaScript code for the gallery page.
 document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll(".gallery-grid img");
+    const scrollToTopButton = document.getElementById("scrollToTop");
 
-    function checkVisibility() {
-        let closestImage = null;
-        let minDistance = Infinity;
-
-        images.forEach((img) => {
-            const rect = img.getBoundingClientRect();
-            const distance = Math.abs(rect.top);
-
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestImage = img;
-            }
-        });
-
-        // מסיר את האפקט מכל התמונות ומוסיף רק לזו שבמרכז המסך
-        images.forEach(img => img.classList.remove("active"));
-        if (closestImage) {
-            closestImage.classList.add("active");
+    // הצגת הכפתור כשהמשתמש גולל מטה
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 200) {
+            scrollToTopButton.classList.add("show");
+        } else {
+            scrollToTopButton.classList.remove("show");
         }
-    }
+    });
 
-    window.addEventListener("scroll", checkVisibility);
-    checkVisibility(); // בדיקה ראשונית כשהדף נטען
+    // גלילה חזרה למעלה בלחיצה
+    scrollToTopButton.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 });
-
