@@ -7,7 +7,7 @@ body {
     height: 50px;
     margin-top: 100px;
 }
-@media(max-width: 768px){
+@media(max-width: 994px){
     .container-fluid{
         height: 50px;
         margin-top: 50px;
@@ -159,31 +159,19 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     #home {
         height: 100vh; /* גובה מותאם למסכים קטנים */
         background-size: cover; /* התאמת התמונה לגודל המסך */
         background-position: center; /* ממקם את התמונה במרכז */
     }
 }
-/* כפתור ההמבורגר - יוצג רק במסכים קטנים */
-.menu-toggle {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 1001;
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-}
+
 
 /* עיצוב סרגל הניווט הצדדי */
 .mobile-nav {
     position: fixed;
     top: 0;
-    right: -250px; /* מתחבא מחוץ למסך */
     width: 150px;
     height: 100vh;
     background: rgba(0, 0, 0, 0.8);
@@ -225,7 +213,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 /* הסרת הניווט וכפתור ההמבורגר במסכים גדולים */
-@media (min-width: 768px) {
+@media (min-width: 994px) {
     .menu-toggle, .mobile-nav {
         display: none !important;
     }
@@ -240,7 +228,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 /* עיצוב למסכים קטנים */
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .navbar-brand {
         position: absolute;
         top: 5px; /* מצמיד את הלוגו למעלה */
@@ -311,7 +299,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 
 
 /* התאמה למסכים קטנים */
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .navbar {
         flex-direction: column;
         height: auto;
@@ -350,18 +338,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     right: 0;
 }
 
-/* כפתור המבורגר */
-.menu-toggle {
-    position: absolute;
-    top: 50px;
-    right: 15px;
-    font-size: 30px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-    z-index: 1010;
-}
+
 
 /* עיצוב הקישורים בתפריט הצדדי */
 .mobile-nav ul {
@@ -393,7 +370,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 /* התאמה למסכים קטנים - הסתרת הניווט הראשי */
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .navbar-nav {
         display: none !important;
     }
@@ -403,7 +380,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     height: 20px !important; /* גובה 15 פיקסלים */
 }
 /* התאמה למסכים קטנים בלבד */
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .social-icons {
         position: absolute;
         display: flex;
@@ -476,7 +453,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 
 
 /* במסכים קטנים - הניווט יוסתר בגלילה */
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .navbar {
         position: absolute; /* הופך אותו לסטטי בגלילה */
         top: 0;
@@ -489,7 +466,7 @@ h2{
     font-family: Arial,Helvetica,sans-serif;
     font-size: 5px;
 }
-@media(max-width: 768px){
+@media(max-width: 994px){
     h2{
         font-size: 2px;
     }
@@ -509,7 +486,7 @@ h2{
 }
 
 /* במסכים קטנים - הסרת הקביעות של הניווט */
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .navbar {
         margin-bottom: -200px;
         position: relative !important; /* הניווט לא יהיה קבוע */
@@ -541,7 +518,7 @@ h2{
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .navbar-logo-container {
         left: 50%;
         transform: translateX(-50%);
@@ -589,7 +566,7 @@ h2{
     margin-bottom: 50px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 994px) {
     .gallery h2 {
         font-size: 20px;
         padding-top: 30px;
@@ -659,7 +636,7 @@ h2{
 }
 
 /* במסכים קטנים – מסתירים את הגלריה ומראים תמונה אחת */
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .gallery-grid {
         display: none;
     }
@@ -722,7 +699,7 @@ h1, h2, h3, h4, h5, h6,
     color:#5d5555
 }
 /* עיצוב תפריט הצד במסכים קטנים */
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .mobile-nav ul li a {
         font-size: calc(var(--font-size) * 0.8); /* מקטין את הכפתורים */
         padding: 8px 10px; /* מקטין ריווח */
@@ -907,7 +884,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* התאמה למסכים קטנים */
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .about-content {
         flex-direction: column;
         text-align: center;
@@ -927,7 +904,7 @@ h1, h2, h3, h4, h5, h6,
     height: 150vh;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .about-section {
         height: auto;
     }
@@ -1081,7 +1058,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* התאמה למסכים קטנים */
-@media (max-width: 768px) {
+@media (max-width: 994px) {
     .contact-container {
         flex-direction: column;
         align-items: center;

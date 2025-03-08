@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let eveningIndex = 0;
 
     function changeImage() {
-        if (window.innerWidth <= 768) { // מחליף רק במסכים קטנים
+        if (window.innerWidth <= 994) { // מחליף רק במסכים קטנים
             document.getElementById("bridal-single-image").src = bridalImages[bridalIndex];
             document.getElementById("evening-single-image").src = eveningImages[eveningIndex];
 
