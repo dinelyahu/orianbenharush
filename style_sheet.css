@@ -454,10 +454,19 @@ transition: filter 0.6s ease; /* מעבר חלק */
 .social-icons {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     position: relative;
     top: 0;
     left: 2px; /* קרוב לקצה השמאלי */
+}
+#sidelogo{
+    width: 60px !important;
+    height: 60px !important;
+    margin-top: 5%;
+}
+#sidelogo img{
+    width: 60px !important;
+    height: 60px !important;
 }
 
 
