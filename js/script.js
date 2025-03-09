@@ -341,3 +341,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedLanguage = localStorage.getItem("selectedLanguage") || "he";
     changeLanguage(savedLanguage);
 });
+document.addEventListener("DOMContentLoaded", function () {
+    // וידוא שתאריך החתונה הוא בעתיד
+    const weddingDateInput = document.getElementById("wedding-date");
+    weddingDateInput.min = new Date().toISOString().split("T")[0];
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled"); // כשהמשתמש גולל, הניווט יעלה למעלה
+        } else {
+            navbar.classList.remove("scrolled"); // כשהמשתמש חוזר למעלה, הלוגו יחזור והניווט יחזור למקומו
+        }
+    });
+});

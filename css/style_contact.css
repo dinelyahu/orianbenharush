@@ -534,7 +534,6 @@ html, body {
 
 
 .contact-container{
-    height: 80vh !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
