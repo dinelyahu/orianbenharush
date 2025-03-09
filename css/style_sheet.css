@@ -492,6 +492,7 @@ h2{
 .gallery h2 {
     font-size: 27px !important;
     margin-bottom: 50px;
+    color:#716a6a;
 }
 
 @media screen and (max-width: 994px) {
@@ -712,6 +713,9 @@ h2{
     padding: 50px ;
     margin-top: 0.5%;
 
+}
+.contact-title{
+    font-size: 27px !important;
 }
 
 .contact-section::before {
