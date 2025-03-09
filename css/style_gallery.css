@@ -639,6 +639,15 @@ html, body {
     
 }
 
+@media(max-width:994px){
+    #accessibility-button {
+        bottom: 20px !important; /* מרחק מהתחתית */
+        left: 20px !important;  /* מרחק מהצד */
+        width: 30px;
+        height: 30px;
+    }
+    
+}
 
 .monochrome-mode main, .monochrome-mode section, .monochrome-mode footer {
     filter: grayscale(100%);
