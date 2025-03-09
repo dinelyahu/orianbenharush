@@ -165,8 +165,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const langToggleEn = document.getElementById("language-toggle-en");
-    const langToggleHe = document.getElementById("language-toggle-he");
+    const langToggleEn = document.getElementById("language-toggle-he");
+    const langToggleHe = document.getElementById("language-toggle-en");
 
     // מילון טקסטים בשתי השפות
     const translations = {
@@ -224,10 +224,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // שינוי כיוון הדף
         document.documentElement.setAttribute("lang", lang);
         document.body.dir = lang === "he" ? "rtl" : "ltr";
-
-
-
-
 
 
         // עדכון תפריט הניווט
