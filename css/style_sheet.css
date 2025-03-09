@@ -218,7 +218,11 @@ html, body {
         padding: 5px 10px;
     }
 }
-
+#language-toggle-en:focus,
+#language-toggle-he:focus {
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
 #language-toggle-en:hover , #language-toggle-he:hover {
     background-color: #dadada;
     color: #000;
@@ -227,6 +231,8 @@ html, body {
     background-color: rgba(128, 128, 128, 0.3) !important; /* צבע אפור חצי שקוף */
     transition: background-color 0.2s ease-in-out !important;
 }
+
+
 
 
 /* לוודא שהתמונות נשמרות עם רקע שקוף */

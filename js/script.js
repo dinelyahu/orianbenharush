@@ -310,9 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <li><a href="contact.html">${translations[lang]["contact"]}</a></li>
         `;
 
-        // שינוי כפתורי השפה
-        document.getElementById("language-toggle-en").classList.toggle("active", lang === "he");
-        document.getElementById("language-toggle-he").classList.toggle("active", lang === "en");
+
     }
 
     // האזנה לכפתורי השפה
