@@ -140,15 +140,13 @@ html, body {
     position: fixed;
     bottom: 50px; /* גובה מהתחתית */
     right: 20px; /* מיקום בצד ימין */
-    width: 100px;
-    height: 100px;
-    background: rgba(116, 111, 111, 0.865);
+    width: 50px;
+    height: 50px;
+    background: rgba(116, 111, 111, 0.379);
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
-    line-height: 50px;
     border-radius: 50%;
-    cursor: pointer;
     transition: opacity 0.5s, transform 0.5s;
     opacity: 0; /* מוסתר כברירת מחדל */
     visibility: hidden; /* מוסתר בהתחלה */
@@ -160,17 +158,14 @@ html, body {
     .scroll-to-top {
         bottom: 20px; /* גובה מהתחתית */
         right: 20px; /* מיקום בצד ימין */
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
         text-align: center;
 
     }
 }
 
 .scroll-to-top:hover {
-    background: rgba(255, 255, 255, 0.9);
-    color: black;
+    background: rgba(255, 255, 255, 0.518);
+    color: rgb(107, 95, 95);
 }
 
 /* כשהכפתור מופיע */
@@ -714,7 +709,4 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
 .mobile-nav.open {
     right: 0; /* נפתח בדיוק 200px מצד ימין */
     z-index: 500;
-}
-.scrollToTop{
-    text-align: center;
 }
