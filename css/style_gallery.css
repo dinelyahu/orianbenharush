@@ -697,6 +697,11 @@ html, body {
 }
 
 @media (min-width: 994px){
+    nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
+        display: none;
+    }
+}
+
 nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
-    display: none;
-}}
+    top:0;
+}
