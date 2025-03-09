@@ -229,9 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.setAttribute("lang", lang);
         document.body.dir = lang === "he" ? "rtl" : "ltr";
 
-        // סימון כפתור השפה שנבחר
-        langToggleEn.classList.toggle("active", lang === "he");
-        langToggleHe.classList.toggle("active", lang === "en");
+
 
         // עדכון כל הטקסטים באתר לפי השפה
         document.querySelector(".contact-title").textContent = translations[lang]["contact-title"];

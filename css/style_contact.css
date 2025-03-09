@@ -120,23 +120,26 @@ html, body {
     position: relative;
     right: -10px;
     top: 10px;
+    text-align: center;
 }
 
 @media(max-width: 994px){
     #language-toggle-en , #language-toggle-he , .language-separator {
         font-size: 15px;
         padding: 5px 10px;
-        padding-left: 0;
     }
 }
-
+#language-toggle-en:focus,
+#language-toggle-he:focus {
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
 #language-toggle-en:hover , #language-toggle-he:hover {
     background-color: #dadada;
-    color: #000;
 }
-.language-toggle button.active {
-    background-color: rgba(128, 128, 128, 0.337) !important;
-    color: white !important;
+#language-toggle-en:active , #language-toggle-he:active {
+    background-color: rgba(128, 128, 128, 0.3) !important; /* צבע אפור חצי שקוף */
+    transition: background-color 0.2s ease-in-out !important;
 }
 
 
@@ -329,7 +332,7 @@ html, body {
     .menu-toggle {
         position: fixed;
         top: 40px;
-        right: -50px;
+        right: -25px;
         font-size: 50px;
         background: none;
         border: none;
