@@ -157,10 +157,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // מערך של תמונות רקע
     const images = [
-        "images/bridal/background1.jpg",
-        "images/bridal/background2.jpg",
-        "images/bridal/background3.jpg",
-        "images/bridal/background4.jpg"
+        "/images/bridal/background1.jpg",
+        "/images/bridal/background2.jpg",
+        "/images/bridal/background3.jpg",
+        "/images/bridal/background4.jpg"
     ];
 
     let currentIndex = 0;
@@ -179,18 +179,18 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     // רשימות התמונות לכל גלריה
     const bridalImages = [
-        "images/bridal/img1.jpg",
-        "images/bridal/img2.jpg",
-        "images/bridal/img3.jpg",
-        "images/bridal/img4.jpg",
-        "images/bridal/img5.jpg"
+        "/images/bridal/img1.jpg",
+        "/images/bridal/img2.jpg",
+        "/images/bridal/img3.jpg",
+        "/images/bridal/img4.jpg",
+        "/images/bridal/img5.jpg"
     ];
     const eveningImages = [
-        "images/evening/image1.jpeg",
-        "images/evening/image2.jpeg",
-        "images/evening/image3.jpeg",
-        "images/evening/image4.jpeg",
-        "images/evening/image5.jpeg"
+        "/images/evening/image1.jpeg",
+        "/images/evening/image2.jpeg",
+        "/images/evening/image3.jpeg",
+        "/images/evening/image4.jpeg",
+        "/images/evening/image5.jpeg"
     ];
 
     let bridalIndex = 0;
