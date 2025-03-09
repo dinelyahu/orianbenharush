@@ -21,154 +21,6 @@ html, body {
 }
 
 
-
-.carousel-inner .row .col-4 img {
-    width: 100%; /* מבטיח שהתמונה תתאים לגבולות */
-    max-height: 500px; /* גובה קבוע לכל התמונות */
-    object-fit: cover; /* חיתוך מותאם כך שהתמונות לא ימתחו */
-    border-radius: 10px; /* עיגול פינות */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* צל עדין */
-    filter: brightness(0.8); /* 80% בהירות */
-    transition: filter 0.3s ease; /* מעבר חלק */
-}
-
-
-.carousel-inner .row .col-4 img:hover {
-border:10px solid rgba(181, 186, 142, 0.584);
-filter: brightness(1.1); /* 80% בהירות */
-transition: filter 0.6s ease; /* מעבר חלק */
-}
-/* עיצוב גלריית כלות */
-#scroll-gallery {
-    position: relative;
-    margin-top: 20%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 50px 0;
-    margin: 0px;
-    margin-top: 5px;
-    color: #030303;
-    font-size: 30px;
-}
-
-/* שכבת הכהות (Overlay) */
-#scroll-gallery::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(238, 233, 221); /* 0.5 = 50% כהות, אפשר לשנות ל-0.7 אם רוצים כהה יותר */
-    border-radius: 2px; /* לשמור על הפינות המעוגלות */
-    z-index: 1;
-}
-
-/* מבטיח שהתוכן של הגלריה לא יושפע מהשכבה */
-#scroll-gallery * {
-    position: relative;
-    z-index: 2;
-}
-
-/* עיצוב גלריית שלמות ערב*/
-#evening-gallery{
-    position: relative;
-    margin-top: 1%;
-    background-image: url("images/bridal/background1.jpg"); /* תמונה כרקע */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 50px 0;
-    margin: 0px;
-    margin-top: 5px;
-    color: #fff;
-    font-size: 30px;
-}
-/* שכבת הכהות (Overlay) */
-#evening-gallery::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(238, 233, 221); /* 0.5 = 50% כהות, אפשר לשנות ל-0.7 אם רוצים כהה יותר */
-    z-index: 1;
-}
-/* מבטיח שהתוכן של הגלריה לא יושפע מהשכבה */
-#evening-gallery * {
-    position: relative;
-    z-index: 2;
-}
-
-
-@media(max-width: 994px){
-    #evening-gallery h2 , #scroll-gallery h2{
-        margin-top:0px !important;
-    }
-    #evening-gallery , #scroll-gallery{
-        height: 140vh;
-    }
-
-    
-}
-
-
-
-/* כפתור הסגירה */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    z-index: 1001; /* גבוה יותר מהתמונה */
-}
-.close:hover {
-    color: #bbb;
-    text-decoration: none;
-}
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-}
-/* מיכל לזכוכית המגדלת */
-
-.magnifier-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 30%;
-}
-
-
-
-
-.magnifier {
-    position: absolute;
-    border: 2px solid #ccc;
-    border-radius: 50%; /* הופך את הזכוכית לעגולה */
-    cursor: zoom-in;
-    width: 100px; /* גודל זכוכית המגדלת */
-    height: 100px; /* גודל זכוכית המגדלת */
-    background-color: rgba(255, 255, 255, 0.4); /* שקיפות קלה */
-    display: none; /* מוסתרת כברירת מחדל */
-    pointer-events: none; /* מונע לחיצות על הזכוכית */
-}
-
-
-@media (max-width: 994px) {
-    #home {
-        height: 100vh; /* גובה מותאם למסכים קטנים */
-        background-size: cover; /* התאמת התמונה לגודל המסך */
-        background-position: center; /* ממקם את התמונה במרכז */
-    }
-}
-
-
 /* עיצוב סרגל הניווט הצדדי */
 .mobile-nav {
     position: fixed;
@@ -225,26 +77,6 @@ transition: filter 0.6s ease; /* מעבר חלק */
         display: none !important;
     }
 }
-/* סגנון ברירת מחדל (מסכים גדולים) */
-.navbar-brand {
-    position: absolute;
-    left: 20px;
-    top: 10px;
-    height: 100%;
-    width: 200px;
-}
-
-/* עיצוב למסכים קטנים */
-@media (max-width: 994px) {
-    .navbar-brand {
-        position: absolute;
-        top: 5px; /* מצמיד את הלוגו למעלה */
-        left: 5%;
-        width: auto; /* מקטין את הלוגו */
-        height: 100%;
-    }
-}
-
 
 
 /* עיצוב התפריט המרכזי */
@@ -401,14 +233,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
     margin-right: 10px;
 }
 
-.navbar-brand-text {
-    font-size: 30px;
-    font-family: Arial,Helvetica,sans-serif;
-    margin-top: -50px;
-    color: white;
-    letter-spacing: 2px;
-    margin-bottom: 0;
-}
+
 
 
 
@@ -478,15 +303,7 @@ transition: filter 0.6s ease; /* מעבר חלק */
 }
 
 
-h2{
-    font-family: Arial,Helvetica,sans-serif;
-    font-size: 5px;
-}
-@media(max-width: 994px){
-    h2{
-        font-size: 2px;
-    }
-}
+
 .navbar-nav{
     margin-top:30px;
 }
@@ -546,122 +363,7 @@ h2{
         width: auto; /* רוחב משתנה */
     }
 }
-/* עיצוב דף הנחיתה */
-#home {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* מכסה את כל המסך */
-    background-size: cover;
-    background-position: center;
-    transition: background-image 1s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    font-size: 1.5rem;
-}
 
-/* שכבת חצי שקיפות למניעת איבוד קריאות */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.155);
-}
-/* עיצוב גלריה */
-.gallery {
-    text-align: center;
-    padding: 50px 0;
-}
-
-.gallery h2 {
-    font-size: 27px !important;
-    margin-bottom: 50px;
-}
-
-@media screen and (max-width: 994px) {
-    .gallery h2 {
-        font-size: 20px;
-        padding-top: 30px;
-
-    }
-    
-}
-/* רשת התמונות */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    padding: 0 20px;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 60vh;
-    object-fit: cover;
-    border-radius: 3px;
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-}
-
-/* כפתור "לצפייה מלאה" */
-.view-more-button, .back-button {
-    display: inline-block;
-    margin-top:3%;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    background:transparent;
-    border :2px solid #a29b9b;
-    color: #777272;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.view-more-button:hover, .back-button:hover {
-    background: rgba(255, 255, 255, 0.657);
-}
-/* ברירת מחדל – הצגת הגלריה הרגילה */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    padding: 0 20px;
-}
-
-/* תמונה בודדת – מוסתרת כברירת מחדל */
-.single-image-container {
-    display: none;
-    text-align: center;
-}
-
-.single-image-container img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    border-radius: 5px;
-    border:3px solid #ffffff;
-}
-
-/* במסכים קטנים – מסתירים את הגלריה ומראים תמונה אחת */
-@media (max-width: 994px) {
-    .gallery-grid {
-        display: none;
-    }
-
-    .single-image-container {
-        display: block;
-    }
-}
 
 
 /* תפריט נגישות - מוסתר כברירת מחדל */
@@ -765,7 +467,6 @@ h2{
     padding: 80px 10%;
     text-align: center;
     color: #ffffff22;
-    margin-top: 0.5%;
 
 }
 
@@ -788,126 +489,6 @@ h2{
     z-index: 2;
 }
 
-
-
-/* סידור האלמנטים של הטקסט והתמונה */
-.about-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1100px;
-    margin: auto;
-}
-
-/* עיצוב הטקסט */
-.about-text {
-    flex: 1;
-    text-align: center;
-    max-width: 500px;
-}
-
-
-
-
-
-.about-text h3 {
-    font-size: 22px;
-    margin-top: 20px;
-    color: #4d4646;
-}
-
-.about-text p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #716868;
-}
-
-
-
-/* עיצוב הוידאו */
-.about-video {
-    position: relative;
-    text-align: center;
-    max-width: 500px;
-    margin: auto;
-    margin-right: 100px;
-}
-
-.about-video video {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border:5px solid #6b656551;
-    max-height: 120vh;
-
-}
-
-/* כפתור ניגון/עצירה */
-#toggleVideo {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#toggleVideo:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-
-/* כפתור יצירת קשר */
-.contact-button {
-    display: inline-block;
-    margin-top:3%;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    background-color: #89898770 !important;
-    border :2px solid #a29b9b !important;
-    color: #5b5555 !important;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.contact-button:hover {
-    background: rgba(255, 255, 255, 0.479) !important;
-}
-
-/* התאמה למסכים קטנים */
-@media (max-width: 994px) {
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-text {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-}
-.full-screen{
-    height: 100vh;
-    
-}
-
-.about-section{
-    height: 150vh;
-}
-
-@media (max-width: 994px) {
-    .about-section {
-        height: auto;
-    }
-}
 /* עיצוב ברירת מחדל של הניווט */
 .navbar {
     position: fixed;
@@ -935,218 +516,122 @@ h2{
     transform: translateY(-20px);
     pointer-events: none; /* מונע לחיצות על הלוגו כשהוא מוסתר */
 }
-.contact-section {
-    position: relative;
-    background-image: url("images/IMG_7631.JPG");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 50px ;
-    margin-top: 0.5%;
-
-}
-
-.contact-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(128, 120, 120, 0.674); /* משנה את רמת הכהות */
-    z-index: 1;
-}
-
-/* ודא שהתוכן יוצג מעל השכבה */
-.contact-section * {
-    position: relative;
-    z-index: 2;
-    color:rgb(252, 252, 252) !important;
-    text-align: center;
-    font-size: 18px;
-}
-
-@media (max-width: 994px) {
-    .contact-section {
-    height: 160vh;   
-    }
-    .contact-section::before {
-    height: 160vh !important;
-    }
-}
 
 
-.contact-container{
-    height: 80vh !important;
+.about-section {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    flex-wrap: wrap; /* כדי להתאים למסכים קטנים */
-    height: 100%;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f8f8f8;
+    padding: 50px;
+    text-align: right;
+    padding-top: 10%;
 }
-.contact-form {
+
+.container {
+    max-width: 1100px;
+    display: flex;
+    gap: 40px;
+    background:transparent;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* טור שמאלי - סרטון */
+.about-video {
     flex: 1;
+    position: relative;
+    text-align: center;
     max-width: 500px;
     margin: auto;
-    padding: 20px;
-    border-radius: 10px;
+    margin-right: 100px;
+    
+}
 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    direction: rtl;
+.about-video video {
+    width: 100%;
+    border-radius: 8px;
+    border:2px solid #6b656551;
+    max-height: 120vh;
+}
+
+/* טור ימני - תוכן מחולק לשלושה חלקים */
+.text-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+}
+
+.text-section {
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+
+h2 {
+    font-size: 24px;
+    color: #524d4d !important;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    padding-top: 20px;
+}
+.contact-button{
+    background-color: #453f3f6f;
+    border:3px solid #c0b9b9b6;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+.contact-button:hover{
+    background-color: #c4b9b96f;
+
+}
+
+.contact-button a{
+    color: rgb(255, 255, 255) !important;
+    border:none;
+    text-decoration: none;
+    font-weight: bold;
+
 }
 
 @media (max-width: 994px) {
-    .contact-form {
-        max-width: 100%;
-        }
-        .date-container input {
-            flex: 1; /* גורם לשדה להתפרס כדי שייראה מסודר */
-            min-width: 40% !important; /* מבטיח שלא יהיה קטן מדי */
-        }
+    .about-section {
+        padding: 20px;
+    }
+    .container {
+        flex-direction: column; /* הופך את הסדר לעמודה במסכים קטנים */
+        align-items: center; /* מרכז את התוכן */
+        text-align: center; /* ממרכז טקסט */
+        max-width: 100vw; /* גורם לסרטון להיות על כל הרוחב */
+    }
+
+    .about-video {
+        order: 2; /* הסרטון יופיע אחרי הטקסט */
+        margin: 20px 0; /* מוסיף מרווח */
+        width: 100%; /* גורם לסרטון להיות על כל הרוחב */
+        max-width: 100%; /* גורם לסרטון להימתח לפי הרוחב */
+    }
+
+    .text-container {
+        order: 1; /* הטקסט יופיע קודם */
+        width: 100%; /* גורם לטקסט להיות על כל הרוחב */
+        text-align: center; /* ממקד את הטקסט */
+    }
+
+    .about-video video {
+        width: 100%; /* הסרטון ימלא את הרוחב */
+    }
+    .text-container {
+        margin-top: 130px ;
+        
+    }
 }
-
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    background: transparent; /* רקע שקוף לשדות */
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.6); /* קו דק ועדין */
-    color: white;
-    font-size: 16px;
-    outline: none;
-    direction: ltr;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
-}
-
-.contact-form button {
-    width: 100%;
-    padding: 12px;
-    background: rgb(69, 67, 67);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.contact-form button:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-
-
-
-.contact-form, .contact-text {
-    margin: auto;
-}
-
-
-.contact-text {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    direction: ltr;
-}
-
-/* הפיכת כל שורה לפריסה אופקית (לוגו + טקסט בשורה אחת) */
-.contact-item {
-    display: flex;
-    gap: 20px !important; /* רווח בין האייקון לטקסט */
-    margin:auto;
-}
-
-.contact-item img {
-    width: 30px;
-    height: 30px;
-}
-
-.contact-item p {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 100;
-}
-
-
-
-
-
-input::placeholder, 
-textarea::placeholder {
-    font-size: 20px !important; /* הגדלת הטקסט */
-    color: white; /* שינוי צבע כדי להתאים לרקע (התאם לפי הצורך) */
-    text-align: right; /* יישור הטקסט לימין */
-    opacity: 1; /* לוודא שהטקסט לא חצי שקוף */
-}
-
-input, textarea {
-    text-align: right; /* יישור הטקסט לימין */
-    color: white; /* שינוי צבע הטקסט אם צריך */
-    background: transparent; /* לוודא שהרקע שקוף */
-    border: 1px solid white; /* להדגיש את שדות הקלט */
-    background-color: transparent !important;
-    border:1px solid white !important;
-    resize: none !important;
-}
-input:focus, textarea:focus {
-background-color: #f0e6e633 !important;
-outline: none !important; /* מסיר את המסגרת הכחולה */
-box-shadow: 0 0 10px #f9f9f8 !important; /* אפקט זוהר עדין */
-}
-.date-label {
-    color: rgba(255, 255, 255, 0.652); /* הופך את התווית ללבנה */
-    display: block;
-    margin-bottom: 5px;
-    text-align: right;
-}
-.date-container {
-    display: flex;
-    align-items: center; /* יישור אנכי */
-    gap: 10px; /* ריווח קטן בין התווית לשדה */
-}
-
-.date-container label {
-    white-space: nowrap; /* מונע מהתווית לעבור שורה */
-
-}
-
-.date-container input {
-    flex: 1; /* גורם לשדה להתפרס כדי שייראה מסודר */
-    min-width: 150px; /* מבטיח שלא יהיה קטן מדי */
-}
-
-
-
-.submit-btn{
-    display: inline-block;
-    margin-top:3%;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    background:transparent !important;
-    border :2px solid #a29b9b !important;
-    color: #ffffff !important;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-.submit-btn:hover {
-    background: rgba(255, 255, 255, 0.657) !important;
-}
-
-.about-section .container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* מיישר את התוכן לצד ימין */
-    text-align: right;
-}
-
