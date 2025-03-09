@@ -424,7 +424,7 @@ h2{
     .menu-toggle {
         position: fixed;
         top: 40px;
-        right: 10px;
+        right: 0px;
         font-size: 50px;
         background: none;
         border: none;
