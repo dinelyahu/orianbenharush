@@ -524,9 +524,9 @@ html, body {
 }
 
 /* כפתור "לצפייה מלאה" */
-.view-more-button, .back-button {
+.view-more-button {
     display: inline-block;
-    margin-top:3%;
+    margin: 50px auto; /* מרווח שווה מלמעלה ולמטה, ממרכז את הכפתור */
     margin-bottom: 10px;
     padding: 10px 15px;
     background:transparent;
@@ -538,9 +538,22 @@ html, body {
     transition: 0.3s;
 }
 
-.view-more-button:hover, .back-button:hover {
+.view-more-button:hover {
     background: rgba(255, 255, 255, 0.657);
 }
+
+@media (max-width: 994px) {
+    .view-more-button, .back-button {
+        margin: 5px auto !important; /* הקטנת המרווח למניעת בריחה */
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    #evening-gallery, #scroll-gallery {
+        padding-bottom: 50px !important; /* מוסיף padding בתחתית הסקשן למניעת בריחת כפתור */
+    }
+}
+
 /* ברירת מחדל – הצגת הגלריה הרגילה */
 .gallery-grid {
     display: grid;
