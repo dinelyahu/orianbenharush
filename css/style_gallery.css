@@ -162,6 +162,14 @@ html, body {
 
     }
 }
+@media (max-width: 774px) {
+    .scroll-to-top {
+        bottom: 20px; /* גובה מהתחתית */
+        right: 20px; /* מיקום בצד ימין */
+        text-align: center;
+
+    }
+}
 
 .scroll-to-top:hover {
     background: rgba(255, 255, 255, 0.518);
