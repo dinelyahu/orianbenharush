@@ -22,82 +22,7 @@ html, body {
 
 
 
-/* עיצוב גלריית כלות */
-#scroll-gallery {
-    position: relative;
-    margin-top: 20%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 50px 0;
-    margin: 0px;
-    margin-top: 5px;
-    color: #030303;
-    font-size: 30px;
-}
 
-/* שכבת הכהות (Overlay) */
-#scroll-gallery::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(238, 233, 221); /* 0.5 = 50% כהות, אפשר לשנות ל-0.7 אם רוצים כהה יותר */
-    border-radius: 2px; /* לשמור על הפינות המעוגלות */
-    z-index: 1;
-}
-
-/* מבטיח שהתוכן של הגלריה לא יושפע מהשכבה */
-#scroll-gallery * {
-    position: relative;
-    z-index: 2;
-}
-
-/* עיצוב גלריית שלמות ערב*/
-#evening-gallery{
-    position: relative;
-    margin-top: 1%;
-    background-image: url("images/bridal/background1.jpg"); /* תמונה כרקע */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 50px 0;
-    margin: 0px;
-    margin-top: 5px;
-    color: #fff;
-    font-size: 30px;
-}
-/* שכבת הכהות (Overlay) */
-#evening-gallery::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(238, 233, 221); /* 0.5 = 50% כהות, אפשר לשנות ל-0.7 אם רוצים כהה יותר */
-    z-index: 1;
-}
-/* מבטיח שהתוכן של הגלריה לא יושפע מהשכבה */
-#evening-gallery * {
-    position: relative;
-    z-index: 2;
-}
-
-
-@media(max-width: 994px){
-    #evening-gallery h2 , #scroll-gallery h2{
-        margin-top:0px !important;
-        padding: 0;
-    }
-    #evening-gallery , #scroll-gallery{
-        height: 130vh;
-    }
-
-    
-}
 
 
 
@@ -460,7 +385,7 @@ html, body {
 #home {
     position: relative;
     width: 100%;
-    height: 100vh; /* מכסה את כל המסך */
+    height: 100vh !important; /* מכסה את כל המסך */
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out;
@@ -470,6 +395,9 @@ html, body {
     text-align: center;
     color: white;
     font-size: 1.5rem;
+}
+@media (max-width: 994px){
+    #home{height: 100vh;}
 }
 
 /* שכבת חצי שקיפות למניעת איבוד קריאות */
@@ -484,29 +412,22 @@ html, body {
 /* עיצוב גלריה */
 .gallery {
     text-align: center;
-    padding: 50px 0;
+    margin-top: 0.5%;
+    background-color: #f1e5c44b;
 }
 
 .gallery h2 {
     font-size: 27px !important;
-    margin-bottom: 50px;
     color:#716a6a;
+    padding: 30px;
 }
 
-@media screen and (max-width: 994px) {
-    .gallery h2 {
-        font-size: 20px;
-        padding-top: 30px;
 
-    }
-    
-}
 /* רשת התמונות */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
-    padding: 0 20px;
 }
 
 .gallery-grid img {
@@ -527,8 +448,7 @@ html, body {
 .view-more-button {
     display: inline-block;
     margin: 50px auto; /* מרווח שווה מלמעלה ולמטה, ממרכז את הכפתור */
-    margin-bottom: 10px;
-    padding: 10px 15px;
+    padding: 15px;
     background:transparent;
     border :2px solid #a29b9b;
     color: #777272;
@@ -542,25 +462,8 @@ html, body {
     background: rgba(255, 255, 255, 0.657);
 }
 
-@media (max-width: 994px) {
-    .view-more-button, .back-button {
-        margin: 5px auto !important; /* הקטנת המרווח למניעת בריחה */
-        font-size: 14px;
-        padding: 6px 10px;
-    }
 
-    #evening-gallery, #scroll-gallery {
-        padding-bottom: 50px !important; /* מוסיף padding בתחתית הסקשן למניעת בריחת כפתור */
-    }
-}
 
-/* ברירת מחדל – הצגת הגלריה הרגילה */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    padding: 0 20px;
-}
 
 /* תמונה בודדת – מוסתרת כברירת מחדל */
 .single-image-container {
@@ -682,10 +585,7 @@ html, body {
 }
 
 
-.full-screen{
-    height: 100vh;
-    
-}
+
 
 
 /* עיצוב ברירת מחדל של הניווט */
@@ -723,6 +623,8 @@ html, body {
     background-repeat: no-repeat;
     padding: 50px ;
     margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    height: 100vh;
 
 }
 .contact-title{
