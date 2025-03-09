@@ -223,9 +223,9 @@ html, body {
     background-color: #dadada;
     color: #000;
 }
-.language-toggle .back-button:active {
-    background-color: rgba(128, 128, 128, 0.337) !important;
-    color: white !important;
+#language-toggle-en:active , #language-toggle-he:active {
+    background-color: rgba(128, 128, 128, 0.3) !important; /* צבע אפור חצי שקוף */
+    transition: background-color 0.2s ease-in-out !important;
 }
 
 
@@ -391,15 +391,6 @@ html, body {
 }
 
 
-h2{
-    font-family: Arial,Helvetica,sans-serif;
-    font-size: 5px;
-}
-@media(max-width: 994px){
-    h2{
-        font-size: 2px;
-    }
-}
 .navbar-nav{
     margin-top:30px;
 }

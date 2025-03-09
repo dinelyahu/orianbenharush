@@ -40,20 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const mobileNav = document.getElementById("mobile-nav");
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileNavLinks = document.querySelectorAll("#mobile-nav ul li a");
 
-    if (mobileNav && menuToggle) {
-        // הוספת אירוע לכל קישור בתפריט
-        mobileNavLinks.forEach(link => {
-            link.addEventListener("click", function () {
-                mobileNav.classList.remove("open"); // סגירת התפריט
-            });
-        });
-    }
-});
 
 document.addEventListener("DOMContentLoaded", function () {
     const accessibilityButton = document.getElementById("accessibility-button");
@@ -330,11 +317,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // האזנה לכפתורי השפה
     document.getElementById("language-toggle-en").addEventListener("click", function () {
-        changeLanguage("he");
+        changeLanguage("en");
     });
 
     document.getElementById("language-toggle-he").addEventListener("click", function () {
-        changeLanguage("en");
+        changeLanguage("he");
     });
 
     // בדיקה אם יש שפה שמורה בלוקאל סטורג'
