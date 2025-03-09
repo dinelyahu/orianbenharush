@@ -90,6 +90,7 @@ html, body {
 @media(max-width: 994px){
     #evening-gallery h2 , #scroll-gallery h2{
         margin-top:0px !important;
+        padding: 0;
     }
     #evening-gallery , #scroll-gallery{
         height: 130vh;
