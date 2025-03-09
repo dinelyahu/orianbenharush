@@ -153,66 +153,6 @@ window.toggleBoldText = function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const homeSection = document.getElementById("home");
-
-    // מערך של תמונות רקע
-    const images = [
-        "images/bridal/background1.jpg",
-        "images/bridal/background2.jpg",
-        "images/bridal/background3.jpg",
-        "images/bridal/background4.jpg"
-    ];
-
-    let currentIndex = 0;
-
-    function changeBackground() {
-        homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
-        currentIndex = (currentIndex + 1) % images.length; // לעבור לתמונה הבאה, ואם מגיעים לסוף - להתחיל מחדש
-    }
-
-    // הפעלת שינוי רקע כל 5 שניות
-    setInterval(changeBackground, 5000);
-
-    // הצגת תמונה ראשונה מיד עם טעינת הדף
-    changeBackground();
-});
-document.addEventListener("DOMContentLoaded", function () {
-    // רשימות התמונות לכל גלריה
-    const bridalImages = [
-        "images/bridal/img1.jpg",
-        "images/bridal/img2.jpg",
-        "images/bridal/img3.jpg",
-        "images/bridal/img4.jpg",
-        "images/bridal/img5.jpg"
-    ];
-    const eveningImages = [
-        "images/evening/image1.jpeg",
-        "images/evening/image2.jpeg",
-        "images/evening/image3.jpeg",
-        "images/evening/image4.jpeg",
-        "images/evening/image5.jpeg"
-    ];
-
-    let bridalIndex = 0;
-    let eveningIndex = 0;
-
-    function changeImage() {
-        if (window.innerWidth <= 994) { // מחליף רק במסכים קטנים
-            document.getElementById("bridal-single-image").src = bridalImages[bridalIndex];
-            document.getElementById("evening-single-image").src = eveningImages[eveningIndex];
-
-            bridalIndex = (bridalIndex + 1) % bridalImages.length;
-            eveningIndex = (eveningIndex + 1) % eveningImages.length;
-        }
-    }
-
-    // החלפת תמונה כל שנייה
-    setInterval(changeImage, 2000);
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.querySelector(".navbar");
 
     window.addEventListener("scroll", function () {
@@ -225,138 +165,119 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const languageButtonEn = document.getElementById("language-toggle-en");
-    const languageButtonHe = document.getElementById("language-toggle-he");
+    // וידוא שתאריך החתונה הוא בעתיד
+    const weddingDateInput = document.getElementById("wedding-date");
+    weddingDateInput.min = new Date().toISOString().split("T")[0];
+});
 
-    // אובייקט עם התרגומים
+document.addEventListener("DOMContentLoaded", function () {
+    const langToggleEn = document.getElementById("language-toggle-en");
+    const langToggleHe = document.getElementById("language-toggle-he");
+
+    // מילון טקסטים בשתי השפות
     const translations = {
-        en: {
-            home: "Home",
-            bridal: "Bridal Dresses",
-            evening: "Evening Dresses",
-            about: "About",
-            contact: "Contact",
-            bridalCollection: "Bridal Collection",
-            eveningCollection: "Evening Collection",
-            contactTitle: "Contact Us",
-            namePlaceholder: "Full Name",
-            phonePlaceholder: "Phone",
-            emailPlaceholder: "Email",
-            messagePlaceholder: "Message",
-            weddingDateLabel: "Wedding Date",
-            submitButton: "Send",
-            address: "Achi Eilat 5, Haifa",
-            navigateWaze: "Navigate with Waze",
-            viewBridal: "View Bridal Collection",
-            viewEvening: "View Evening Collection",
-            accessibilityMenu: "Accessibility Menu",
-            increaseFont: "Increase Font Size ➕",
-            decreaseFont: "Decrease Font Size ➖",
-            highContrast: "High Contrast Mode",
-            highlightLinks: "Highlight Links",
-            disableAnimations: "Disable Animations",
-            monochromeMode: "Monochrome Mode",
-            boldText: "Bold Text",
-            resetSettings: "Reset Settings"
+        "he": {
+            "contact-title": "צרו קשר",
+            "submit-btn": "שלח",
+            "name-placeholder": "שם מלא",
+            "phone-placeholder": "טלפון",
+            "email-placeholder": "אימייל",
+            "message-placeholder": "הודעה",
+            "wedding-date-label": "תאריך החתונה",
+            "nav-home": "דף הבית",
+            "nav-bridal": "שמלות כלה",
+            "nav-evening": "שמלות ערב",
+            "nav-about": "אודות",
+            "nav-contact": "צרו קשר",
+            "accessibility-btn": "נגישות",
+            "increase-font": "הגדלת פונט ➕",
+            "decrease-font": "הקטנת פונט ➖",
+            "high-contrast": "ניגודיות גבוהה",
+            "highlight-links": "הדגשת קישורים",
+            "disable-animations": "חסימת אנימציות",
+            "monochrome": "מצב מונוכרום",
+            "bold-text": "הדגשת טקסט (Bold)",
+            "reset-accessibility": "איפוס הגדרות"
         },
-        he: {
-            home: "דף הבית",
-            bridal: "שמלות כלה",
-            evening: "שמלות ערב",
-            about: "אודות",
-            contact: "צרו קשר",
-            bridalCollection: "קולקציית כלות",
-            eveningCollection: "קולקציית ערב",
-            contactTitle: "צרו קשר",
-            namePlaceholder: "שם מלא",
-            phonePlaceholder: "טלפון",
-            emailPlaceholder: "אימייל",
-            messagePlaceholder: "הודעה",
-            weddingDateLabel: "תאריך החתונה",
-            submitButton: "שלח",
-            address: "שדרות אח\"י אילת 5, חיפה",
-            navigateWaze: "נווט עם Waze",
-            viewBridal: "לקולקציית שמלות הכלה",
-            viewEvening: "לקולקציית שמלות הערב",
-            accessibilityMenu: "תפריט נגישות",
-            increaseFont: "הגדלת פונט ➕",
-            decreaseFont: "הקטנת פונט ➖",
-            highContrast: "מצב ניגודיות גבוהה",
-            highlightLinks: "הדגשת קישורים",
-            disableAnimations: "חסימת אנימציות",
-            monochromeMode: "מצב מונוכרום",
-            boldText: "הדגשת טקסט",
-            resetSettings: "איפוס הגדרות"
+        "en": {
+            "contact-title": "Contact Us",
+            "submit-btn": "Send",
+            "name-placeholder": "Full Name",
+            "phone-placeholder": "Phone",
+            "email-placeholder": "Email",
+            "message-placeholder": "Message",
+            "wedding-date-label": "Wedding Date",
+            "nav-home": "Home",
+            "nav-bridal": "Bridal Dresses",
+            "nav-evening": "Evening Dresses",
+            "nav-about": "About",
+            "nav-contact": "Contact",
+            "accessibility-btn": "Accessibility",
+            "increase-font": "Increase Font ➕",
+            "decrease-font": "Decrease Font ➖",
+            "high-contrast": "High Contrast",
+            "highlight-links": "Highlight Links",
+            "disable-animations": "Disable Animations",
+            "monochrome": "Monochrome Mode",
+            "bold-text": "Bold Text",
+            "reset-accessibility": "Reset Settings"
         }
     };
 
-    // פונקציה להחלפת שפה
-    function changeLanguage(lang) {
-        document.documentElement.lang = lang; // שינוי השפה של הדף
+    function setLanguage(lang) {
+        // שינוי כיוון הדף
+        document.documentElement.setAttribute("lang", lang);
+        document.body.dir = lang === "he" ? "rtl" : "ltr";
 
-        // תפריט ראשי
-        document.querySelector(".nav-link[href='#home']").textContent = translations[lang].home;
-        document.querySelector(".nav-link[href='bridal.html']").textContent = translations[lang].bridal;
-        document.querySelector(".nav-link[href='evening.html']").textContent = translations[lang].evening;
-        document.querySelector(".nav-link[href='about.html']").textContent = translations[lang].about;
-        document.querySelector(".nav-link[href='#contact']").textContent = translations[lang].contact;
+        // סימון כפתור השפה שנבחר
+        langToggleEn.classList.toggle("active", lang === "he");
+        langToggleHe.classList.toggle("active", lang === "en");
 
-        // כותרות גלריה
-        document.querySelector("#scroll-gallery h2").textContent = translations[lang].bridalCollection;
-        document.querySelector("#evening-gallery h2").textContent = translations[lang].eveningCollection;
+        // עדכון כל הטקסטים באתר לפי השפה
+        document.querySelector(".contact-title").textContent = translations[lang]["contact-title"];
+        document.querySelector(".submit-btn").textContent = translations[lang]["submit-btn"];
 
-        // טופס יצירת קשר
-        document.querySelector(".contact-title").textContent = translations[lang].contactTitle;
-        document.getElementById("name").placeholder = translations[lang].namePlaceholder;
-        document.getElementById("phone").placeholder = translations[lang].phonePlaceholder;
-        document.getElementById("email").placeholder = translations[lang].emailPlaceholder;
-        document.getElementById("message").placeholder = translations[lang].messagePlaceholder;
-        document.querySelector(".date-label").textContent = translations[lang].weddingDateLabel;
-        document.querySelector(".submit-btn").textContent = translations[lang].submitButton;
-        document.querySelectorAll(".contact-item p")[1].textContent = translations[lang].address;
-        document.querySelectorAll(".contact-item p")[3].textContent = translations[lang].navigateWaze;
+        // עדכון placeholder בשדות הטופס
+        document.getElementById("name").placeholder = translations[lang]["name-placeholder"];
+        document.getElementById("phone").placeholder = translations[lang]["phone-placeholder"];
+        document.getElementById("email").placeholder = translations[lang]["email-placeholder"];
+        document.getElementById("message").placeholder = translations[lang]["message-placeholder"];
+        document.querySelector(".date-label").textContent = translations[lang]["wedding-date-label"];
 
-        // כפתורים של קולקציות שמלות
-        document.querySelector(".view-more-button[href='bridal.html']").textContent = translations[lang].viewBridal;
-        document.querySelector(".view-more-button[href='evening.html']").textContent = translations[lang].viewEvening;
+        // עדכון תפריט הניווט
+        document.querySelector(".navbar-nav .nav-item a[href='/']").textContent = translations[lang]["nav-home"];
+        document.querySelector("a[href='bridal.html']").textContent = translations[lang]["nav-bridal"];
+        document.querySelector("a[href='evening.html']").textContent = translations[lang]["nav-evening"];
+        document.querySelector("a[href='about.html']").textContent = translations[lang]["nav-about"];
+        document.querySelector("a[href='contact.html']").textContent = translations[lang]["nav-contact"];
 
-        // תפריט הצד (MobileNav)
-        document.querySelector("#mobile-nav ul li a[href='#home']").textContent = translations[lang].home;
-        document.querySelector("#mobile-nav ul li a[href='#scroll-gallery']").textContent = translations[lang].bridal;
-        document.querySelector("#mobile-nav ul li a[href='#evening-gallery']").textContent = translations[lang].evening;
-        document.querySelector("#mobile-nav ul li a[href='#about']").textContent = translations[lang].about;
-        document.querySelector("#mobile-nav ul li a[href='#contact']").textContent = translations[lang].contact;
+        // עדכון תפריט הצד (Mobile Nav)
+        document.querySelector("#mobile-nav a[href='/']").textContent = translations[lang]["nav-home"];
+        document.querySelector("#mobile-nav a[href='bridal.html']").textContent = translations[lang]["nav-bridal"];
+        document.querySelector("#mobile-nav a[href='evening.html']").textContent = translations[lang]["nav-evening"];
+        document.querySelector("#mobile-nav a[href='about.html']").textContent = translations[lang]["nav-about"];
+        document.querySelector("#mobile-nav a[href='contact.html']").textContent = translations[lang]["nav-contact"];
 
-        // תפריט הנגישות
-        document.querySelector("#accessibility-menu button:nth-child(1)").textContent = translations[lang].increaseFont;
-        document.querySelector("#accessibility-menu button:nth-child(2)").textContent = translations[lang].decreaseFont;
-        document.querySelector("#accessibility-menu button:nth-child(3)").textContent = translations[lang].highContrast;
-        document.querySelector("#accessibility-menu button:nth-child(4)").textContent = translations[lang].highlightLinks;
-        document.querySelector("#accessibility-menu button:nth-child(5)").textContent = translations[lang].disableAnimations;
-        document.querySelector("#accessibility-menu button:nth-child(6)").textContent = translations[lang].monochromeMode;
-        document.querySelector("#accessibility-menu button:nth-child(7)").textContent = translations[lang].boldText;
-        document.querySelector("#accessibility-menu button:nth-child(8)").textContent = translations[lang].resetSettings;
+        // עדכון תפריט הנגישות
 
-        // שינוי מצב הכפתורים
-        languageButtonHe.classList.toggle("active", lang === "en");
-        languageButtonEn.classList.toggle("active", lang === "he");
+        document.querySelector("#accessibility-menu button:nth-child(1)").textContent = translations[lang]["increase-font"];
+        document.querySelector("#accessibility-menu button:nth-child(2)").textContent = translations[lang]["decrease-font"];
+        document.querySelector("#accessibility-menu button:nth-child(3)").textContent = translations[lang]["high-contrast"];
+        document.querySelector("#accessibility-menu button:nth-child(4)").textContent = translations[lang]["highlight-links"];
+        document.querySelector("#accessibility-menu button:nth-child(5)").textContent = translations[lang]["disable-animations"];
+        document.querySelector("#accessibility-menu button:nth-child(6)").textContent = translations[lang]["monochrome"];
+        document.querySelector("#accessibility-menu button:nth-child(7)").textContent = translations[lang]["bold-text"];
+        document.querySelector("#accessibility-menu button:nth-child(8)").textContent = translations[lang]["reset-accessibility"];
 
-        // שמירת השפה שנבחרה ב-Local Storage כדי שתישמר גם בטעינות הבאות
+        // שמירת השפה ב-localStorage כדי שההגדרה תישמר לאחר טעינה מחדש
         localStorage.setItem("selectedLanguage", lang);
     }
 
-    // אירועי לחיצה על כפתורי השפה
-    languageButtonEn.addEventListener("click", (event) => {
-        event.stopPropagation();
-        changeLanguage("he");
-    });
-
-    languageButtonHe.addEventListener("click", (event) => {
-        event.stopPropagation();
-        changeLanguage("en");
-    });
-
-    // בדיקת השפה השמורה והגדרתה מחדש
+    // טעינת השפה שנבחרה בעבר אם קיימת, אחרת ברירת מחדל היא עברית
     const savedLang = localStorage.getItem("selectedLanguage") || "he";
-    changeLanguage(savedLang);
+    setLanguage(savedLang);
+
+    // האזנה ללחיצות על הכפתורים
+    langToggleEn.addEventListener("click", () => setLanguage("he"));
+    langToggleHe.addEventListener("click", () => setLanguage("en"));
 });
