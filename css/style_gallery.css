@@ -715,3 +715,6 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
     right: 0; /* נפתח בדיוק 200px מצד ימין */
     z-index: 500;
 }
+.scrollToTop{
+    text-align: center;
+}
