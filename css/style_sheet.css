@@ -209,13 +209,13 @@ html, body {
     position: relative;
     right: -10px;
     top: 10px;
+    text-align: center;
 }
 
 @media(max-width: 994px){
     #language-toggle-en , #language-toggle-he , .language-separator {
         font-size: 15px;
         padding: 5px 10px;
-        padding-left: 0;
     }
 }
 
@@ -223,7 +223,7 @@ html, body {
     background-color: #dadada;
     color: #000;
 }
-.language-toggle button.active {
+.language-toggle .back-button:active {
     background-color: rgba(128, 128, 128, 0.337) !important;
     color: white !important;
 }
@@ -425,7 +425,7 @@ h2{
     .menu-toggle {
         position: fixed;
         top: 40px;
-        right: -50px !important;
+        right: -25px !important;
         font-size: 50px;
         background: none;
         border: none;
