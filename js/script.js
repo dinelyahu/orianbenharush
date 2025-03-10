@@ -206,8 +206,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const eveningImg = document.getElementById("evening-single-image");
 
             // אנימציה - מעבר רך
-            bridalImg.style.transition = "opacity 1.5s ease-in-out";
-            eveningImg.style.transition = "opacity 1.5s ease-in-out";
+            bridalImg.style.transition = "opacity 1s ease-in-out";
+            eveningImg.style.transition = "opacity 1s ease-in-out";
 
             bridalImg.style.opacity = "0"; // מתחיל להיעלם
             eveningImg.style.opacity = "0"; 
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    setInterval(changeImage, 4000); // מחליף תמונה כל 4 שניות
+    setInterval(changeImage, 3000); // מחליף תמונה כל 4 שניות
     changeImage(); // שינוי ראשון מיידי
 });
 
