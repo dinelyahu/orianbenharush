@@ -209,8 +209,8 @@ document.addEventListener("DOMContentLoaded", function () {
             bridalImg.style.transition = "opacity 1s ease-in-out";
             eveningImg.style.transition = "opacity 1s ease-in-out";
 
-            bridalImg.style.opacity = "0"; // מתחיל להיעלם
-            eveningImg.style.opacity = "0"; 
+            bridalImg.style.opacity = "0.3"; // מתחיל להיעלם
+            eveningImg.style.opacity = "0.3"; 
 
             setTimeout(() => {
                 bridalImg.src = bridalImages[bridalIndex];
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 bridalIndex = (bridalIndex + 1) % bridalImages.length;
                 eveningIndex = (eveningIndex + 1) % eveningImages.length;
-            }, 1500); // מחליף אחרי 1.5 שניות של דעיכה
+            }, 500); // מחליף אחרי 1.5 שניות של דעיכה
         }
     }
 
