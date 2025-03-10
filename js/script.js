@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const elementsToTranslate = {
-        "home": document.querySelector(".nav-link[href='#home']"),
+        "home": document.querySelector(".nav-link[href='/']"),
         "bridal": document.querySelector(".nav-link[href='bridal.html']"),
         "evening": document.querySelector(".nav-link[href='evening.html']"),
         "about": document.querySelector(".nav-link[href='about.html']"),
