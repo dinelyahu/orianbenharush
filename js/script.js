@@ -176,7 +176,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    // רשימות התמונות לכל גלריה
     const bridalImages = [
         "/images/bridal/img1.jpg",
         "/images/bridal/img2.jpg",
@@ -195,18 +194,39 @@ document.addEventListener("DOMContentLoaded", function () {
     let bridalIndex = 0;
     let eveningIndex = 0;
 
-    function changeImage() {
-        if (window.innerWidth <= 994) { // מחליף רק במסכים קטנים
-            document.getElementById("bridal-single-image").src = bridalImages[bridalIndex];
-            document.getElementById("evening-single-image").src = eveningImages[eveningIndex];
+    // טעינה מוקדמת של כל התמונות
+    [...bridalImages, ...eveningImages].forEach(image => {
+        const img = new Image();
+        img.src = image;
+    });
 
-            bridalIndex = (bridalIndex + 1) % bridalImages.length;
-            eveningIndex = (eveningIndex + 1) % eveningImages.length;
+    function changeImage() {
+        if (window.innerWidth <= 994) { // רק במסכים קטנים
+            const bridalImg = document.getElementById("bridal-single-image");
+            const eveningImg = document.getElementById("evening-single-image");
+
+            // אנימציה - מעבר רך
+            bridalImg.style.transition = "opacity 1.5s ease-in-out";
+            eveningImg.style.transition = "opacity 1.5s ease-in-out";
+
+            bridalImg.style.opacity = "0"; // מתחיל להיעלם
+            eveningImg.style.opacity = "0"; 
+
+            setTimeout(() => {
+                bridalImg.src = bridalImages[bridalIndex];
+                eveningImg.src = eveningImages[eveningIndex];
+
+                bridalImg.style.opacity = "1"; // חוזר בהדרגה
+                eveningImg.style.opacity = "1"; 
+
+                bridalIndex = (bridalIndex + 1) % bridalImages.length;
+                eveningIndex = (eveningIndex + 1) % eveningImages.length;
+            }, 1500); // מחליף אחרי 1.5 שניות של דעיכה
         }
     }
 
-    // החלפת תמונה כל שנייה
-    setInterval(changeImage, 2000);
+    setInterval(changeImage, 4000); // מחליף תמונה כל 4 שניות
+    changeImage(); // שינוי ראשון מיידי
 });
 
 
