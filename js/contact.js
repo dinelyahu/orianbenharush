@@ -184,6 +184,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "email-placeholder": "אימייל",
             "message-placeholder": "הודעה",
             "wedding-date-label": "תאריך החתונה",
+            "address": "שדרות אח\"י אילת 5, חיפה",
+            "navigate_waze": "נווט עם Waze",
+            "follow_us": "עקבי אחרינו",
             "nav-home": "דף הבית",
             "nav-bridal": "שמלות כלה",
             "nav-evening": "שמלות ערב",
@@ -207,6 +210,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "email-placeholder": "Email",
             "message-placeholder": "Message",
             "wedding-date-label": "Wedding Date",
+            "address": "Ah'i Eilat St 5, Haifa",
+            "navigate_waze": "Navigate with Waze",
+            "follow_us": "Follow Us",
             "nav-home": "Home",
             "nav-bridal": "Bridal Dresses",
             "nav-evening": "Evening Dresses",
@@ -229,43 +235,60 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.setAttribute("lang", lang);
         document.body.dir = lang === "he" ? "rtl" : "ltr";
 
+        // פונקציה לעדכון טקסט אם האלמנט קיים
+        function updateText(selector, key) {
+            const element = document.querySelector(selector);
+            if (element) {
+                element.textContent = translations[lang][key];
+            }
+        }
 
+        // פונקציה לעדכון placeholder בשדות קלט
+        function updatePlaceholder(selector, key) {
+            const element = document.querySelector(selector);
+            if (element) {
+                element.placeholder = translations[lang][key];
+            }
+        }
 
-        // עדכון כל הטקסטים באתר לפי השפה
-        document.querySelector(".contact-title").textContent = translations[lang]["contact-title"];
-        document.querySelector(".submit-btn").textContent = translations[lang]["submit-btn"];
+        // עדכון טקסטים
+        updateText(".contact-title", "contact-title");
+        updateText(".submit-btn", "submit-btn");
+        updateText(".date-label", "wedding-date-label");
+        updateText(".contact-item:nth-child(2) p", "address");
+        updateText(".contact-item:nth-child(4) p", "navigate_waze");
+        updateText(".contact-item:nth-child(5) p", "follow_us");
 
-        // עדכון placeholder בשדות הטופס
-        document.getElementById("name").placeholder = translations[lang]["name-placeholder"];
-        document.getElementById("phone").placeholder = translations[lang]["phone-placeholder"];
-        document.getElementById("email").placeholder = translations[lang]["email-placeholder"];
-        document.getElementById("message").placeholder = translations[lang]["message-placeholder"];
-        document.querySelector(".date-label").textContent = translations[lang]["wedding-date-label"];
+        // עדכון placeholders
+        updatePlaceholder("#name", "name-placeholder");
+        updatePlaceholder("#phone", "phone-placeholder");
+        updatePlaceholder("#email", "email-placeholder");
+        updatePlaceholder("#message", "message-placeholder");
 
         // עדכון תפריט הניווט
-        document.querySelector(".navbar-nav .nav-item a[href='/']").textContent = translations[lang]["nav-home"];
-        document.querySelector("a[href='bridal.html']").textContent = translations[lang]["nav-bridal"];
-        document.querySelector("a[href='evening.html']").textContent = translations[lang]["nav-evening"];
-        document.querySelector("a[href='about.html']").textContent = translations[lang]["nav-about"];
-        document.querySelector("a[href='contact.html']").textContent = translations[lang]["nav-contact"];
+        updateText(".navbar-nav .nav-item a[href='/']", "nav-home");
+        updateText("a[href='bridal.html']", "nav-bridal");
+        updateText("a[href='evening.html']", "nav-evening");
+        updateText("a[href='about.html']", "nav-about");
+        updateText("a[href='contact.html']", "nav-contact");
 
         // עדכון תפריט הצד (Mobile Nav)
-        document.querySelector("#mobile-nav a[href='/']").textContent = translations[lang]["nav-home"];
-        document.querySelector("#mobile-nav a[href='bridal.html']").textContent = translations[lang]["nav-bridal"];
-        document.querySelector("#mobile-nav a[href='evening.html']").textContent = translations[lang]["nav-evening"];
-        document.querySelector("#mobile-nav a[href='about.html']").textContent = translations[lang]["nav-about"];
-        document.querySelector("#mobile-nav a[href='contact.html']").textContent = translations[lang]["nav-contact"];
+        updateText("#mobile-nav a[href='/']", "nav-home");
+        updateText("#mobile-nav a[href='bridal.html']", "nav-bridal");
+        updateText("#mobile-nav a[href='evening.html']", "nav-evening");
+        updateText("#mobile-nav a[href='about.html']", "nav-about");
+        updateText("#mobile-nav a[href='contact.html']", "nav-contact");
 
         // עדכון תפריט הנגישות
+        const accessibilityButtons = [
+            "increase-font", "decrease-font", "high-contrast",
+            "highlight-links", "disable-animations", "monochrome",
+            "bold-text", "reset-accessibility"
+        ];
 
-        document.querySelector("#accessibility-menu button:nth-child(1)").textContent = translations[lang]["increase-font"];
-        document.querySelector("#accessibility-menu button:nth-child(2)").textContent = translations[lang]["decrease-font"];
-        document.querySelector("#accessibility-menu button:nth-child(3)").textContent = translations[lang]["high-contrast"];
-        document.querySelector("#accessibility-menu button:nth-child(4)").textContent = translations[lang]["highlight-links"];
-        document.querySelector("#accessibility-menu button:nth-child(5)").textContent = translations[lang]["disable-animations"];
-        document.querySelector("#accessibility-menu button:nth-child(6)").textContent = translations[lang]["monochrome"];
-        document.querySelector("#accessibility-menu button:nth-child(7)").textContent = translations[lang]["bold-text"];
-        document.querySelector("#accessibility-menu button:nth-child(8)").textContent = translations[lang]["reset-accessibility"];
+        accessibilityButtons.forEach((key, index) => {
+            updateText(`#accessibility-menu button:nth-child(${index + 1})`, key);
+        });
 
         // שמירת השפה ב-localStorage כדי שההגדרה תישמר לאחר טעינה מחדש
         localStorage.setItem("selectedLanguage", lang);
@@ -279,3 +302,4 @@ document.addEventListener("DOMContentLoaded", function () {
     langToggleEn.addEventListener("click", () => setLanguage("he"));
     langToggleHe.addEventListener("click", () => setLanguage("en"));
 });
+
