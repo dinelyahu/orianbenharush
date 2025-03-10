@@ -144,25 +144,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // מערך של תמונות רקע
     const images = [
-        "/images/bridal/background1.jpg",
-        "/images/bridal/background2.jpg",
-        "/images/bridal/background3.jpg",
-        "/images/bridal/background4.jpg"
+        "images/bridal/background1.jpg",
+        "images/bridal/background2.jpg",
+        "images/bridal/background3.jpg",
+        "images/bridal/background4.jpg"
     ];
 
     let currentIndex = 0;
 
+    // טעינה מוקדמת של כל התמונות כדי למנוע השהיה
+    images.forEach(image => {
+        const img = new Image();
+        img.src = image;
+    });
+
     function changeBackground() {
-        homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
-        currentIndex = (currentIndex + 1) % images.length; // לעבור לתמונה הבאה, ואם מגיעים לסוף - להתחיל מחדש
+        // יצירת אפקט מעבר חלק
+        homeSection.style.transition = "opacity 1s ease-in-out";
+        homeSection.style.opacity = 0.7; // מוריד שקיפות לפני ההחלפה
+
+        setTimeout(() => {
+            homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
+            homeSection.style.opacity = 1; // מחזיר את השקיפות אחרי ההחלפה
+            currentIndex = (currentIndex + 1) % images.length;
+        }, 500); // שינוי לאחר חצי שנייה כדי לאפשר אנימציה חלקה
     }
 
     // הפעלת שינוי רקע כל 5 שניות
     setInterval(changeBackground, 5000);
 
-    // הצגת תמונה ראשונה מיד עם טעינת הדף
+    // הצגת התמונה הראשונה מיד עם טעינת הדף
     changeBackground();
 });
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // רשימות התמונות לכל גלריה
     const bridalImages = [
