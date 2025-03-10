@@ -141,8 +141,10 @@ window.toggleBoldText = function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const homeSection = document.getElementById("home");
-    const overlay = document.createElement("div"); // יצירת שכבת מעבר
-    overlay.classList.add("overlay-effect");
+
+    // יצירת שכבת מעבר חלק למניעת תקיעות
+    const overlay = document.createElement("div");
+    overlay.classList.add("background-overlay");
     homeSection.appendChild(overlay);
 
     const images = [
@@ -153,34 +155,45 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     let currentIndex = 0;
-    let intervalId = null; // משתנה לשמירת הסט-אינטרוול
+    let intervalId = null;
 
-    // טעינת התמונות מראש (Preload) כדי למנוע "הבזקים" בהחלפה
+    // טעינת כל התמונות מראש (Preload)
     images.forEach(image => {
         const img = new Image();
         img.src = image;
     });
 
     function changeBackground() {
-        overlay.style.opacity = "1"; // העלאת הכהות לפני השינוי
+        overlay.style.opacity = "1"; // הפעלה הדרגתית
         setTimeout(() => {
             homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
             currentIndex = (currentIndex + 1) % images.length;
-            overlay.style.opacity = "0"; // הורדת הכהות אחרי שינוי
-        }, 1500); // 1.5 שניות - משאירים רקע כהה רגע לפני שינוי
+            overlay.style.opacity = "0"; // חזרה למצב רגיל
+        }, 1500);
     }
 
     function startSlideshow() {
-        if (intervalId) {
-            clearInterval(intervalId); // ביטול כל אינטרוול קודם
-        }
-        intervalId = setInterval(changeBackground, 4000); // שינוי תמונה כל 4 שניות
+        if (intervalId) clearInterval(intervalId);
+        intervalId = setInterval(changeBackground, 5000);
     }
 
-    // **מונע תקיעות בניידים אם המשתמש עובר אפליקציה או סוגר את המסך**
+    // **כשמשתמש חוזר ל-Landing, עדכן מיד את התמונה**
+    function checkVisibility() {
+        const rect = homeSection.getBoundingClientRect();
+        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+        if (isVisible) {
+            homeSection.style.backgroundImage = `url(${images[currentIndex]})`; // עדכון מיידי
+            overlay.style.opacity = "0"; // מניעת רגע של צבע אפור
+        }
+    }
+
+    window.addEventListener("scroll", checkVisibility); // עדכון תמונה אם חזרנו ל-Landing
+
+    // הפעלה מחדש אם המשתמש חזר לכרטיסייה
     document.addEventListener("visibilitychange", function () {
         if (document.visibilityState === "visible") {
-            startSlideshow(); // מפעיל מחדש אם חזרנו לפוקוס
+            startSlideshow();
         }
     });
 
@@ -188,6 +201,8 @@ document.addEventListener("DOMContentLoaded", function () {
     changeBackground();
     startSlideshow();
 });
+
+
 
 
 
