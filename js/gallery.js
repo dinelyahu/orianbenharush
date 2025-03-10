@@ -319,5 +319,5 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
             document.getElementById("preloader").style.display = "none";
         }, 1000); // נוודא שהוא מוסר מה-DOM אחרי האנימציה
-    }, 2000); // מסך הפתיחה ייעלם אחרי 2 שניות
+    }, 600); // מסך הפתיחה ייעלם אחרי 2 שניות
 });

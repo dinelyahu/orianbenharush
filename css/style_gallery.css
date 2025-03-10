@@ -761,11 +761,18 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
 }
 /* עיצוב הלוגו עם אפקט טשטוש */
 #preloader img {
-    width: 100%; /* גודל הלוגו */
+    width: 50%; /* גודל הלוגו */
     height: auto;
     filter: blur(10px); /* מתחיל עם טשטוש */
     opacity: 0;
-    animation: fadeInBlur 1.5s ease-in-out forwards;
+    animation: fadeInBlur 0.8s ease-in-out forwards;
+}
+@media (max-width: 994px) {
+    #preloader img {
+        width: 100%; /* גודל הלוגו */
+        height: auto;
+
+    }
 }
 
 /* אנימציה להופעת הלוגו והסרת הטשטוש */
