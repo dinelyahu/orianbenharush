@@ -473,13 +473,14 @@ html, body {
     .menu-toggle {
         position: fixed;
         top: 40px;
-        right:-25px !important;
+        right:10px !important;
         font-size: 50px;
         background: none;
         border: none;
         cursor: pointer;
         color: white;
         z-index: 1010;
+        padding: 0;
     }
 }
 .navbar-logo-container {
