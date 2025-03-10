@@ -101,7 +101,11 @@ html, body {
     background: rgba(255, 255, 255, 0.9); /* רקע כהה חצי-שקוף */
 }
 
-
+@media (max-width:994px) {
+    .back-button {
+        display: none;
+}
+}
 
 /* לוגו צף במרכז המסך */
 .floating-logo {
