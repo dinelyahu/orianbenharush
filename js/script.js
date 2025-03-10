@@ -246,66 +246,113 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let bridalIndex = 0;
     let eveningIndex = 0;
-    let intervalId = null;
-    let isGalleryVisible = true; // נבדוק אם הגלריה מוצגת במסך
+    let bridalInterval = null;
+    let eveningInterval = null;
+    let isBridalVisible = true;
+    let isEveningVisible = true;
+    let lastBridalImage = bridalImages[0];
+    let lastEveningImage = eveningImages[0];
 
-    // טעינת התמונות מראש (Preload)
+    // טעינת כל התמונות מראש (Preload)
     [...bridalImages, ...eveningImages].forEach(image => {
         const img = new Image();
         img.src = image;
     });
 
-    function changeGalleryImages() {
-        if (!isGalleryVisible) return; // אם הגלריה מחוץ למסך, לא להחליף תמונה
+    function changeBridalImage() {
+        if (!isBridalVisible) return;
 
-        bridalImg.style.transition = "opacity 1.5s ease-in-out";
-        eveningImg.style.transition = "opacity 1.5s ease-in-out";
+        const newBridalImage = new Image();
+        newBridalImage.src = bridalImages[bridalIndex];
 
-        bridalImg.style.opacity = "0.3"; // עמעום לפני השינוי
-        eveningImg.style.opacity = "0.3";
+        newBridalImage.onload = function () {
+            bridalImg.style.transition = "opacity 1.5s ease-in-out";
+            bridalImg.style.opacity = "0.3";
 
-        setTimeout(() => {
-            bridalImg.src = bridalImages[bridalIndex];
-            eveningImg.src = eveningImages[eveningIndex];
+            setTimeout(() => {
+                bridalImg.src = bridalImages[bridalIndex];
+                lastBridalImage = bridalImages[bridalIndex];
+                bridalImg.style.opacity = "1";
+                bridalIndex = (bridalIndex + 1) % bridalImages.length;
+            }, 1000);
+        };
 
-            bridalImg.style.opacity = "1"; // חזרה חלקה
-            eveningImg.style.opacity = "1";
-
-            bridalIndex = (bridalIndex + 1) % bridalImages.length;
-            eveningIndex = (eveningIndex + 1) % eveningImages.length;
-        }, 1000);
+        newBridalImage.onerror = function () {
+            bridalImg.src = lastBridalImage;
+        };
     }
 
-    function startGallerySlideshow() {
-        if (intervalId) clearInterval(intervalId);
-        intervalId = setInterval(changeGalleryImages, 4000); // שינוי כל 4 שניות
+    function changeEveningImage() {
+        if (!isEveningVisible) return;
+
+        const newEveningImage = new Image();
+        newEveningImage.src = eveningImages[eveningIndex];
+
+        newEveningImage.onload = function () {
+            eveningImg.style.transition = "opacity 1.5s ease-in-out";
+            eveningImg.style.opacity = "0.3";
+
+            setTimeout(() => {
+                eveningImg.src = eveningImages[eveningIndex];
+                lastEveningImage = eveningImages[eveningIndex];
+                eveningImg.style.opacity = "1";
+                eveningIndex = (eveningIndex + 1) % eveningImages.length;
+            }, 1000);
+        };
+
+        newEveningImage.onerror = function () {
+            eveningImg.src = lastEveningImage;
+        };
+    }
+
+    function startBridalSlideshow() {
+        if (bridalInterval) clearInterval(bridalInterval);
+        bridalInterval = setInterval(changeBridalImage, 4000);
+    }
+
+    function startEveningSlideshow() {
+        if (eveningInterval) clearInterval(eveningInterval);
+        eveningInterval = setInterval(changeEveningImage, 4000);
     }
 
     function checkGalleryVisibility() {
-        const gallerySection = document.getElementById("scroll-gallery");
-        const rect = gallerySection.getBoundingClientRect();
-        isGalleryVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        const bridalSection = document.getElementById("scroll-gallery");
+        const eveningSection = document.getElementById("evening-gallery");
 
-        if (isGalleryVisible) {
-            bridalImg.src = bridalImages[bridalIndex]; // עדכון מיידי
-            eveningImg.src = eveningImages[eveningIndex];
+        const bridalRect = bridalSection.getBoundingClientRect();
+        const eveningRect = eveningSection.getBoundingClientRect();
+
+        isBridalVisible = bridalRect.top < window.innerHeight && bridalRect.bottom > 0;
+        isEveningVisible = eveningRect.top < window.innerHeight && eveningRect.bottom > 0;
+
+        if (isBridalVisible) {
+            bridalImg.src = lastBridalImage;
             bridalImg.style.opacity = "1";
+        }
+
+        if (isEveningVisible) {
+            eveningImg.src = lastEveningImage;
             eveningImg.style.opacity = "1";
         }
     }
 
     window.addEventListener("scroll", checkGalleryVisibility);
-    
+
     document.addEventListener("visibilitychange", function () {
         if (document.visibilityState === "visible") {
-            startGallerySlideshow();
+            startBridalSlideshow();
+            startEveningSlideshow();
         }
     });
 
     // הפעלה ראשונית
-    changeGalleryImages();
-    startGallerySlideshow();
+    changeBridalImage();
+    changeEveningImage();
+    startBridalSlideshow();
+    startEveningSlideshow();
 });
+
+
 
 
 
