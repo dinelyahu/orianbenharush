@@ -141,8 +141,10 @@ window.toggleBoldText = function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const homeSection = document.getElementById("home");
+    const overlay = document.createElement("div"); // יצירת שכבת מעבר
+    overlay.classList.add("overlay-effect");
+    homeSection.appendChild(overlay);
 
-    // מערך של תמונות רקע
     const images = [
         "images/bridal/background1.jpg",
         "images/bridal/background2.jpg",
@@ -152,30 +154,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentIndex = 0;
 
-    // טעינה מוקדמת של כל התמונות כדי למנוע השהיה
+    // טעינת התמונות מראש כדי למנוע "הבזקים" בהחלפה
     images.forEach(image => {
         const img = new Image();
         img.src = image;
     });
 
     function changeBackground() {
-        // יצירת אפקט מעבר חלק
-        homeSection.style.transition = "opacity 1s ease-in-out";
-        homeSection.style.opacity = 0.7; // מוריד שקיפות לפני ההחלפה
-
+        overlay.style.opacity = "1"; // העלאת הכהות לפני השינוי
         setTimeout(() => {
             homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
-            homeSection.style.opacity = 1; // מחזיר את השקיפות אחרי ההחלפה
             currentIndex = (currentIndex + 1) % images.length;
-        }, 500); // שינוי לאחר חצי שנייה כדי לאפשר אנימציה חלקה
+            overlay.style.opacity = "0"; // הורדת הכהות אחרי שינוי
+        }, 1500); // 1.5 שניות - משאירים רקע כהה רגע לפני שינוי
     }
 
-    // הפעלת שינוי רקע כל 5 שניות
-    setInterval(changeBackground, 5000);
-
-    // הצגת התמונה הראשונה מיד עם טעינת הדף
-    changeBackground();
+    setInterval(changeBackground, 4000); // כל 7 שניות מחליף תמונה
+    changeBackground(); // שינוי ראשון מיד בטעינה
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function () {

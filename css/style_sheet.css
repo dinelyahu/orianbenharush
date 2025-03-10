@@ -390,7 +390,7 @@ html, body {
     height: 100vh !important; /* מכסה את כל המסך */
     background-size: cover;
     background-position: center;
-    transition: background-image 1s ease-in-out;
+    transition: background-image 2s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -400,6 +400,19 @@ html, body {
 }
 @media (max-width: 994px){
     #home{height: 100vh;}
+}
+
+/* שכבה מעל התמונה להעלמת "הבזקים" ולמנוע מעבר חד */
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* רקע כהה עדין */
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* מעבר איטי */
 }
 
 /* שכבת חצי שקיפות למניעת איבוד קריאות */
