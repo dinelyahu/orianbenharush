@@ -153,8 +153,9 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     let currentIndex = 0;
+    let intervalId = null; // משתנה לשמירת הסט-אינטרוול
 
-    // טעינת התמונות מראש כדי למנוע "הבזקים" בהחלפה
+    // טעינת התמונות מראש (Preload) כדי למנוע "הבזקים" בהחלפה
     images.forEach(image => {
         const img = new Image();
         img.src = image;
@@ -169,9 +170,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1500); // 1.5 שניות - משאירים רקע כהה רגע לפני שינוי
     }
 
-    setInterval(changeBackground, 4000); // כל 7 שניות מחליף תמונה
-    changeBackground(); // שינוי ראשון מיד בטעינה
+    function startSlideshow() {
+        if (intervalId) {
+            clearInterval(intervalId); // ביטול כל אינטרוול קודם
+        }
+        intervalId = setInterval(changeBackground, 4000); // שינוי תמונה כל 4 שניות
+    }
+
+    // **מונע תקיעות בניידים אם המשתמש עובר אפליקציה או סוגר את המסך**
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") {
+            startSlideshow(); // מפעיל מחדש אם חזרנו לפוקוס
+        }
+    });
+
+    // הפעלה ראשונית
+    changeBackground();
+    startSlideshow();
 });
+
 
 
 
