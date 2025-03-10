@@ -156,6 +156,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentIndex = 0;
     let intervalId = null;
+    let lastLoadedImage = images[0]; // שמירת התמונה האחרונה שהופיעה
+    let isLandingVisible = true; // האם ה-Landing כרגע במסך?
 
     // טעינת כל התמונות מראש (Preload)
     images.forEach(image => {
@@ -164,12 +166,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function changeBackground() {
-        overlay.style.opacity = "1"; // הפעלה הדרגתית
-        setTimeout(() => {
-            homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
-            currentIndex = (currentIndex + 1) % images.length;
-            overlay.style.opacity = "0"; // חזרה למצב רגיל
-        }, 1500);
+        if (!isLandingVisible) return; // אם לא רואים את ה-Landing, לא מחליפים
+
+        const newImage = new Image();
+        newImage.src = images[currentIndex];
+
+        newImage.onload = function () {
+            overlay.style.opacity = "1"; // מעבר הדרגתי
+            setTimeout(() => {
+                homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
+                lastLoadedImage = images[currentIndex]; // שמירת תמונה אחרונה
+                currentIndex = (currentIndex + 1) % images.length;
+                overlay.style.opacity = "0"; // חזרה למצב רגיל
+            }, 1500);
+        };
+
+        newImage.onerror = function () {
+            console.error("Image failed to load:", images[currentIndex]);
+            homeSection.style.backgroundImage = `url(${lastLoadedImage})`; // במקרה של שגיאה, שמור על התמונה הקודמת
+        };
     }
 
     function startSlideshow() {
@@ -177,25 +192,27 @@ document.addEventListener("DOMContentLoaded", function () {
         intervalId = setInterval(changeBackground, 5000);
     }
 
-    // **כשמשתמש חוזר ל-Landing, עדכן מיד את התמונה**
-    function checkVisibility() {
-        const rect = homeSection.getBoundingClientRect();
-        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
-
-        if (isVisible) {
-            homeSection.style.backgroundImage = `url(${images[currentIndex]})`; // עדכון מיידי
-            overlay.style.opacity = "0"; // מניעת רגע של צבע אפור
-        }
-    }
-
-    window.addEventListener("scroll", checkVisibility); // עדכון תמונה אם חזרנו ל-Landing
-
-    // הפעלה מחדש אם המשתמש חזר לכרטיסייה
+    // **אם המשתמש עבר לאפליקציה אחרת או סגר את המסך**
     document.addEventListener("visibilitychange", function () {
         if (document.visibilityState === "visible") {
+            homeSection.style.backgroundImage = `url(${lastLoadedImage})`; // הצגת התמונה האחרונה מיד
+            overlay.style.opacity = "0"; // מניעת רקע אפור
             startSlideshow();
         }
     });
+
+    // **אם המשתמש גולל למטה ואז חזר ל-Landing**
+    function checkLandingVisibility() {
+        const rect = homeSection.getBoundingClientRect();
+        isLandingVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (isLandingVisible) {
+            homeSection.style.backgroundImage = `url(${lastLoadedImage})`; // עדכון מיידי
+            overlay.style.opacity = "0"; // מניעת אפקט אפור
+        }
+    }
+
+    window.addEventListener("scroll", checkLandingVisibility);
 
     // הפעלה ראשונית
     changeBackground();
@@ -207,7 +224,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
 document.addEventListener("DOMContentLoaded", function () {
+    const bridalImg = document.getElementById("bridal-single-image");
+    const eveningImg = document.getElementById("evening-single-image");
+
     const bridalImages = [
         "/images/bridal/img1.jpg",
         "/images/bridal/img2.jpg",
@@ -225,41 +246,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let bridalIndex = 0;
     let eveningIndex = 0;
+    let intervalId = null;
+    let isGalleryVisible = true; // נבדוק אם הגלריה מוצגת במסך
 
-    // טעינה מוקדמת של כל התמונות
+    // טעינת התמונות מראש (Preload)
     [...bridalImages, ...eveningImages].forEach(image => {
         const img = new Image();
         img.src = image;
     });
 
-    function changeImage() {
-        if (window.innerWidth <= 994) { // רק במסכים קטנים
-            const bridalImg = document.getElementById("bridal-single-image");
-            const eveningImg = document.getElementById("evening-single-image");
+    function changeGalleryImages() {
+        if (!isGalleryVisible) return; // אם הגלריה מחוץ למסך, לא להחליף תמונה
 
-            // אנימציה - מעבר רך
-            bridalImg.style.transition = "opacity 1s ease-in-out";
-            eveningImg.style.transition = "opacity 1s ease-in-out";
+        bridalImg.style.transition = "opacity 1.5s ease-in-out";
+        eveningImg.style.transition = "opacity 1.5s ease-in-out";
 
-            bridalImg.style.opacity = "0.3"; // מתחיל להיעלם
-            eveningImg.style.opacity = "0.3"; 
+        bridalImg.style.opacity = "0.3"; // עמעום לפני השינוי
+        eveningImg.style.opacity = "0.3";
 
-            setTimeout(() => {
-                bridalImg.src = bridalImages[bridalIndex];
-                eveningImg.src = eveningImages[eveningIndex];
+        setTimeout(() => {
+            bridalImg.src = bridalImages[bridalIndex];
+            eveningImg.src = eveningImages[eveningIndex];
 
-                bridalImg.style.opacity = "1"; // חוזר בהדרגה
-                eveningImg.style.opacity = "1"; 
+            bridalImg.style.opacity = "1"; // חזרה חלקה
+            eveningImg.style.opacity = "1";
 
-                bridalIndex = (bridalIndex + 1) % bridalImages.length;
-                eveningIndex = (eveningIndex + 1) % eveningImages.length;
-            }, 500); // מחליף אחרי 1.5 שניות של דעיכה
+            bridalIndex = (bridalIndex + 1) % bridalImages.length;
+            eveningIndex = (eveningIndex + 1) % eveningImages.length;
+        }, 1000);
+    }
+
+    function startGallerySlideshow() {
+        if (intervalId) clearInterval(intervalId);
+        intervalId = setInterval(changeGalleryImages, 4000); // שינוי כל 4 שניות
+    }
+
+    function checkGalleryVisibility() {
+        const gallerySection = document.getElementById("scroll-gallery");
+        const rect = gallerySection.getBoundingClientRect();
+        isGalleryVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (isGalleryVisible) {
+            bridalImg.src = bridalImages[bridalIndex]; // עדכון מיידי
+            eveningImg.src = eveningImages[eveningIndex];
+            bridalImg.style.opacity = "1";
+            eveningImg.style.opacity = "1";
         }
     }
 
-    setInterval(changeImage, 3000); // מחליף תמונה כל 4 שניות
-    changeImage(); // שינוי ראשון מיידי
+    window.addEventListener("scroll", checkGalleryVisibility);
+    
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") {
+            startGallerySlideshow();
+        }
+    });
+
+    // הפעלה ראשונית
+    changeGalleryImages();
+    startGallerySlideshow();
 });
+
 
 
 
