@@ -1,25 +1,3 @@
-// Description: This file contains the JavaScript code for the gallery page.
-document.addEventListener("DOMContentLoaded", function () {
-    const scrollToTopButton = document.getElementById("scrollToTop");
-
-    // הצגת הכפתור כשהמשתמש גולל מטה
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 200) {
-            scrollToTopButton.classList.add("show");
-        } else {
-            scrollToTopButton.classList.remove("show");
-        }
-    });
-
-    // גלילה חזרה למעלה בלחיצה
-    scrollToTopButton.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-});
-
 
 
 
@@ -312,5 +290,25 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             navbar.classList.remove("scrolled"); // כשהמשתמש חוזר למעלה, הלוגו יחזור והניווט יחזור למקומו
         }
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const backToTopButton = document.getElementById("back-to-top");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) { // מופיע אחרי גלילה של 300 פיקסלים
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    });
+
+    backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     });
 });
