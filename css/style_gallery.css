@@ -685,6 +685,9 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
     display: none; /* מוסתר כברירת מחדל */
     z-index: 9999;
     transition: opacity 0.3s ease-in-out;
+    text-align: center; /* יישור החץ למרכז */
+    padding: 0; /* הסרת ריפוד מיותר */
+    line-height: 50px; /* זהה לגובה הכפתור, למרכז אנכי */
 }
 
 #back-to-top:hover {
@@ -698,5 +701,6 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
         width: 40px;
         height: 40px;
         font-size: 20px;
+        line-height: 40px; /* מרכז אנכית את החץ גם בטלפון */
     }
 }
