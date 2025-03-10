@@ -347,6 +347,8 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     top: 10px;
+    z-index: 1031;
+
 }
 .navbar-logo {
     height: 120px; /* גובה גדול יותר */
