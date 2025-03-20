@@ -541,3 +541,35 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1000); // נוודא שהוא מוסר מה-DOM אחרי האנימציה
     }, 1500); // מסך הפתיחה ייעלם אחרי 2 שניות
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // מונע משליחה רגילה של הטופס
+
+        // קבלת ערכים מהשדות
+        let name = document.getElementById("name").value;
+        let phone = document.getElementById("phone").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message").value;
+        let weddingDate = document.getElementById("wedding-date").value;
+
+        // יצירת הודעת ה-WhatsApp
+        let whatsappMessage = `שלום, אני ${name}!
+📞 טלפון: ${phone}
+📧 אימייל: ${email}
+📅 תאריך חתונה: ${weddingDate}
+💬 הודעה: ${message}`;
+
+        // המספר שאליו תישלח ההודעה (וודא שהקידומת נכונה)
+        let whatsappNumber = "972504229130"; // החלף במספר של אוריאן בן הרוש
+
+        // יצירת הקישור ל-WhatsApp
+        let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        // פתיחת WhatsApp בחלון חדש עם ההודעה
+        window.open(whatsappURL, "_blank");
+    });
+});
