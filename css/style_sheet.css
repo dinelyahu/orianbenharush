@@ -635,13 +635,39 @@ html, body {
     font-size: 18px;
 }
 
-@media (max-width: 994px) {
-    .contact-section {
-    height: 200vh;   
-    }
-    .contact-section::before {
-    height: 200vh !important;
-    }
+.contact-section {
+    height: auto !important;  /* ביטול גובה קבוע */
+    min-height: auto !important; /* התאמה דינמית לגובה התוכן */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px; /* הוספת רווח למטה כדי שלא ייחתך */
+}
+
+.contact-section::before {
+    height: auto !important;
+    min-height: 100% !important;
+}
+
+.contact-container {
+    width: 90%; /* התאמה למסכים קטנים */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-map {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-map iframe {
+    width: 90%;
+    max-width: 400px;
+    height: 250px;
+    border-radius: 10px;
+}
 }
 
 
