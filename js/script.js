@@ -556,17 +556,19 @@ document.addEventListener("DOMContentLoaded", function () {
         let message = document.getElementById("message").value;
         let weddingDate = document.getElementById("wedding-date").value;
 
-        // יצירת הודעת ה-WhatsApp
-        let whatsappMessage = `שלום, אני ${name}!
-📞 טלפון: ${phone}
-📧 אימייל: ${email}
-📅 תאריך חתונה: ${weddingDate}
-💬 הודעה: ${message}`;
+        // יצירת הודעת ה-WhatsApp עם קידוד תווים נכון
+        let whatsappMessage =
+            `פנייה דרך orianbenharush.com\n` +
+            `שלום, אני *${name}*!\n` +
+            `📞 *טלפון:* ${phone}\n` +
+            `📧 *אימייל:* ${email}\n` +
+            `📅 *תאריך חתונה:* ${weddingDate}\n` +
+            `💬 *הודעה:* ${message}`;
 
         // המספר שאליו תישלח ההודעה (וודא שהקידומת נכונה)
-        let whatsappNumber = "972504229130"; // החלף במספר של אוריאן בן הרוש
+        let whatsappNumber = "972504229130"; // עדכן למספר הרלוונטי
 
-        // יצירת הקישור ל-WhatsApp
+        // יצירת הקישור ל-WhatsApp עם קידוד תקין
         let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
         // פתיחת WhatsApp בחלון חדש עם ההודעה
