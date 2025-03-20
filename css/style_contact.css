@@ -531,10 +531,10 @@ html, body {
 
 @media (max-width: 994px) {
     .contact-section {
-    height: 160vh;   
+    height: 200vh;   
     }
     .contact-section::before {
-    height: 160vh !important;
+    height: 200vh !important;
     }
 }
 
