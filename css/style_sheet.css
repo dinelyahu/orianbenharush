@@ -348,9 +348,9 @@ html, body {
     /* כפתור התפריט יהיה קבוע במסך */
     .menu-toggle {
         position: fixed;
-        top: 40px;
+        top: 40px !important;
         right: 10px !important;
-        font-size: 50px;
+        font-size: 50px !important;
         background: none;
         border: none;
         cursor: pointer;
