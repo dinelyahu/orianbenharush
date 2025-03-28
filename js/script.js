@@ -401,7 +401,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "phone": "טלפון",
             "email": "אימייל",
             "message": "הודעה",
-            "wedding_date": "תאריך החתונה",
+            "wedding_date": "תאריך האירוע",
             "send": "שלח",
             "address": "שדרות אח\"י אילת 5, חיפה",
             "navigate_waze": "נווט עם Waze",
@@ -430,7 +430,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "phone": "Phone",
             "email": "Email",
             "message": "Message",
-            "wedding_date": "Wedding Date",
+            "wedding_date": "Event Date",
             "send": "Send",
             "address": "Ah'i Eilat St 5, Haifa",
             "navigate_waze": "Navigate with Waze",
@@ -560,13 +560,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let whatsappMessage =
             `פנייה דרך orianbenharush.com\n` +
             `שלום, אני *${name}*!\n` +
-            `📞 *טלפון:* ${phone}\n` +
-            `📧 *אימייל:* ${email}\n` +
-            `📅 *תאריך חתונה:* ${weddingDate}\n` +
-            `💬 *הודעה:* ${message}`;
+            `*טלפון:* ${phone}\n` +
+            `*אימייל:* ${email}\n` +
+            `*תאריך חתונה:* ${weddingDate}\n` +
+            `*הודעה:* ${message}`;
 
         // המספר שאליו תישלח ההודעה (וודא שהקידומת נכונה)
-        let whatsappNumber = "972504229130"; // עדכן למספר הרלוונטי
+        let whatsappNumber = "972528782204"; // עדכן למספר הרלוונטי
 
         // יצירת הקישור ל-WhatsApp עם קידוד תקין
         let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
