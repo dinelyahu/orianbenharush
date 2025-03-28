@@ -767,6 +767,8 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
 }
 
 
+
+
 .site-footer {
     background-color: #f4f4f4;
     padding: 15px 0;
@@ -883,4 +885,35 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+}
+
+
+@media (max-width: 994px) {
+    .scroll-wrapper {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
+    .scroll-gallery {
+        display: inline-flex;
+        height: 100vh;
+    }
+
+    .scroll-gallery img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .scroll-gallery img:hover {
+        transform: scale(1.02);
+    }
+
+    .bridal-wrapper::before {
+        display: none;
+    }
 }
