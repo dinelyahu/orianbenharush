@@ -339,3 +339,40 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1000); // נוודא שהוא מוסר מה-DOM אחרי האנימציה
     }, 600); // מסך הפתיחה ייעלם אחרי 2 שניות
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const wrappers = document.querySelectorAll(".scroll-wrapper");
+
+    wrappers.forEach(wrapper => {
+        const gallery = wrapper.querySelector(".scroll-gallery");
+        const images = gallery.querySelectorAll("img");
+        const dots = wrapper.querySelectorAll(".dot");
+
+        // גלול לתמונה הראשונה בברירת מחדל (ימנית ביותר בגלילה RTL)
+        gallery.scrollLeft = 0;
+
+        // אפס את כל הדוטס, והדגש את הראשון
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[0].classList.add("active");
+
+        // עדכון הדוטים לפי התמונות הנראות
+        const observerOptions = {
+            root: gallery,
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(images).indexOf(entry.target);
+                    const correctedIndex = images.length - 1 - index;
+                    dots.forEach((dot, i) => dot.classList.toggle("active", i === correctedIndex));
+                    
+                }
+            });
+        }, observerOptions);
+
+        images.forEach(img => observer.observe(img));
+    });
+});
