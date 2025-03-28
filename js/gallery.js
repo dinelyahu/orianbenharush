@@ -345,34 +345,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const wrappers = document.querySelectorAll(".scroll-wrapper");
 
     wrappers.forEach(wrapper => {
-        const gallery = wrapper.querySelector(".scroll-gallery");
-        const images = gallery.querySelectorAll("img");
+        const images = wrapper.querySelectorAll(".scroll-gallery img");
         const dots = wrapper.querySelectorAll(".dot");
 
-        // גלול לתמונה הראשונה בברירת מחדל (ימנית ביותר בגלילה RTL)
-        gallery.scrollLeft = 0;
-
-        // אפס את כל הדוטס, והדגש את הראשון
-        dots.forEach(dot => dot.classList.remove("active"));
-        dots[0].classList.add("active");
-
-        // עדכון הדוטים לפי התמונות הנראות
         const observerOptions = {
-            root: gallery,
-            threshold: 0.5
+            root: wrapper.querySelector('.scroll-gallery'),
+            threshold: 0.5 // התמונה נחשבת נראית אם היא לפחות 50% על המסך
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observerCallback = (entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const index = Array.from(images).indexOf(entry.target);
-                    const correctedIndex = images.length - 1 - index;
-                    dots.forEach((dot, i) => dot.classList.toggle("active", i === correctedIndex));
-                    
+                if(entry.isIntersecting){
+                    const currentIndex = Array.from(images).indexOf(entry.target);
+                    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentIndex));
                 }
             });
-        }, observerOptions);
+        };
 
-        images.forEach(img => observer.observe(img));
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        images.forEach(image => observer.observe(image));
+
+        
     });
 });
