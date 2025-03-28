@@ -916,4 +916,8 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
     .bridal-wrapper::before {
         display: none;
     }
+
+    .evening-wrapper::before {
+        display: none;
+    }
 }
