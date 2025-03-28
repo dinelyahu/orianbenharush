@@ -308,3 +308,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1000); // נוודא שהוא מוסר מה-DOM אחרי האנימציה
     }, 600); // מסך הפתיחה ייעלם אחרי 2 שניות
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+    const sliderWrapper = document.querySelector(".slider-wrapper");
+
+    nextBtn.addEventListener("click", function() {
+        sliderWrapper.scrollBy({
+            left: 300,
+            behavior: 'smooth'
+        });
+    });
+
+    prevBtn.addEventListener("click", function() {
+        sliderWrapper.scrollBy({
+            left: -300,
+            behavior: 'smooth'
+        });
+    });
+});

@@ -840,3 +840,79 @@ p {
     transition: none !important;
     scroll-behavior: auto !important;
 }
+
+
+
+/* סליידר תמונות סטודיו */
+.studio-slider-section {
+    padding: 60px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.slider-title {
+    font-size: 25px !important;
+    color: #524d4d;
+    margin-bottom: 30px;
+}
+
+.slider-container {
+    position: relative;
+    width:100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.slider-track {
+    display: flex;
+    gap: 15px;
+}
+
+.slider-track img {
+    width: 100%;
+    min-width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: #ffffff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.slider-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.container-place{
+    display: block !important;
+}
