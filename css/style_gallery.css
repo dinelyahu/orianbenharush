@@ -1023,3 +1023,8 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
     }
 }
 
+@media (max-width: 994px) {
+    .first-image{
+        margin-top: 20% !important;
+    }
+}
