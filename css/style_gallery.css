@@ -886,73 +886,77 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
     transition: none !important;
     scroll-behavior: auto !important;
 }
-.dots-container {
 
-    display: none !important;
+/* גלריית התמונות - תמיד סליידר אופקי */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* תמיד טור אחד */
+    gap: 10px;
 }
 
-@media (max-width: 994px) {
-    .dots-container {
-        position: absolute;
-        bottom: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex !important;
-        gap: 6px;
-        z-index: 10;
-    }
-    
-    .dot {
-        height: 8px;
-        width: 8px;
-        background-color: rgba(255, 255, 255, 0.5);
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.3s, transform 0.3s;
-    }
-    
-    .dot.active {
-        background-color: white;
-        transform: scale(1.3);
-    }
-    .scroll-wrapper {
-        position: relative; 
-        direction: rtl !important;
-    }
-    
-    .dots-container {
-        position: absolute;
-        bottom: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 6px;
-        z-index: 9999;
-        pointer-events: none;
-    }
-    
-    .scroll-gallery {
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        display: flex;
-        direction: rtl !important;
-        scroll-snap-type: x mandatory;
-        display: flex;
-        overflow-x: auto;
-        
-    }
-    
-    .scroll-gallery img {
-        scroll-snap-align: start;
-    }
-    
+.scroll-gallery {
+    display: flex;
+    overflow-x: auto; /* גלילה אופקית */
+    scroll-snap-type: x mandatory; /* גלילה חלקה בין התמונות */
+    width: 100%;
+    height: auto;
 }
 
+.scroll-gallery img {
+    width: 100%; /* כל תמונה תמיד ברוחב מלא */
+    max-height: 100vh; /* לא לעבור גובה מסך */
+    object-fit: contain; /* להציג תמיד תמונה שלמה בלי חיתוך */
+    flex-shrink: 0; /* לא לאפשר כיווץ */
+    scroll-snap-align: start; /* עצירה יפה של הגלילה */
+}
 
+/* wrapper של התמונות */
+.evening-wrapper, .bridal-wrapper {
+    overflow: hidden;
+    height: auto;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* שכבת כיסוי (לבנה או שחורה) עם אפקט ריחוף (נשאר מהאפקט המקורי שלך) */
+.bridal-wrapper::before,
+.evening-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.7);
+    transition: opacity 0.5s ease;
+    opacity: 1;
+    z-index: 2;
+}
+
+.evening-wrapper::before {
+    background: rgba(0,0,0,0.7);
+}
+
+.bridal-wrapper:hover::before,
+.evening-wrapper:hover::before {
+    opacity: 0;
+}
+
+/* אפקט הגדלה קטן כשריחוף */
+.bridal-wrapper img,
+.evening-wrapper img {
+    transition: transform 0.5s ease;
+}
+
+.bridal-wrapper:hover img,
+.evening-wrapper:hover img {
+    transform: scale(1.02);
+}
+
+/* עיצוב נקודות הגלילה (dots) - תמיד מופיעות */
 .dots-container {
     position: absolute;
-    bottom: 15px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -963,9 +967,8 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
 .dot {
     height: 8px;
     width: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255,255,255,0.5);
     border-radius: 50%;
-    display: inline-block;
     transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -975,74 +978,47 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
 }
 
 
-/* עדכון ל-gallery-grid במסכים גדולים בלבד */
-@media (min-width: 995px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 10px;
-    }
+.gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(86, 82, 82, 0.5);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 15px;
+    z-index: 15;
+    user-select: none;
+    transition: background 0.3s ease;
+    border-radius: 10%;}
 
-    .scroll-gallery {
-        display: flex; /* הצגת התמונות בשורה אחת */
-        width: 100%;
-        height: 100vh; /* גובה המסך המלא */
-    }
+.gallery-btn:hover {
+    background: rgba(255,255,255,0.7);
+    color: black;
+}
 
-    .scroll-gallery img {
-        width: 50%; /* כל תמונה לוקחת חצי מהשורה */
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    /* מוודא שה-wrapper יראה את שתי התמונות בלי גלילה */
-    .evening-wrapper, .bridal-wrapper {
-        overflow: hidden;
-        height: 100vh;
+.prev-btn {
+    left: 100px;
+}
+
+.next-btn {
+    right: 100px;
+}
+
+/* להציג את החצים רק במסכים גדולים */
+@media (max-width: 994px) {
+    .gallery-btn {
+        display: none;
     }
 }
 
-
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+/* להסתיר את הגלילה במסך הגדול */
+.scroll-gallery::-webkit-scrollbar {
+    display: none; /* עבור Chrome, Safari ואחרים מבוססי WebKit */
 }
 
 .scroll-gallery {
-    display: flex; /* התמונות אחת לצד השנייה */
-    width: 100%;
-    height: auto;
-}
-
-.scroll-gallery img {
-    width: 50%; /* כל תמונה תופסת בדיוק חצי */
-    height: auto;
-    max-height: 100vh;
-    object-fit: contain; /* לעולם לא חותך את התמונה */
-}
-
-.evening-wrapper, .bridal-wrapper {
-    overflow: hidden;
-    height: auto;
-    background-color: rgba(0,0,0,0.05);
-    margin-bottom: 10px;
-}
-
-@media (max-width: 994px) {
-    .gallery-grid {
-        grid-template-columns: 1fr; /* טור יחיד במובייל */
-    }
-
-    .scroll-gallery {
-        flex-direction: row; /* ממשיך להציג שתי תמונות בשורה אחת */
-        overflow-x: auto; /* סליידר אופקי */
-        scroll-snap-type: x mandatory; /* סליידר חלק */
-    }
-
-    .scroll-gallery img {
-        width: 100%; /* במובייל כל תמונה ברוחב מלא */
-        flex-shrink: 0; /* מונע מהתמונות להתכווץ */
-        scroll-snap-align: start;
-    }
+    -ms-overflow-style: none;  /* עבור Internet Explorer ו-Edge */
+    scrollbar-width: none;  /* עבור Firefox */
 }
