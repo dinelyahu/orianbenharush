@@ -370,39 +370,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const wrappers = document.querySelectorAll(".scroll-wrapper");
-
-    wrappers.forEach(wrapper => {
-        const gallery = wrapper.querySelector(".scroll-gallery");
-        const prevBtn = wrapper.querySelector(".prev-btn");
-        const nextBtn = wrapper.querySelector(".next-btn");
-        const dots = wrapper.querySelectorAll(".dot");
-        const images = gallery.querySelectorAll("img");
-        
-        let currentIndex = 0;
-
-        function updateGallery() {
-            gallery.scrollTo({
-                left: images[currentIndex].offsetLeft,
-                behavior: 'smooth'
-            });
-
-            dots.forEach((dot, idx) => {
-                dot.classList.toggle('active', idx === currentIndex);
-            });
-        }
-
-        nextBtn.addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateGallery();
-        });
-
-        prevBtn.addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateGallery();
-        });
-
-        updateGallery();
-    });
-});
