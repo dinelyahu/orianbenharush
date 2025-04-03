@@ -175,10 +175,10 @@ document.addEventListener("DOMContentLoaded", function () {
     homeSection.appendChild(overlay);
 
     const images = [
-        "images/bridal/img3.JPG",
-        "images/bridal/img10.JPG",
-        "images/bridal/img27.JPG",
-        "images/bridal/img30.JPG"
+        "images/bridal/img1.JPEG",
+        "images/bridal/img5.JPG",
+        "images/bridal/img8.JPG",
+        "images/bridal/img11.JPG"
     ];
 
     let currentIndex = 0;
