@@ -175,10 +175,10 @@ document.addEventListener("DOMContentLoaded", function () {
     homeSection.appendChild(overlay);
 
     const images = [
-        "images/bridal/background1.jpg",
-        "images/bridal/background2.jpg",
-        "images/bridal/background3.jpg",
-        "images/bridal/background4.jpg"
+        "images/bridal/img3.JPG",
+        "images/bridal/img10.JPG",
+        "images/bridal/img27.JPG",
+        "images/bridal/img30.JPG"
     ];
 
     let currentIndex = 0;
@@ -257,18 +257,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const eveningImg = document.getElementById("evening-single-image");
 
     const bridalImages = [
-        "/images/bridal/img1.jpg",
-        "/images/bridal/img2.jpg",
-        "/images/bridal/img3.jpg",
-        "/images/bridal/img4.jpg",
-        "/images/bridal/img5.jpg"
+        "/images/bridal/img1.JPEG",
+        "/images/bridal/img2.JPG",
+        "/images/bridal/img3.JPG",
+        "/images/bridal/img4.JPG",
+        "/images/bridal/img5.JPG"
     ];
     const eveningImages = [
-        "/images/evening/image1.jpeg",
-        "/images/evening/image2.jpeg",
-        "/images/evening/image3.jpeg",
-        "/images/evening/image4.jpeg",
-        "/images/evening/image5.jpeg"
+        "/images/evening/Zoe - 3.PNG",
+        "/images/evening/Zoe - 8.PNG",
+        "/images/evening/Zoe - 9.PNG",
+        "/images/evening/Zoe - 23.PNG",
+        "/images/evening/Zoe - 19.PNG"
     ];
 
     let bridalIndex = 0;
