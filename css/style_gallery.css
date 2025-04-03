@@ -1011,6 +1011,9 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
     .gallery-btn {
         display: none !important;
     }
+    .next-btn, .prev-btn {
+        display: none !important;
+    }
 }
 
 /* להסתיר את הגלילה במסך הגדול */
