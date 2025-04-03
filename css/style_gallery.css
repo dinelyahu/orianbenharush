@@ -1009,7 +1009,7 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
 /* להציג את החצים רק במסכים גדולים */
 @media (max-width: 994px) {
     .gallery-btn {
-        display: none;
+        display: none !important;
     }
 }
 
