@@ -975,3 +975,74 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
 }
 
 
+/* עדכון ל-gallery-grid במסכים גדולים בלבד */
+@media (min-width: 995px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+    }
+
+    .scroll-gallery {
+        display: flex; /* הצגת התמונות בשורה אחת */
+        width: 100%;
+        height: 100vh; /* גובה המסך המלא */
+    }
+
+    .scroll-gallery img {
+        width: 50%; /* כל תמונה לוקחת חצי מהשורה */
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* מוודא שה-wrapper יראה את שתי התמונות בלי גלילה */
+    .evening-wrapper, .bridal-wrapper {
+        overflow: hidden;
+        height: 100vh;
+    }
+}
+
+
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.scroll-gallery {
+    display: flex; /* התמונות אחת לצד השנייה */
+    width: 100%;
+    height: auto;
+}
+
+.scroll-gallery img {
+    width: 50%; /* כל תמונה תופסת בדיוק חצי */
+    height: auto;
+    max-height: 100vh;
+    object-fit: contain; /* לעולם לא חותך את התמונה */
+}
+
+.evening-wrapper, .bridal-wrapper {
+    overflow: hidden;
+    height: auto;
+    background-color: rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+}
+
+@media (max-width: 994px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* טור יחיד במובייל */
+    }
+
+    .scroll-gallery {
+        flex-direction: row; /* ממשיך להציג שתי תמונות בשורה אחת */
+        overflow-x: auto; /* סליידר אופקי */
+        scroll-snap-type: x mandatory; /* סליידר חלק */
+    }
+
+    .scroll-gallery img {
+        width: 100%; /* במובייל כל תמונה ברוחב מלא */
+        flex-shrink: 0; /* מונע מהתמונות להתכווץ */
+        scroll-snap-align: start;
+    }
+}
