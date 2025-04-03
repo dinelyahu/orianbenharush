@@ -257,11 +257,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const eveningImg = document.getElementById("evening-single-image");
 
     const bridalImages = [
-        "/images/bridal/img1.JPEG",
-        "/images/bridal/img2.JPG",
-        "/images/bridal/img3.JPG",
-        "/images/bridal/img4.JPG",
-        "/images/bridal/img5.JPG"
+        "/images/bridal/img14.JPG",
+        "/images/bridal/img13.JPEG",
+        "/images/bridal/img11.JPG",
+        "/images/bridal/img30.JPG",
+        "/images/bridal/img31.JPG"
     ];
     const eveningImages = [
         "/images/evening/Zoe - 3.PNG",
