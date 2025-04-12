@@ -361,7 +361,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `💬 *הודעה:* ${message}`;
 
         // המספר שאליו תישלח ההודעה (וודא שהקידומת נכונה)
-        let whatsappNumber = "972504229130"; // עדכן למספר הרלוונטי
+        let whatsappNumber = "972528782204"; // עדכן למספר הרלוונטי
 
         // יצירת הקישור ל-WhatsApp עם קידוד תקין
         let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
