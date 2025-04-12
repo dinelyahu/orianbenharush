@@ -175,10 +175,10 @@ document.addEventListener("DOMContentLoaded", function () {
     homeSection.appendChild(overlay);
 
     const images = [
-        "images/bridal/img8.JPG",
-        "images/bridal/img9.JPG",
-        "images/bridal/img17.JPG",
-        "images/bridal/img30.JPG"
+        "images/bridal/img8.webp",
+        "images/bridal/img9.webp",
+        "images/bridal/img17.webp",
+        "images/bridal/img30.webp"
     ];
 
     let currentIndex = 0;
@@ -257,11 +257,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const eveningImg = document.getElementById("evening-single-image");
 
     const bridalImages = [
-        "/images/bridal/img14.JPG",
-        "/images/bridal/img13.JPEG",
-        "/images/bridal/img11.JPG",
-        "/images/bridal/img30.JPG",
-        "/images/bridal/img31.JPG"
+        "/images/bridal/img14.webp",
+        "/images/bridal/img13.webp",
+        "/images/bridal/img11.webp",
+        "/images/bridal/img30.webp",
+        "/images/bridal/img31.webp"
     ];
     const eveningImages = [
         "/images/evening/index-evening/img1.jpeg",
