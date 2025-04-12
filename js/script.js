@@ -395,3 +395,74 @@ document.addEventListener("DOMContentLoaded", function () {
         current.classList.remove("active");
     }, 6000);
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const bridalImages = [
+        "images/bridal/img4.webp",
+        "images/bridal/img12.webp",
+        "images/bridal/img15.webp",
+        "images/bridal/img10.webp"
+    ];
+
+    let bridalIndex = 0;
+    const bridalLayers = document.querySelectorAll(".bridal-bg-layer");
+
+    // טעינה מראש
+    bridalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    // התחלה
+    bridalLayers[0].style.backgroundImage = `url('${bridalImages[0]}')`;
+    bridalLayers[0].classList.add("active");
+
+    setInterval(() => {
+        const current = bridalLayers[bridalIndex % 2];
+        const next = bridalLayers[(bridalIndex + 1) % 2];
+
+        bridalIndex = (bridalIndex + 1) % bridalImages.length;
+
+        next.style.backgroundImage = `url('${bridalImages[bridalIndex]}')`;
+        next.classList.add("active");
+        current.classList.remove("active");
+    }, 6000); // כל 6 שניות
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const eveningImages = [
+        "images/evening/index-evening/img1.webp",
+        "images/evening/index-evening/img2.webp",
+        "images/evening/index-evening/img3.webp",
+        "images/evening/index-evening/img4.webp"
+    ];
+
+    let eveningIndex = 0;
+    const eveningLayers = document.querySelectorAll(".evening-bg-layer");
+
+    // טעינה מראש
+    eveningImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    // התחלה
+    eveningLayers[0].style.backgroundImage = `url('${eveningImages[0]}')`;
+    eveningLayers[0].classList.add("active");
+
+    setInterval(() => {
+        const current = eveningLayers[eveningIndex % 2];
+        const next = eveningLayers[(eveningIndex + 1) % 2];
+
+        eveningIndex = (eveningIndex + 1) % eveningImages.length;
+
+        next.style.backgroundImage = `url('${eveningImages[eveningIndex]}')`;
+        next.classList.add("active");
+        current.classList.remove("active");
+    }, 6000); // כל 6 שניות
+});
+
