@@ -218,7 +218,10 @@ document.addEventListener("DOMContentLoaded", function () {
             "process-text": "כשאת מגיעה לסטודיו, אני מקשיבה לחלום שלך ומתחילה בתהליך יצירה משותף. משלב הסקיצה ועד השמלה המושלמת, כל פרט נתפר בקפידה, כדי לוודא שהשמלה שלך תהיה לא פחות ממושלמת.",
             "uniqueness-title": "ייחודיות",
             "uniqueness-text": "העיצובים שלי משלבים קלאסיקה עם חדשנות, תוך שימוש בחומרי הגלם האיכותיים ביותר. אני מאמינה שכל אישה צריכה להרגיש מיוחדת ביום הגדול שלה, ולכן אני מציעה התאמה אישית מלאה לכל שמלה.",
-            "contact-button": "צרו קשר"
+            "contact-button": "צרו קשר",
+            "studio-title": "הסטודיו שלנו"
+
+            
         },
         "en": {
 
@@ -242,7 +245,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "process-text": "When you arrive at the studio, I listen to your dream and begin a collaborative creation process. From the sketch stage to the perfect dress, every detail is meticulously crafted to ensure that your dress is nothing less than perfect.",
             "uniqueness-title": "Uniqueness",
             "uniqueness-text": "My designs combine classic elegance with innovation, using only the highest quality materials. I believe that every woman should feel special on her big day, which is why I offer full customization for each dress.",
-            "contact-button": "Contact Us"
+            "contact-button": "Contact Us",
+            "studio-title": "Our Studio"
+
         }
     };
 
@@ -286,6 +291,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("uniqueness-title").textContent = translations[lang]["uniqueness-title"];
         document.getElementById("uniqueness-text").textContent = translations[lang]["uniqueness-text"];
         document.getElementById("contact-button").textContent = translations[lang]["contact-button"];
+        document.getElementById("studio-title").textContent = translations[lang]["studio-title"];
+
 
         // שמירת השפה ב-localStorage כדי שההגדרה תישמר לאחר טעינה מחדש
         localStorage.setItem("selectedLanguage", lang);

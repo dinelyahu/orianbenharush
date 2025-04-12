@@ -727,7 +727,7 @@ p {
     background-color: #f4f4f4;
     padding: 15px 0;
     text-align: center;
-    border-top: 1px solid #e1e1e1;
+    border-top: 3px solid #e1e1e1;
     font-size: 14px;
     color: #555;
 }
@@ -845,7 +845,7 @@ p {
 
 /* סליידר תמונות סטודיו */
 .studio-slider-section {
-    padding: 60px 0;
+    padding: 0px 0;
     background-color: #ffffff;
     text-align: center;
 }
@@ -915,4 +915,25 @@ p {
 
 .container-place{
     display: block !important;
+}
+
+.slider-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    justify-content: center;
+    scroll-behavior: smooth;
+}
+
+.slider-track {
+    display: flex;
+    gap: 20px;
+}
+
+.slider-track img {
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    width: 300px; /* אפשר להתאים */
+    height: auto;
+    border-radius: 10px;
 }
