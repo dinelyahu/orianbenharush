@@ -341,6 +341,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+window.addEventListener("load", () => {
+    const scrollGalleries = document.querySelectorAll('.scroll-gallery');
+
+    scrollGalleries.forEach(gallery => {
+        // חכה לרגע ואז גלול הכי ימינה
+        setTimeout(() => {
+            gallery.scrollLeft = gallery.scrollWidth;
+        }, 100); // עיכוב קטן כדי לוודא שכל התמונות באמת בפנים
+    });
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const wrappers = document.querySelectorAll(".scroll-wrapper");
 
@@ -348,25 +360,36 @@ document.addEventListener("DOMContentLoaded", () => {
         const images = wrapper.querySelectorAll(".scroll-gallery img");
         const dots = wrapper.querySelectorAll(".dot");
 
+        const dotRight = wrapper.querySelector(".dot.right-label");
+        const dotLeft = wrapper.querySelector(".dot.left-label");
+
         const observerOptions = {
             root: wrapper.querySelector('.scroll-gallery'),
-            threshold: 0.5 // התמונה נחשבת נראית אם היא לפחות 50% על המסך
+            threshold: 0.5
         };
 
         const observerCallback = (entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting){
+                if (entry.isIntersecting) {
                     const currentIndex = Array.from(images).indexOf(entry.target);
-                    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentIndex));
+
+                    // אפס את שתי הנקודות
+                    dotRight.classList.remove("active");
+                    dotLeft.classList.remove("active");
+
+                    // אם התמונה השנייה מוצגת (השמאלית) – הדגש את הנקודה הימנית
+                    if (currentIndex === 1) {
+                        dotRight.classList.add("active");
+                    }
+                    // אם התמונה הראשונה מוצגת (הימנית) – הדגש את הנקודה השמאלית
+                    else if (currentIndex === 0) {
+                        dotLeft.classList.add("active");
+                    }
                 }
             });
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
         images.forEach(image => observer.observe(image));
-
-        
     });
 });
-
-
