@@ -166,223 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const homeSection = document.getElementById("home");
-
-    // יצירת שכבת מעבר חלק למניעת תקיעות
-    const overlay = document.createElement("div");
-    overlay.classList.add("background-overlay");
-    homeSection.appendChild(overlay);
-
-    const images = [
-        "images/bridal/img8.webp",
-        "images/bridal/img9.webp",
-        "images/bridal/img17.webp",
-        "images/bridal/img30.webp"
-    ];
-
-    let currentIndex = 0;
-    let intervalId = null;
-    let lastLoadedImage = images[0]; // שמירת התמונה האחרונה שהופיעה
-    let isLandingVisible = true; // האם ה-Landing כרגע במסך?
-
-    // טעינת כל התמונות מראש (Preload)
-    images.forEach(image => {
-        const img = new Image();
-        img.src = image;
-    });
-
-    function changeBackground() {
-        if (!isLandingVisible) return; // אם לא רואים את ה-Landing, לא מחליפים
-
-        const newImage = new Image();
-        newImage.src = images[currentIndex];
-
-        newImage.onload = function () {
-            overlay.style.opacity = "1"; // מעבר הדרגתי
-            setTimeout(() => {
-                homeSection.style.backgroundImage = `url(${images[currentIndex]})`;
-                lastLoadedImage = images[currentIndex]; // שמירת תמונה אחרונה
-                currentIndex = (currentIndex + 1) % images.length;
-                overlay.style.opacity = "0"; // חזרה למצב רגיל
-            }, 1500);
-        };
-
-        newImage.onerror = function () {
-            console.error("Image failed to load:", images[currentIndex]);
-            homeSection.style.backgroundImage = `url(${lastLoadedImage})`; // במקרה של שגיאה, שמור על התמונה הקודמת
-        };
-    }
-
-    function startSlideshow() {
-        if (intervalId) clearInterval(intervalId);
-        intervalId = setInterval(changeBackground, 5000);
-    }
-
-    // **אם המשתמש עבר לאפליקציה אחרת או סגר את המסך**
-    document.addEventListener("visibilitychange", function () {
-        if (document.visibilityState === "visible") {
-            homeSection.style.backgroundImage = `url(${lastLoadedImage})`; // הצגת התמונה האחרונה מיד
-            overlay.style.opacity = "0"; // מניעת רקע אפור
-            startSlideshow();
-        }
-    });
-
-    // **אם המשתמש גולל למטה ואז חזר ל-Landing**
-    function checkLandingVisibility() {
-        const rect = homeSection.getBoundingClientRect();
-        isLandingVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-        if (isLandingVisible) {
-            homeSection.style.backgroundImage = `url(${lastLoadedImage})`; // עדכון מיידי
-            overlay.style.opacity = "0"; // מניעת אפקט אפור
-        }
-    }
-
-    window.addEventListener("scroll", checkLandingVisibility);
-
-    // הפעלה ראשונית
-    changeBackground();
-    startSlideshow();
-});
-
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const bridalImg = document.getElementById("bridal-single-image");
-    const eveningImg = document.getElementById("evening-single-image");
-
-    const bridalImages = [
-        "/images/bridal/img14.webp",
-        "/images/bridal/img13.webp",
-        "/images/bridal/img11.webp",
-        "/images/bridal/img30.webp",
-        "/images/bridal/img31.webp"
-    ];
-    const eveningImages = [
-        "/images/evening/index-evening/img1.webp",
-        "/images/evening/index-evening/img2.webp",
-        "/images/evening/index-evening/img3.webp",
-        "/images/evening/index-evening/img4.webp",
-        "/images/evening/index-evening/img5.webp"
-    ];
-
-    let bridalIndex = 0;
-    let eveningIndex = 0;
-    let bridalInterval = null;
-    let eveningInterval = null;
-    let isBridalVisible = true;
-    let isEveningVisible = true;
-    let lastBridalImage = bridalImages[0];
-    let lastEveningImage = eveningImages[0];
-
-    // טעינת כל התמונות מראש (Preload)
-    [...bridalImages, ...eveningImages].forEach(image => {
-        const img = new Image();
-        img.src = image;
-    });
-
-    function changeBridalImage() {
-        if (!isBridalVisible) return;
-
-        const newBridalImage = new Image();
-        newBridalImage.src = bridalImages[bridalIndex];
-
-        newBridalImage.onload = function () {
-            bridalImg.style.transition = "opacity 1.5s ease-in-out";
-            bridalImg.style.opacity = "0.3";
-
-            setTimeout(() => {
-                bridalImg.src = bridalImages[bridalIndex];
-                lastBridalImage = bridalImages[bridalIndex];
-                bridalImg.style.opacity = "1";
-                bridalIndex = (bridalIndex + 1) % bridalImages.length;
-            }, 1000);
-        };
-
-        newBridalImage.onerror = function () {
-            bridalImg.src = lastBridalImage;
-        };
-    }
-
-    function changeEveningImage() {
-        if (!isEveningVisible) return;
-
-        const newEveningImage = new Image();
-        newEveningImage.src = eveningImages[eveningIndex];
-
-        newEveningImage.onload = function () {
-            eveningImg.style.transition = "opacity 1.5s ease-in-out";
-            eveningImg.style.opacity = "0.3";
-
-            setTimeout(() => {
-                eveningImg.src = eveningImages[eveningIndex];
-                lastEveningImage = eveningImages[eveningIndex];
-                eveningImg.style.opacity = "1";
-                eveningIndex = (eveningIndex + 1) % eveningImages.length;
-            }, 1000);
-        };
-
-        newEveningImage.onerror = function () {
-            eveningImg.src = lastEveningImage;
-        };
-    }
-
-    function startBridalSlideshow() {
-        if (bridalInterval) clearInterval(bridalInterval);
-        bridalInterval = setInterval(changeBridalImage, 4000);
-    }
-
-    function startEveningSlideshow() {
-        if (eveningInterval) clearInterval(eveningInterval);
-        eveningInterval = setInterval(changeEveningImage, 4000);
-    }
-
-    function checkGalleryVisibility() {
-        const bridalSection = document.getElementById("scroll-gallery");
-        const eveningSection = document.getElementById("evening-gallery");
-
-        const bridalRect = bridalSection.getBoundingClientRect();
-        const eveningRect = eveningSection.getBoundingClientRect();
-
-        isBridalVisible = bridalRect.top < window.innerHeight && bridalRect.bottom > 0;
-        isEveningVisible = eveningRect.top < window.innerHeight && eveningRect.bottom > 0;
-
-        if (isBridalVisible) {
-            bridalImg.src = lastBridalImage;
-            bridalImg.style.opacity = "1";
-        }
-
-        if (isEveningVisible) {
-            eveningImg.src = lastEveningImage;
-            eveningImg.style.opacity = "1";
-        }
-    }
-
-    window.addEventListener("scroll", checkGalleryVisibility);
-
-    document.addEventListener("visibilitychange", function () {
-        if (document.visibilityState === "visible") {
-            startBridalSlideshow();
-            startEveningSlideshow();
-        }
-    });
-
-    // הפעלה ראשונית
-    changeBridalImage();
-    changeEveningImage();
-    startBridalSlideshow();
-    startEveningSlideshow();
-});
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const translations = {
@@ -574,4 +357,41 @@ document.addEventListener("DOMContentLoaded", function () {
         // פתיחת WhatsApp בחלון חדש עם ההודעה
         window.open(whatsappURL, "_blank");
     });
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const images = [
+        "images/bridal/img17.webp",
+        "images/bridal/img3.webp",
+        "images/bridal/img9.webp",
+        "images/bridal/img8.webp"
+    ];
+
+    let index = 0;
+    const layers = document.querySelectorAll(".bg-layer");
+
+    // טען מראש את כל התמונות
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    // התחלה
+    layers[0].style.backgroundImage = `url('${images[0]}')`;
+    layers[0].classList.add("active");
+
+    setInterval(() => {
+        const current = layers[index % 2];
+        const next = layers[(index + 1) % 2];
+
+        index = (index + 1) % images.length;
+
+        next.style.backgroundImage = `url('${images[index]}')`;
+        next.classList.add("active");
+        current.classList.remove("active");
+    }, 6000);
 });

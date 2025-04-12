@@ -48,7 +48,7 @@
     </script>
     <!-- End TikTok Pixel Code -->
     
-    <link rel="stylesheet" href="css/style_sheet.min.css">
+    <link rel="stylesheet" href="css/style_sheet.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/favicon_circle.png">
 
@@ -129,10 +129,12 @@
 
 <!-- Landing Section -->
 <section id="home" class="landing">
-    <div class="overlay"></div> <!-- שכבה כהה לשיפור הקריאות -->
-    <div class="landing-content">
-
-    </div>
+    <div class="background-container">
+        <div class="bg-layer active"></div>
+        <div class="bg-layer"></div>
+      </div>
+      <div class="overlay"></div>
+      <div class="landing-content"></div>
 </section>
 
 
@@ -142,17 +144,10 @@
 
     <!-- תמונה אחת בלבד למסכים קטנים -->
     <div class="single-image-container">
-        <img id="bridal-single-image" src="images/bridal/img1.webp" alt="Bridal Dress" loading="lazy">
+        <img id="bridal-single-image" src="images/bridal/img9.webp" alt="Bridal Dress" loading="lazy">
     </div>
 
-    <!-- גלריה רגילה למסכים גדולים -->
-    <div class="gallery-grid">
-        <img src="images/bridal/img13.webp" alt="Bridal Dress 1" loading="lazy">
-        <img src="images/bridal/img25.webp" alt="Bridal Dress 2" loading="lazy">
-        <img src="images/bridal/img11.webp" alt="Bridal Dress 3" loading="lazy">
-        <img src="images/bridal/img16.webp" alt="Bridal Dress 4" loading="lazy">
-        <img src="images/bridal/img18.webp" alt="Bridal Dress 5" loading="lazy">
-    </div>
+
 
     <a href="bridal.html" class="view-more-button">לקולקציית שמלות הכלה</a>
 </section>
@@ -166,14 +161,6 @@
         <img id="evening-single-image" src="images/evening/img26.webp" alt="Evening Dress" loading="lazy">
     </div>
 
-    <!-- גלריה רגילה למסכים גדולים -->
-    <div class="gallery-grid">
-        <img src="images/evening/index-evening/img1.webp" alt="Evening Dress 1" loading="lazy">
-        <img src="images/evening/index-evening/img2.webp" alt="Evening Dress 2" loading="lazy">
-        <img src="images/evening/index-evening/img3.webp" alt="Evening Dress 3" loading="lazy">
-        <img src="images/evening/index-evening/img4.webp" alt="Evening Dress 4" loading="lazy">
-        <img src="images/evening/index-evening/img5.webp" alt="Evening Dress 5" loading="lazy">
-    </div>
 
     <a href="evening.html" class="view-more-button">לקולקציית שמלות הערב</a>
 </section>
@@ -297,7 +284,7 @@
 
     
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer src="js/script.min.js"></script>
+    <script defer src="js/script.js"></script>
 
 
 </body>
