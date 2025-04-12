@@ -264,11 +264,11 @@ document.addEventListener("DOMContentLoaded", function () {
         "/images/bridal/img31.webp"
     ];
     const eveningImages = [
-        "/images/evening/index-evening/img1.jpeg",
-        "/images/evening/index-evening/img2.jpeg",
-        "/images/evening/index-evening/img3.jpeg",
-        "/images/evening/index-evening/img4.jpeg",
-        "/images/evening/index-evening/img5.jpeg"
+        "/images/evening/index-evening/img1.webp",
+        "/images/evening/index-evening/img2.webp",
+        "/images/evening/index-evening/img3.webp",
+        "/images/evening/index-evening/img4.webp",
+        "/images/evening/index-evening/img5.webp"
     ];
 
     let bridalIndex = 0;
