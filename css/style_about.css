@@ -917,23 +917,3 @@ p {
     display: block !important;
 }
 
-.slider-wrapper {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    display: flex;
-    justify-content: center;
-    scroll-behavior: smooth;
-}
-
-.slider-track {
-    display: flex;
-    gap: 20px;
-}
-
-.slider-track img {
-    scroll-snap-align: center;
-    flex-shrink: 0;
-    width: 300px; /* אפשר להתאים */
-    height: auto;
-    border-radius: 10px;
-}

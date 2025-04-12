@@ -626,7 +626,7 @@ html, body {
 }
 
 nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
-    top:0;
+    top:5px;
 }
 .mobile-nav {
     position: fixed;
