@@ -982,7 +982,7 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 0px;
 }
 
 .scroll-gallery {
