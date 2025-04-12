@@ -393,7 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
         next.style.backgroundImage = `url('${images[index]}')`;
         next.classList.add("active");
         current.classList.remove("active");
-    }, 6000);
+    }, 3500);
 });
 
 
@@ -427,7 +427,7 @@ document.addEventListener("DOMContentLoaded", function () {
         next.style.backgroundImage = `url('${bridalImages[bridalIndex]}')`;
         next.classList.add("active");
         current.classList.remove("active");
-    }, 6000); // כל 6 שניות
+    }, 2000); // כל 2 שניות
 });
 
 
@@ -463,6 +463,6 @@ document.addEventListener("DOMContentLoaded", function () {
         next.style.backgroundImage = `url('${eveningImages[eveningIndex]}')`;
         next.classList.add("active");
         current.classList.remove("active");
-    }, 6000); // כל 6 שניות
+    }, 2000); // כל 2 שניות
 });
 
