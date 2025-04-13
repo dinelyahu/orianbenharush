@@ -127,7 +127,7 @@ html, body {
     }
     .bridal-wrapper img , .evening-wrapper img {
         height: 100vh; /* גובה תמונה נמוך יותר */
-        margin-top: 1%;
+        margin-top: 0.5%;
     }
 
     .floating-logo {
@@ -160,6 +160,7 @@ html, body {
 body {
     font-family:Arial,Helvetica,sans-serif;
     direction: rtl;
+    background-color: #ffffff;
 }
 html, body {
     overflow-x: hidden; /* מונע גלילה אופקית */
