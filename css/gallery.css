@@ -712,20 +712,17 @@ html, body {
 .dress-pair {
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+
 }
 
 .dress-pair img {
-    width: 100%;
-    min-width: 100%;
-    height: auto; /* ולא height: 100vh */
-    aspect-ratio: 3/4; /* יחס ריבועי יפה */
+    width: 100vw; /* כל תמונה תופסת את כל הרוחב במסך קטן */
+    height: 100vh; /* תופס גובה מלא */
     object-fit: cover;
     scroll-snap-align: start;
     flex-shrink: 0;
+    margin-bottom: 0.5%;
 }
-
 
 /* מסכים גדולים */
 @media (min-width: 994px) {
