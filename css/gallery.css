@@ -700,7 +700,7 @@ html, body {
 
 .gallery {
     width: 100%;
-    overflow: hidden;
+    overflow: visible !important;
 }
 
 .gallery-wrapper {
@@ -712,7 +712,8 @@ html, body {
 .dress-pair {
     display: flex;
     overflow-x: auto;
-
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
 .dress-pair img {
