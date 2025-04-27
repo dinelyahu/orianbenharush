@@ -733,8 +733,8 @@ html, body {
 @media (min-width: 994px) {
     .gallery-wrapper {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* שתי שמלות בשורה */
-        gap: 10px;
+        grid-template-columns: repeat(1, 1fr); /* שתי שמלות בשורה */
+        gap: 0 px;
     }
 
     .dress-pair {
@@ -746,7 +746,10 @@ html, body {
     .image-wrapper {
         min-width: 50%;
         height: auto;
-        max-height: 90vh;
+        max-height: 150vh;
+    }
+    .image-wrapper img {
+        padding: 0 0.2% 0.2% 0.2%;
     }
 }
 
