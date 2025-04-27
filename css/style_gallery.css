@@ -11,14 +11,13 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    max-width: 100vw;
 }
 
 /* רשת תמונות - 2 תמונות בשורה */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* שני טורים */
-    width: 100vw; /* תופס את כל רוחב המסך */
+    width: 100%; /* תופס את כל רוחב המסך */
 }
 /* עוטף כל תמונה ויוצר שכבה לבנה עליה */
 .bridal-wrapper , .evening-wrapper {
@@ -163,7 +162,6 @@ body {
 }
 html, body {
     width: 100%;
-    max-width: 100vw; /* מבטיח שהתוכן לא יחרוג מרוחב המסך */
 }
 
 
