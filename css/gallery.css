@@ -723,7 +723,12 @@ html, body {
     position: relative;
 }
 
+.image-wrapper img {
 
+    object-fit: cover;
+    padding: 0% 0.5% 0.5% 0.5%;
+    
+}
 
 @media (min-width: 994px) {
     .gallery-wrapper {
