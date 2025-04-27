@@ -717,7 +717,7 @@ html, body {
 
 .image-wrapper {
     max-width: 100vw; /* כל תמונה תופסת 100% מהקונטיינר שלה */
-    height: 100vh; /* קובע את הגובה כאן */
+    height: auto; /* קובע את הגובה כאן */
     flex-shrink: 0;
     scroll-snap-align: start;
     position: relative;
@@ -725,8 +725,8 @@ html, body {
 
 .image-wrapper img {
     width: 100%;
-    height: 100%;
-    object-fit: fill;
+    height: auto;
+    object-fit: cover;
     padding-bottom: 0.5%;
 }
 
