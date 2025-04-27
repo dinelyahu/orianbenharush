@@ -748,6 +748,11 @@ html, body {
         max-width: 50vw;
         height: auto;
     }
+    .image-wrapper img {
+
+        padding: 0% 0.2% 0.2% 0%;
+        
+    }
 }
 
 
