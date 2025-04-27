@@ -163,7 +163,6 @@ body {
     background-color: #ffffff;
 }
 html, body {
-    overflow-x: hidden; /* מונע גלילה אופקית */
     width: 100%;
     max-width: 100vw; /* מבטיח שהתוכן לא יחרוג מרוחב המסך */
 }
