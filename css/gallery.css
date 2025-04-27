@@ -715,10 +715,9 @@ html, body {
     -webkit-overflow-scrolling: touch;
 }
 
-
 .image-wrapper {
-    width: 100vw; /* כל תמונה תופסת 100% מהקונטיינר שלה */
-    height: auto; /* קובע את הגובה כאן */
+    max-width: 100vw; /* כל תמונה תופסת 100% מהקונטיינר שלה */
+    height: 100vh; /* קובע את הגובה כאן */
     flex-shrink: 0;
     scroll-snap-align: start;
     position: relative;
@@ -745,14 +744,10 @@ html, body {
     }
 
     .image-wrapper {
-        flex-shrink: 0;
-        scroll-snap-align: start;
-        position: relative;
-        max-width: 50%;
+        min-width: 50%;
         height: auto;
         max-height: 150vh;
     }
-
     .image-wrapper img {
         padding: 0 0.2% 0.2% 0.2%;
     }
