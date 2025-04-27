@@ -708,7 +708,6 @@ html, body {
     flex-direction: column;
 }
 
-/* עיצוב של כל זוג תמונות */
 .dress-pair {
     display: flex;
     overflow-x: auto;
@@ -716,15 +715,20 @@ html, body {
     -webkit-overflow-scrolling: touch;
 }
 
-.dress-pair img {
-    width: 100vw; /* כל תמונה תופסת את כל הרוחב במסך קטן */
-    height: 100vh; /* תופס גובה מלא */
-    object-fit: cover;
-
-    margin-bottom: 0.5%;
+.image-wrapper {
+    min-width: 100%; /* כל תמונה תופסת 100% מהקונטיינר שלה */
+    height: 100vh; /* קובע את הגובה כאן */
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    position: relative;
 }
 
-/* מסכים גדולים */
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 @media (min-width: 994px) {
     .gallery-wrapper {
         display: grid;
@@ -733,12 +737,13 @@ html, body {
     }
 
     .dress-pair {
+        display: flex;
         flex-direction: row;
         overflow-x: hidden;
     }
 
-    .dress-pair img {
-        width: 50%; /* חצי לכל תמונה */
+    .image-wrapper {
+        min-width: 50%;
         height: auto;
         max-height: 90vh;
     }
