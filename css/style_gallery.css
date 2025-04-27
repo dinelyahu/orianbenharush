@@ -124,7 +124,7 @@ html, body {
         grid-template-columns: 1fr; /* טור אחד במקום שניים */
     }
     .bridal-wrapper img , .evening-wrapper img {
-        height: 100vh; /* גובה תמונה נמוך יותר */
+        height: auto; /* גובה תמונה נמוך יותר */
         margin-top: 0.5%;
     }
 
