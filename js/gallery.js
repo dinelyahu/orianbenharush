@@ -341,16 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-window.addEventListener("load", () => {
-    const scrollGalleries = document.querySelectorAll('.scroll-gallery');
 
-    scrollGalleries.forEach(gallery => {
-        // חכה לרגע ואז גלול הכי ימינה
-        setTimeout(() => {
-            gallery.scrollLeft = gallery.scrollWidth;
-        }, 100); // עיכוב קטן כדי לוודא שכל התמונות באמת בפנים
-    });
-});
 
 
 document.addEventListener("DOMContentLoaded", () => {

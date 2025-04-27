@@ -18,7 +18,6 @@ html, body {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* שני טורים */
-    gap: 0; /* בלי מרווחים */
     width: 100vw; /* תופס את כל רוחב המסך */
 }
 /* עוטף כל תמונה ויוצר שכבה לבנה עליה */
