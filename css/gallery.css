@@ -717,23 +717,23 @@ html, body {
 
 .image-wrapper {
     max-width: 100vw; /* כל תמונה תופסת 100% מהקונטיינר שלה */
-    height: auto; /* קובע את הגובה כאן */
+    height: 100vh; /* קובע את הגובה כאן */
     flex-shrink: 0;
     scroll-snap-align: start;
     position: relative;
 }
 
 .image-wrapper img {
-
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    padding: 0% 0.5% 0.5% 0.5%;
-    
+    padding-bottom: 0.5%;
 }
 
 @media (min-width: 994px) {
     .gallery-wrapper {
         display: grid;
-        grid-template-columns: repeat(1s, 1fr); /* שתי שמלות בשורה */
+        grid-template-columns: repeat(2, 1fr); /* שתי שמלות בשורה */
         gap: 10px;
     }
 
@@ -744,13 +744,9 @@ html, body {
     }
 
     .image-wrapper {
-        max-width: 50vw;
+        min-width: 50%;
         height: auto;
-    }
-    .image-wrapper img {
-
-        padding: 0% 0.2% 0.2% 0%;
-        
+        max-height: 90vh;
     }
 }
 
@@ -840,7 +836,7 @@ html, body {
     }
 
     evening-gallery .image-wrapper::before{
-        background: rgba(43, 41, 41, 0.388);
+        background: rgba(255, 255, 255, 0.388);
         opacity: 0.6; /* כמה לבן */
     }
 
