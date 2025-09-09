@@ -709,6 +709,7 @@ html, body {
 }
 
 .dress-pair {
+    direction: rtl !important;
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -871,6 +872,7 @@ html, body {
 
 /* הנקודות מעל הכל, ממורכזות, לא חוסמות החלקה */
 .dots-container {
+    direction: rtl;
   position: absolute;
   left: 50%;
   bottom: 12px;
