@@ -903,3 +903,76 @@ html, body {
 .dress-pair .image-wrapper {
   scroll-snap-align: start;
 }
+
+
+/* --- בסיס: עטיפת pair לא שוברת מבנה --- */
+.pair { 
+  position: relative; 
+  width: 100%;
+}
+
+/* ה-scroller בפנים נשאר 100% רוחב */
+.pair > .dress-pair {
+  width: 100%;
+}
+
+/* --- מובייל: גלילה אופקית של תמונה-תמונה --- */
+@media (max-width: 994px) {
+  .pair > .dress-pair {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    direction: ltr;          /* כדי שתמיד נתחיל מהתמונה הראשונה */
+    scroll-snap-stop: always;
+  }
+
+  .pair > .dress-pair .image-wrapper {
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: 80vh;            /* כמו שהיה לך */
+    scroll-snap-align: start;
+  }
+
+  /* הנקודות נשארות צפות במובייל */
+  .pair .dots-container {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 5;
+    pointer-events: none;
+  }
+}
+
+/* --- דסקטופ: בדיוק כמו המבנה הישן --- */
+@media (min-width: 995px) {
+  /* הגלריה נשארת כמו שהייתה – אפשר להשאיר grid או block.
+     אם grid עשה בעיות – בטל אותו: */
+  /* .gallery-wrapper { display: block; } */
+
+  .pair > .dress-pair {
+    display: flex;           /* שתי תמונות זו ליד זו */
+    flex-direction: row;
+    overflow-x: hidden;      /* אין גלילה בדסקטופ */
+  }
+
+  .pair > .dress-pair .image-wrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: auto;
+    max-height: 150vh;
+  }
+
+  .pair > .dress-pair .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0 0.2% 0.2% 0.2%;
+  }
+
+  /* מסתירים נקודות בדסקטופ (כמו שהיה קודם) */
+  .pair .dots-container { display: none; }
+}
