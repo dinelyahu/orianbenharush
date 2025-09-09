@@ -211,15 +211,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "disable-animations": "חסימת אנימציות",
             "monochrome": "מצב מונוכרום",
             "bold-text": "הדגשת טקסט (Bold)",
-            "reset-accessibility": "איפוס הגדרות",
-            "about-title": "אודות",
-            "about-text": "המסע שלי בעולם האופנה התחיל מתוך תשוקה עזה לעיצוב, יופי ויצירתיות. מאז שהייתי ילדה, חלמתי ליצור שמלות שיגרמו לכל אישה להרגיש כמו מלכה. אחרי שנים של לימודים וניסיון, הפכתי את החלום למציאות – עיצוב שמלות כלה וערב בעבודת יד, תוך הקפדה על כל פרט ופרט. כל שמלה נתפרת באהבה, תוך התאמה אישית לחלומות של הלקוחה.",
-            "process-title": "התהליך בסטודיו",
-            "process-text": "כשאת מגיעה לסטודיו, אני מקשיבה לחלום שלך ומתחילה בתהליך יצירה משותף. משלב הסקיצה ועד השמלה המושלמת, כל פרט נתפר בקפידה, כדי לוודא שהשמלה שלך תהיה לא פחות ממושלמת.",
-            "uniqueness-title": "ייחודיות",
-            "uniqueness-text": "העיצובים שלי משלבים קלאסיקה עם חדשנות, תוך שימוש בחומרי הגלם האיכותיים ביותר. אני מאמינה שכל אישה צריכה להרגיש מיוחדת ביום הגדול שלה, ולכן אני מציעה התאמה אישית מלאה לכל שמלה.",
-            "contact-button": "צרו קשר",
-            "studio-title": "הסטודיו שלנו"
+            "reset-accessibility": "איפוס הגדרות"
+
 
             
         },
@@ -238,15 +231,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "disable-animations": "Disable Animations",
             "monochrome": "Monochrome Mode",
             "bold-text": "Bold Text",
-            "reset-accessibility": "Reset Settings",
-            "about-title": "About",
-            "about-text": "My journey in the fashion world began with a deep passion for design, beauty, and creativity. Since childhood, I dreamed of creating dresses that would make every woman feel like a queen. After years of study and experience, I turned my dream into reality – designing bridal and evening gowns by hand, with meticulous attention to every detail. Each dress is sewn with love, tailored personally to fulfill the dreams of the client.",
-            "process-title": "The Studio Process",
-            "process-text": "When you arrive at the studio, I listen to your dream and begin a collaborative creation process. From the sketch stage to the perfect dress, every detail is meticulously crafted to ensure that your dress is nothing less than perfect.",
-            "uniqueness-title": "Uniqueness",
-            "uniqueness-text": "My designs combine classic elegance with innovation, using only the highest quality materials. I believe that every woman should feel special on her big day, which is why I offer full customization for each dress.",
-            "contact-button": "Contact Us",
-            "studio-title": "Our Studio"
+            "reset-accessibility": "Reset Settings"
+
 
         }
     };
@@ -283,15 +269,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#accessibility-menu button:nth-child(8)").textContent = translations[lang]["reset-accessibility"];
 
 
-        // עדכון הטקסט של about
-        document.getElementById("about-title").textContent = translations[lang]["about-title"];
-        document.getElementById("about-text").textContent = translations[lang]["about-text"];
-        document.getElementById("process-title").textContent = translations[lang]["process-title"];
-        document.getElementById("process-text").textContent = translations[lang]["process-text"];
-        document.getElementById("uniqueness-title").textContent = translations[lang]["uniqueness-title"];
-        document.getElementById("uniqueness-text").textContent = translations[lang]["uniqueness-text"];
-        document.getElementById("contact-button").textContent = translations[lang]["contact-button"];
-        document.getElementById("studio-title").textContent = translations[lang]["studio-title"];
 
 
         // שמירת השפה ב-localStorage כדי שההגדרה תישמר לאחר טעינה מחדש
