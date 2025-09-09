@@ -891,18 +891,7 @@ html, body {
 /* אם לא רוצים נקודות בדסקטופ */
 @media (min-width: 995px) { .dots-container { display: none; } }
 
-/* בתוך כל זוג תמונות, נכפה כיוון גלילה LTR כדי שתמיד נתחיל מהשקופית הראשונה */
-.dress-pair {
-  direction: ltr;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-stop: always; /* סנאפ יציב יותר במובייל */
-}
 
-/* כבר יש לך start, משאיר כאן לודאות */
-.dress-pair .image-wrapper {
-  scroll-snap-align: start;
-}
 
 
 /* --- בסיס: עטיפת pair לא שוברת מבנה --- */
