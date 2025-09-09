@@ -887,50 +887,19 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
     transition: none !important;
     scroll-behavior: auto !important;
 }
-.dots-container {
 
-    display: none !important;
-}
 
 @media (max-width: 994px) {
-    .dots-container {
-        position: absolute;
-        bottom: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex !important;
-        gap: 6px;
-        z-index: 10;
-    }
+
+
     
-    .dot {
-        height: 8px;
-        width: 8px;
-        background-color: rgba(255, 255, 255, 0.5);
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.3s, transform 0.3s;
-    }
-    
-    .dot.active {
-        background-color: white;
-        transform: scale(1.3);
-    }
+
     .scroll-wrapper {
         position: relative; 
         direction: rtl !important;
     }
     
-    .dots-container {
-        position: absolute;
-        bottom: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 6px;
-        z-index: 9999;
-        pointer-events: none;
-    }
+
     
     .scroll-gallery {
         overflow-x: auto;
@@ -1009,12 +978,30 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
     }
 }
 
+/* Dots – רק במובייל */
+@media (max-width: 994px){
+  .image-wrapper{ position: relative; }
 
-.dot.active {
-    background-color: white !important;
-    transform: scale(1.5) !important;
+  .dots-container{
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex !important;   /* גובר על כללים קודמים */
+    gap: 6px;
+    z-index: 5;
+    pointer-events: none;        /* שלא יחסום לחיצות על התמונה */
+  }
+
+  .dot{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.6);
+    transition: background-color .3s, transform .3s;
+  }
+  .dot.active{ background: #fff; transform: scale(1.3); }
 }
 
-.dots-container{
-    direction: rtl !important;
+/* בדסקטופ – להסתיר */
+@media (min-width: 995px){
+  .dots-container{ display: none !important; }
 }

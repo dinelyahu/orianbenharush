@@ -855,3 +855,38 @@ html, body {
         z-index: 1;
     }
 }
+
+
+
+
+.pair { position: relative; }
+
+/* הסקולר עצמו נשאר כמו שהיה (עם overflow-x) */
+.dress-pair {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* הנקודות מעל הכל, ממורכזות, לא חוסמות החלקה */
+.dots-container {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  transition: background-color .3s, transform .3s;
+}
+.dot.active { background: #fff; transform: scale(1.3); }
+
+/* אם לא רוצים נקודות בדסקטופ */
+@media (min-width: 995px) { .dots-container { display: none; } }

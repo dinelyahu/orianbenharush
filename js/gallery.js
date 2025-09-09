@@ -191,8 +191,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const langToggleEn = document.getElementById("language-toggle-he");
-    const langToggleHe = document.getElementById("language-toggle-en");
+    const langToggleEn = document.getElementById("language-toggle-en");
+    const langToggleHe = document.getElementById("language-toggle-he");
 
     // מילון טקסטים בשתי השפות
     const translations = {
@@ -280,8 +280,8 @@ document.addEventListener("DOMContentLoaded", function () {
     setLanguage(savedLang);
 
     // האזנה ללחיצות על הכפתורים
-    langToggleEn.addEventListener("click", () => setLanguage("he"));
-    langToggleHe.addEventListener("click", () => setLanguage("en"));
+    langToggleEn.addEventListener("click", () => setLanguage("en"));
+    langToggleHe.addEventListener("click", () => setLanguage("he"));
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -312,4 +312,55 @@ document.addEventListener("DOMContentLoaded", function() {
             behavior: "smooth"
         });
     });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const pairs = document.querySelectorAll(".pair"); // העטיפה החיצונית שאינה גוללת
+
+  pairs.forEach(pair => {
+    const scroller = pair.querySelector(".dress-pair"); // זה הגולל האופקי
+    const slides   = Array.from(scroller.querySelectorAll(".image-wrapper"));
+    const dots     = Array.from(pair.querySelectorAll(".dots-container .dot"));
+    if (!scroller || slides.length === 0 || dots.length === 0) return;
+
+    let ticking = false;
+
+    // מחשב איזו תמונה הכי במרכז ה־viewport של ה-scroller
+    const updateActiveDot = () => {
+      const view = scroller.getBoundingClientRect();
+      const centerX = view.left + view.width / 2;
+
+      let bestIndex = 0;
+      let bestDist = Infinity;
+
+      slides.forEach((el, i) => {
+        const r = el.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const dist = Math.abs(cx - centerX);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIndex = i;
+        }
+      });
+
+      dots.forEach((d, i) => d.classList.toggle("active", i === bestIndex));
+      ticking = false;
+    };
+
+    // מאזין לגלילה בצורה יעילה (RAF) – לא מזיז את התמונות
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateActiveDot);
+      }
+    };
+
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateActiveDot);
+
+    // אתחול ראשוני
+    updateActiveDot();
+  });
 });
