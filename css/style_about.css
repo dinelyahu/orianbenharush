@@ -468,7 +468,7 @@ html, body {
 
 .about-section {
     position: relative;
-    background-image: url("images/logo/b2a0d058bb6d39985a55e015a86a512e.jpg");
+    background-image: url("/images/logo/b2a0d058bb6d39985a55e015a86a512e.jpg");
     background-size: cover;
     background-position: center;
     padding: 80px 10%;
