@@ -365,10 +365,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const images = [
-        "/images/bridal/img17.webp",
-        "/images/bridal/img3.webp",
-        "/images/bridal/img9.webp",
-        "/images/bridal/img8.webp"
+        "images/bridal/img17.webp",
+        "images/bridal/img3.webp",
+        "images/bridal/img9.webp",
+        "images/bridal/img8.webp"
     ];
 
     let index = 0;
@@ -399,10 +399,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const bridalImages = [
-        "/images/bridal/img4.webp",
-        "/images/bridal/img12.webp",
-        "/images/bridal/img15.webp",
-        "/images/bridal/img10.webp"
+        "images/bridal/img4.webp",
+        "images/bridal/img12.webp",
+        "images/bridal/img15.webp",
+        "images/bridal/img10.webp"
     ];
 
     let bridalIndex = 0;
@@ -435,10 +435,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const eveningImages = [
-        "/images/evening/index-evening/img1.webp",
-        "/images/evening/index-evening/img2.webp",
-        "/images/evening/index-evening/img3.webp",
-        "/images/evening/index-evening/img4.webp"
+        "images/evening/index-evening/img1.webp",
+        "images/evening/index-evening/img2.webp",
+        "images/evening/index-evening/img3.webp",
+        "images/evening/index-evening/img4.webp"
     ];
 
     let eveningIndex = 0;
