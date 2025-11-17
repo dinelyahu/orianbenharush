@@ -972,8 +972,8 @@ html, body {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 25px;
-    right: 25px;
+    bottom: 110px;
+    left: 40px;
     background-color: #25d366;
     border-radius: 50%;
     display: flex;
