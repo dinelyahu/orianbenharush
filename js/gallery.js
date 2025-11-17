@@ -211,7 +211,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "disable-animations": "חסימת אנימציות",
             "monochrome": "מצב מונוכרום",
             "bold-text": "הדגשת טקסט (Bold)",
-            "reset-accessibility": "איפוס הגדרות"
+            "reset-accessibility": "איפוס הגדרות",
+            "back-button": "יציאה מהגלריה"
 
 
             
@@ -231,49 +232,79 @@ document.addEventListener("DOMContentLoaded", function () {
             "disable-animations": "Disable Animations",
             "monochrome": "Monochrome Mode",
             "bold-text": "Bold Text",
-            "reset-accessibility": "Reset Settings"
+            "reset-accessibility": "Reset Settings",
+            "back-button": "Exit Gallery"
 
 
         }
     };
 
     function setLanguage(lang) {
-        // שינוי כיוון הדף
-        document.documentElement.setAttribute("lang", lang);
-        document.body.dir = lang === "he" ? "rtl" : "ltr";
+    document.documentElement.setAttribute("lang", lang);
+    document.body.dir = lang === "he" ? "rtl" : "ltr";
 
+    // עדכון תפריט הניווט (רק אם האלמנט קיים בעמוד)
+    const home1 = document.querySelector(".navbar-nav .nav-item a[href='/']");
+    if (home1) home1.textContent = translations[lang]["nav-home"];
 
-        // עדכון תפריט הניווט
-        document.querySelector(".navbar-nav .nav-item a[href='/']").textContent = translations[lang]["nav-home"];
-        document.querySelector("a[href='bridal.html']").textContent = translations[lang]["nav-bridal"];
-        document.querySelector("a[href='evening.html']").textContent = translations[lang]["nav-evening"];
-        document.querySelector("a[href='about.html']").textContent = translations[lang]["nav-about"];
-        document.querySelector("a[href='contact.html']").textContent = translations[lang]["nav-contact"];
+    const bridal1 = document.querySelector("a[href='bridal.html']");
+    if (bridal1) bridal1.textContent = translations[lang]["nav-bridal"];
 
-        // עדכון תפריט הצד (Mobile Nav)
-        document.querySelector("#mobile-nav a[href='/']").textContent = translations[lang]["nav-home"];
-        document.querySelector("#mobile-nav a[href='bridal.html']").textContent = translations[lang]["nav-bridal"];
-        document.querySelector("#mobile-nav a[href='evening.html']").textContent = translations[lang]["nav-evening"];
-        document.querySelector("#mobile-nav a[href='about.html']").textContent = translations[lang]["nav-about"];
-        document.querySelector("#mobile-nav a[href='contact.html']").textContent = translations[lang]["nav-contact"];
+    const evening1 = document.querySelector("a[href='evening.html']");
+    if (evening1) evening1.textContent = translations[lang]["nav-evening"];
 
-        // עדכון תפריט הנגישות
+    const about1 = document.querySelector("a[href='about.html']");
+    if (about1) about1.textContent = translations[lang]["nav-about"];
 
-        document.querySelector("#accessibility-menu button:nth-child(1)").textContent = translations[lang]["increase-font"];
-        document.querySelector("#accessibility-menu button:nth-child(2)").textContent = translations[lang]["decrease-font"];
-        document.querySelector("#accessibility-menu button:nth-child(3)").textContent = translations[lang]["high-contrast"];
-        document.querySelector("#accessibility-menu button:nth-child(4)").textContent = translations[lang]["highlight-links"];
-        document.querySelector("#accessibility-menu button:nth-child(5)").textContent = translations[lang]["disable-animations"];
-        document.querySelector("#accessibility-menu button:nth-child(6)").textContent = translations[lang]["monochrome"];
-        document.querySelector("#accessibility-menu button:nth-child(7)").textContent = translations[lang]["bold-text"];
-        document.querySelector("#accessibility-menu button:nth-child(8)").textContent = translations[lang]["reset-accessibility"];
+    const contact1 = document.querySelector("a[href='contact.html']");
+    if (contact1) contact1.textContent = translations[lang]["nav-contact"];
 
+    // תפריט צד (Mobile Nav)
+    const home2 = document.querySelector("#mobile-nav a[href='/']");
+    if (home2) home2.textContent = translations[lang]["nav-home"];
 
+    const bridal2 = document.querySelector("#mobile-nav a[href='bridal.html']");
+    if (bridal2) bridal2.textContent = translations[lang]["nav-bridal"];
 
+    const evening2 = document.querySelector("#mobile-nav a[href='evening.html']");
+    if (evening2) evening2.textContent = translations[lang]["nav-evening"];
 
-        // שמירת השפה ב-localStorage כדי שההגדרה תישמר לאחר טעינה מחדש
-        localStorage.setItem("selectedLanguage", lang);
-    }
+    const about2 = document.querySelector("#mobile-nav a[href='about.html']");
+    if (about2) about2.textContent = translations[lang]["nav-about"];
+
+    const contact2 = document.querySelector("#mobile-nav a[href='contact.html']");
+    if (contact2) contact2.textContent = translations[lang]["nav-contact"];
+
+    // תפריט נגישות
+    const btn1 = document.querySelector("#accessibility-menu button:nth-child(1)");
+    if (btn1) btn1.textContent = translations[lang]["increase-font"];
+
+    const btn2 = document.querySelector("#accessibility-menu button:nth-child(2)");
+    if (btn2) btn2.textContent = translations[lang]["decrease-font"];
+
+    const btn3 = document.querySelector("#accessibility-menu button:nth-child(3)");
+    if (btn3) btn3.textContent = translations[lang]["high-contrast"];
+
+    const btn4 = document.querySelector("#accessibility-menu button:nth-child(4)");
+    if (btn4) btn4.textContent = translations[lang]["highlight-links"];
+
+    const btn5 = document.querySelector("#accessibility-menu button:nth-child(5)");
+    if (btn5) btn5.textContent = translations[lang]["disable-animations"];
+
+    const btn6 = document.querySelector("#accessibility-menu button:nth-child(6)");
+    if (btn6) btn6.textContent = translations[lang]["monochrome"];
+
+    const btn7 = document.querySelector("#accessibility-menu button:nth-child(7)");
+    if (btn7) btn7.textContent = translations[lang]["bold-text"];
+
+    const btn8 = document.querySelector("#accessibility-menu button:nth-child(8)");
+    if (btn8) btn8.textContent = translations[lang]["reset-accessibility"];
+    
+    const backBtn = document.querySelector(".back-button");
+    if (backBtn) backBtn.textContent = translations[lang]["back-button"];
+
+    localStorage.setItem("selectedLanguage", lang);
+}
 
     // טעינת השפה שנבחרה בעבר אם קיימת, אחרת ברירת מחדל היא עברית
     const savedLang = localStorage.getItem("selectedLanguage") || "he";

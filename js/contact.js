@@ -226,7 +226,12 @@ document.addEventListener("DOMContentLoaded", function () {
             "disable-animations": "חסימת אנימציות",
             "monochrome": "מצב מונוכרום",
             "bold-text": "הדגשת טקסט (Bold)",
-            "reset-accessibility": "איפוס הגדרות"
+            "reset-accessibility": "איפוס הגדרות",
+            "footer-accessibility": "הצהרת נגישות",
+            "footer-privacy": "מדיניות פרטיות",
+            "footer-terms": "תנאי שימוש",
+            "accessibility-link": "הצהרת נגישות"
+
         },
         "en": {
             "contact-title": "Contact Us",
@@ -252,7 +257,13 @@ document.addEventListener("DOMContentLoaded", function () {
             "disable-animations": "Disable Animations",
             "monochrome": "Monochrome Mode",
             "bold-text": "Bold Text",
-            "reset-accessibility": "Reset Settings"
+            "reset-accessibility": "Reset Settings",
+            "footer-accessibility": "Accessibility Statement",
+            "footer-privacy": "Privacy Policy",
+            "footer-terms": "Terms of Use",
+            "accessibility-link": "Accessibility Statement"
+
+
         }
     };
 
@@ -276,6 +287,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 element.placeholder = translations[lang][key];
             }
         }
+        
 
         // עדכון טקסטים
         updateText(".contact-title", "contact-title");
@@ -304,6 +316,12 @@ document.addEventListener("DOMContentLoaded", function () {
         updateText("#mobile-nav a[href='evening.html']", "nav-evening");
         updateText("#mobile-nav a[href='about.html']", "nav-about");
         updateText("#mobile-nav a[href='contact.html']", "nav-contact");
+
+        updateText("a[href='accessibility-statement.html']", "footer-accessibility");
+        updateText("a[href='privacy-policy.html']", "footer-privacy");
+        updateText("a[href='terms.html']", "footer-terms");
+        updateText("#accessibility-link", "accessibility-link");
+
 
         // עדכון תפריט הנגישות
         const accessibilityButtons = [

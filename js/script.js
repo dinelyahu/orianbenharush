@@ -196,7 +196,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "disable_animations": "חסימת אנימציות",
             "monochrome_mode": "מצב מונוכרום",
             "bold_text": "הדגשת טקסט (Bold)",
-            "reset_accessibility": "איפוס הגדרות"
+            "reset_accessibility": "איפוס הגדרות",
+            "accessibility-link": "הצהרת נגישות 📄"
+
         },
         "en": {
             "home": "Home",
@@ -275,10 +277,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // שינוי תפריט ה-Mobile Nav
         document.querySelector("#mobile-nav ul").innerHTML = `
             <li><a href="/">${translations[lang]["home"]}</a></li>
-            <li><a href="/bridal.html">${translations[lang]["bridal"]}</a></li>
-            <li><a href="/evening.html">${translations[lang]["evening"]}</a></li>
-            <li><a href="/about.html">${translations[lang]["about"]}</a></li>
-            <li><a href="/contact.html">${translations[lang]["contact"]}</a></li>
+            <li><a href="bridal.html">${translations[lang]["bridal"]}</a></li>
+            <li><a href="evening.html">${translations[lang]["evening"]}</a></li>
+            <li><a href="about.html">${translations[lang]["about"]}</a></li>
+            <li><a href="contact.html">${translations[lang]["contact"]}</a></li>
         `;
 
 

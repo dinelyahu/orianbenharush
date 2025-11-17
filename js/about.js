@@ -219,7 +219,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "uniqueness-title": "ייחודיות",
             "uniqueness-text": "העיצובים שלי משלבים קלאסיקה עם חדשנות, תוך שימוש בחומרי הגלם האיכותיים ביותר. אני מאמינה שכל אישה צריכה להרגיש מיוחדת ביום הגדול שלה, ולכן אני מציעה התאמה אישית מלאה לכל שמלה.",
             "contact-button": "צרו קשר",
-            "studio-title": "הסטודיו שלנו"
+            "studio-title": "הסטודיו שלנו",
+            "accessibility-link": "הצהרת נגישות 📄"
+
 
             
         },
@@ -246,7 +248,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "uniqueness-title": "Uniqueness",
             "uniqueness-text": "My designs combine classic elegance with innovation, using only the highest quality materials. I believe that every woman should feel special on her big day, which is why I offer full customization for each dress.",
             "contact-button": "Contact Us",
-            "studio-title": "Our Studio"
+            "studio-title": "Our Studio",
+            "accessibility-link": "Accessibility Statement 📄"
+
 
         }
     };
@@ -282,6 +286,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("#accessibility-menu button:nth-child(7)").textContent = translations[lang]["bold-text"];
         document.querySelector("#accessibility-menu button:nth-child(8)").textContent = translations[lang]["reset-accessibility"];
 
+        const accLink = document.querySelector("#accessibility-link");
+        if (accLink) accLink.textContent = translations[lang]["accessibility-link"];
 
         // עדכון הטקסט של about
         document.getElementById("about-title").textContent = translations[lang]["about-title"];
