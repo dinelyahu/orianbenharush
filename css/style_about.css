@@ -449,7 +449,7 @@ html, body {
 #accessibility-button {
     position: fixed !important;  /* מבטיח שהכפתור יישאר צף */
     bottom: 50px !important; /* מרחק מהתחתית */
-    left: 50px !important;  /* מרחק מהצד */
+    left: 20px !important;  /* מרחק מהצד */
     width: 50px;
     height: 50px;
     background: transparent;
@@ -802,7 +802,7 @@ p {
 #accessibility-button {
     position: fixed;
     bottom: 50px;
-    left: 50px;
+    left: 20px;
     width: 50px;
     height: 50px;
     background: transparent;
@@ -921,9 +921,9 @@ p {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 110px;
-    left: 40px;
-    background-color: #25d366;
+    bottom: 120px;
+    left: 20px;
+    background-color: #ffffff00;
     border-radius: 50%;
     display: flex;
     justify-content: center;
