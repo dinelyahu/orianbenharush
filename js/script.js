@@ -227,7 +227,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "disable_animations": "Disable Animations",
             "monochrome_mode": "Monochrome Mode",
             "bold_text": "Bold Text",
-            "reset_accessibility": "Reset Settings"
+            "reset_accessibility": "Reset Settings",
+            "accessibility-link": "Accessibility Statement 📄"
+
         }
     };
 
@@ -258,7 +260,9 @@ document.addEventListener("DOMContentLoaded", function () {
         "disable_animations": document.querySelector("#accessibility-menu button:nth-child(5)"),
         "monochrome_mode": document.querySelector("#accessibility-menu button:nth-child(6)"),
         "bold_text": document.querySelector("#accessibility-menu button:nth-child(7)"),
-        "reset_accessibility": document.querySelector("#accessibility-menu button:nth-child(8)")
+        "reset_accessibility": document.querySelector("#accessibility-menu button:nth-child(8)"),
+        "accessibility-link": document.querySelector("#accessibility-link")
+
     };
 
     function changeLanguage(lang) {

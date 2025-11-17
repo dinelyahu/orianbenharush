@@ -212,7 +212,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "monochrome": "מצב מונוכרום",
             "bold-text": "הדגשת טקסט (Bold)",
             "reset-accessibility": "איפוס הגדרות",
-            "back-button": "יציאה מהגלריה"
+            "back-button": "יציאה מהגלריה",
+            "accessibility-link": "הצהרת נגישות 📄"
+
 
 
             
@@ -233,7 +235,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "monochrome": "Monochrome Mode",
             "bold-text": "Bold Text",
             "reset-accessibility": "Reset Settings",
-            "back-button": "Exit Gallery"
+            "back-button": "Exit Gallery",
+            "accessibility-link": "Accessibility Statement 📄"
+
 
 
         }
@@ -302,6 +306,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const backBtn = document.querySelector(".back-button");
     if (backBtn) backBtn.textContent = translations[lang]["back-button"];
+    
+    const accLink = document.querySelector("#accessibility-link");
+    if (accLink) accLink.textContent = translations[lang]["accessibility-link"];
 
     localStorage.setItem("selectedLanguage", lang);
 }
