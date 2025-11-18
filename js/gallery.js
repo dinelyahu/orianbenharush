@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const home1 = document.querySelector(".navbar-nav .nav-item a[href='/']");
     if (home1) home1.textContent = translations[lang]["nav-home"];
 
-    const bridal1 = document.querySelector("a[href='bridal.html']");
+    const bridal1 = document.querySelector("a[href='collections.html']");
     if (bridal1) bridal1.textContent = translations[lang]["nav-bridal"];
 
     const evening1 = document.querySelector("a[href='evening.html']");
@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const home2 = document.querySelector("#mobile-nav a[href='/']");
     if (home2) home2.textContent = translations[lang]["nav-home"];
 
-    const bridal2 = document.querySelector("#mobile-nav a[href='bridal.html']");
+    const bridal2 = document.querySelector("#mobile-nav a[href='collections.html']");
     if (bridal2) bridal2.textContent = translations[lang]["nav-bridal"];
 
     const evening2 = document.querySelector("#mobile-nav a[href='evening.html']");
@@ -403,3 +403,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("collections-toggle");
+    const menu = document.getElementById("collections-mini");
+
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    });
+
+    document.addEventListener("click", () => {
+        menu.style.display = "none";
+    });
+});

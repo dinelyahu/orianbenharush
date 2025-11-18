@@ -305,14 +305,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // עדכון תפריט הניווט
         updateText(".navbar-nav .nav-item a[href='/']", "nav-home");
-        updateText("a[href='bridal.html']", "nav-bridal");
+        updateText("a[href='collections.html']", "nav-bridal");
         updateText("a[href='evening.html']", "nav-evening");
         updateText("a[href='about.html']", "nav-about");
         updateText("a[href='contact.html']", "nav-contact");
 
         // עדכון תפריט הצד (Mobile Nav)
         updateText("#mobile-nav a[href='/']", "nav-home");
-        updateText("#mobile-nav a[href='bridal.html']", "nav-bridal");
+        updateText("#mobile-nav a[href='collections.html']", "nav-bridal");
         updateText("#mobile-nav a[href='evening.html']", "nav-evening");
         updateText("#mobile-nav a[href='about.html']", "nav-about");
         updateText("#mobile-nav a[href='contact.html']", "nav-contact");
@@ -386,5 +386,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // פתיחת WhatsApp בחלון חדש עם ההודעה
         window.open(whatsappURL, "_blank");
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("collections-toggle");
+    const menu = document.getElementById("collections-mini");
+
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    });
+
+    document.addEventListener("click", () => {
+        menu.style.display = "none";
     });
 });

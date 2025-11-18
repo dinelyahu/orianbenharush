@@ -263,14 +263,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // עדכון תפריט הניווט
         document.querySelector(".navbar-nav .nav-item a[href='/']").textContent = translations[lang]["nav-home"];
-        document.querySelector("a[href='bridal.html']").textContent = translations[lang]["nav-bridal"];
+        document.querySelector("a[href='collections.html']").textContent = translations[lang]["nav-bridal"];
         document.querySelector("a[href='evening.html']").textContent = translations[lang]["nav-evening"];
         document.querySelector("a[href='about.html']").textContent = translations[lang]["nav-about"];
         document.querySelector("a[href='contact.html']").textContent = translations[lang]["nav-contact"];
 
         // עדכון תפריט הצד (Mobile Nav)
         document.querySelector("#mobile-nav a[href='/']").textContent = translations[lang]["nav-home"];
-        document.querySelector("#mobile-nav a[href='bridal.html']").textContent = translations[lang]["nav-bridal"];
+        document.querySelector("#mobile-nav a[href='collections.html']").textContent = translations[lang]["nav-bridal"];
         document.querySelector("#mobile-nav a[href='evening.html']").textContent = translations[lang]["nav-evening"];
         document.querySelector("#mobile-nav a[href='about.html']").textContent = translations[lang]["nav-about"];
         document.querySelector("#mobile-nav a[href='contact.html']").textContent = translations[lang]["nav-contact"];
@@ -340,5 +340,19 @@ document.addEventListener("DOMContentLoaded", function() {
             left: -300,
             behavior: 'smooth'
         });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("collections-toggle");
+    const menu = document.getElementById("collections-mini");
+
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    });
+
+    document.addEventListener("click", () => {
+        menu.style.display = "none";
     });
 });

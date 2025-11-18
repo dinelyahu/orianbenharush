@@ -384,3 +384,17 @@ document.addEventListener("DOMContentLoaded", () => {
         images.forEach(image => observer.observe(image));
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("collections-toggle");
+    const menu = document.getElementById("collections-mini");
+
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    });
+
+    document.addEventListener("click", () => {
+        menu.style.display = "none";
+    });
+});

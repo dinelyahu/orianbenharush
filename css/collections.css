@@ -1,6 +1,9 @@
+
 body {
     font-family:Arial,Helvetica,sans-serif;
     direction: rtl;
+    background-image: url("/images/logo/collections_back.png");
+    background-size:cover;
 }
 html, body {
     overflow-x: hidden; /* מונע גלילה אופקית */
@@ -8,7 +11,17 @@ html, body {
     max-width: 100vw; /* מבטיח שהתוכן לא יחרוג מרוחב המסך */
 }
 
-
+body::before {
+    content: "";
+    position: fixed; /* כדי שיכסה את כל העמוד בגלילה */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.155); /* כהות עדינה */
+    z-index: -1; /* עדיין נמוך מהתוכן אבל גבוה מהרקע */
+    pointer-events: none;
+}
 .container-fluid{
     height: 50px;
     margin-top: 100px;
@@ -728,4 +741,72 @@ html, body {
 .whatsapp-float:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+
+.collections-section {
+    padding: 160px 20px 80px;
+    text-align: center;
+}
+
+
+
+.collections-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.collection-item {
+    display: flex;
+    flex-direction: row-reverse; /* תמונה מצד שמאל, טקסט מצד ימין */
+    background: transparent;
+    height: 420px;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    transition: 0.3s ease-in-out;
+}
+
+.collection-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* צד שמאל – תמונה */
+.collection-image {
+    width: 60%;      /* התמונה גדולה */
+    height: 100%;
+}
+
+.collection-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* צד ימין – טקסט */
+.collection-info {
+    width: 40%;
+    background: rgba(0, 0, 0, 0.5); /* רקע כהה שקוף */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* טקסט הקולקציה */
+.collection-info p {
+    color: white;
+    font-size: 40px;
+    font-weight: 300;  /* דק */
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1.4;
 }

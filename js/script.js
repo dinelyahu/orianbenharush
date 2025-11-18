@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const elementsToTranslate = {
         "home": document.querySelector(".nav-link[href='/']"),
-        "bridal": document.querySelector(".nav-link[href='bridal.html']"),
+        "bridal": document.querySelector(".nav-link[href='collections.html']"),
         "evening": document.querySelector(".nav-link[href='evening.html']"),
         "about": document.querySelector(".nav-link[href='about.html']"),
         "contact": document.querySelector(".nav-link[href='contact.html']"),
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // שינוי תפריט ה-Mobile Nav
         document.querySelector("#mobile-nav ul").innerHTML = `
             <li><a href="/">${translations[lang]["home"]}</a></li>
-            <li><a href="bridal.html">${translations[lang]["bridal"]}</a></li>
+            <li><a href="collections.html">${translations[lang]["bridal"]}</a></li>
             <li><a href="evening.html">${translations[lang]["evening"]}</a></li>
             <li><a href="about.html">${translations[lang]["about"]}</a></li>
             <li><a href="contact.html">${translations[lang]["contact"]}</a></li>
@@ -472,3 +472,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000); // כל 2 שניות
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("collections-toggle");
+    const menu = document.getElementById("collections-mini");
+
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    });
+
+    document.addEventListener("click", () => {
+        menu.style.display = "none";
+    });
+});

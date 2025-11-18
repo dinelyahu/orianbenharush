@@ -1031,3 +1031,42 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top{
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0,0,0,0.4);
 }
+
+/* מיני־תפריט שמתחת לכפתור */
+.collections-mini {
+    display: none;
+    position: absolute;
+    top: 100%; /* בדיוק מתחת לכפתור COLLECTIONS */
+    right: 34%;  /* מיושר לכפתור */
+    background: rgba(255, 255, 255, 0.361);
+    border-radius: 4px;
+    padding: 8px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    width: 150px;
+}
+
+/* כפתורים */
+.collections-mini button {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 15px;
+    cursor: pointer;
+    color: #d1c7c7;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.collections-mini button:last-child {
+    border-bottom: none;
+}
+
+.collections-mini button:hover {
+    background: rgba(0,0,0,0.07);
+    color: #ffffff;
+}

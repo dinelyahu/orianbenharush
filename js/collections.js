@@ -213,7 +213,12 @@ document.addEventListener("DOMContentLoaded", function () {
             "bold-text": "הדגשת טקסט (Bold)",
             "reset-accessibility": "איפוס הגדרות",
             "back-button": "יציאה מהגלריה",
-            "accessibility-link": "הצהרת נגישות 📄"
+            "accessibility-link": "הצהרת נגישות 📄",
+            "col-bridal": "קולקציית שמלות כלה",
+            "col-evening": "קולקציית שמלות ערב",
+            "col-bridal-2025": "Bridal 2025",
+            "col-evening-2025": "Evening 2025"
+
 
 
 
@@ -236,7 +241,12 @@ document.addEventListener("DOMContentLoaded", function () {
             "bold-text": "Bold Text",
             "reset-accessibility": "Reset Settings",
             "back-button": "Exit Gallery",
-            "accessibility-link": "Accessibility Statement 📄"
+            "accessibility-link": "Accessibility Statement 📄",
+            "col-bridal": "Bridal Collection",
+            "col-evening": "Evening Collection",
+            "col-bridal-2025": "Bridal 2025",
+            "col-evening-2025": "Evening 2025"
+
 
 
 
@@ -251,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const home1 = document.querySelector(".navbar-nav .nav-item a[href='/']");
     if (home1) home1.textContent = translations[lang]["nav-home"];
 
-    const bridal1 = document.querySelector("a[href='bridal.html']");
+    const bridal1 = document.querySelector("a[href='collections.html']");
     if (bridal1) bridal1.textContent = translations[lang]["nav-bridal"];
 
     const evening1 = document.querySelector("a[href='evening.html']");
@@ -267,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const home2 = document.querySelector("#mobile-nav a[href='/']");
     if (home2) home2.textContent = translations[lang]["nav-home"];
 
-    const bridal2 = document.querySelector("#mobile-nav a[href='bridal.html']");
+    const bridal2 = document.querySelector("#mobile-nav a[href='collections.html']");
     if (bridal2) bridal2.textContent = translations[lang]["nav-bridal"];
 
     const evening2 = document.querySelector("#mobile-nav a[href='evening.html']");
@@ -313,6 +323,9 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("selectedLanguage", lang);
 }
 
+
+
+
     // טעינת השפה שנבחרה בעבר אם קיימת, אחרת ברירת מחדל היא עברית
     const savedLang = localStorage.getItem("selectedLanguage") || "he";
     setLanguage(savedLang);
@@ -332,3 +345,17 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("collections-toggle");
+    const menu = document.getElementById("collections-mini");
+
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    });
+
+    document.addEventListener("click", () => {
+        menu.style.display = "none";
+    });
+});
