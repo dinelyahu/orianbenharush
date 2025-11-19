@@ -216,8 +216,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "accessibility-link": "הצהרת נגישות 📄",
             "col-bridal": "קולקציית שמלות כלה",
             "col-evening": "קולקציית שמלות ערב",
-            "col-bridal-2025": "Bridal 2025",
-            "col-evening-2025": "Evening 2025"
+            "col-bridal": "Bridal",
+            "col-evening": "Evening"
 
 
 
@@ -244,8 +244,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "accessibility-link": "Accessibility Statement 📄",
             "col-bridal": "Bridal Collection",
             "col-evening": "Evening Collection",
-            "col-bridal-2025": "Bridal 2025",
-            "col-evening-2025": "Evening 2025"
+            "col-bridal": "Bridal",
+            "col-evening": "Evening"
 
 
 
