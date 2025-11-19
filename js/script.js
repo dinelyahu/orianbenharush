@@ -365,50 +365,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const images = [
-        "/images/bridal/img17.webp",
-        "/images/bridal/img3.webp",
-        "/images/bridal/img9.webp",
-        "/images/bridal/img8.webp"
-    ];
-
-    let index = 0;
-    const layers = document.querySelectorAll(".bg-layer");
-
-    // טען מראש את כל התמונות
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-
-    // התחלה
-    layers[0].style.backgroundImage = `url('${images[0]}')`;
-    layers[0].classList.add("active");
-
-    setInterval(() => {
-        const current = layers[index % 2];
-        const next = layers[(index + 1) % 2];
-
-        index = (index + 1) % images.length;
-
-        next.style.backgroundImage = `url('${images[index]}')`;
-        next.classList.add("active");
-        current.classList.remove("active");
-    }, 3500);
-});
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const bridalImages = [
-        "/images/bridal/img4.webp",
-        "/images/bridal/img12.webp",
-        "/images/bridal/img15.webp",
-        "/images/bridal/img10.webp"
+        "/images/bridal/orea/img7.webp",
+        "images/bridal/orea/img9.webp",
+        "images/bridal/orea/img10.webp",
+        "images/bridal/orea/img16.webp"
     ];
 
     let bridalIndex = 0;
@@ -472,16 +434,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000); // כל 2 שניות
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.getElementById("collections-toggle");
-    const menu = document.getElementById("collections-mini");
-
-    toggle.addEventListener("click", (e) => {
-        e.stopPropagation();
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    });
-
-    document.addEventListener("click", () => {
-        menu.style.display = "none";
-    });
-});
