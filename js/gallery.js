@@ -417,3 +417,37 @@ document.addEventListener("DOMContentLoaded", () => {
         menu.style.display = "none";
     });
 });
+
+const images = document.querySelectorAll(".image-wrapper img");
+const overlay = document.getElementById("viewer-overlay");
+const viewerImg = document.getElementById("viewer-image");
+const closeBtn = document.getElementById("viewer-close");
+const prevBtn = document.getElementById("viewer-prev");
+const nextBtn = document.getElementById("viewer-next");
+
+let currentIndex = 0;
+
+images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+        currentIndex = index;
+        viewerImg.src = img.src;
+        overlay.style.display = "flex";
+    });
+});
+
+// Close
+closeBtn.onclick = () => overlay.style.display = "none";
+
+// Prevent page reload on gestures
+overlay.addEventListener("touchstart", e => e.stopPropagation());
+viewerImg.addEventListener("touchstart", e => e.stopPropagation());
+
+// Next / Prev
+nextBtn.onclick = () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    viewerImg.src = images[currentIndex].src;
+};
+prevBtn.onclick = () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    viewerImg.src = images[currentIndex].src;
+};
