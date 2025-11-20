@@ -54,10 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
             "contact-waze": "נווט עם waze",
             "contact-follow": "עקבי אחרינו",
 
-            "home-bridal-title": "קולקציות שמלות כלה",
-            "home-bridal-button": "לקולקציית שמלות הכלה",
-            "home-evening-title": "קולקציות שמלות ערב",
-            "home-evening-button": "לקולקציית שמלות הערב"
+            "home-bridal-title":"Bridal Collections",
+            "home-bridal-button": "View Bridal Collections",
+            "home-evening-title": "Evening Collection",
+            "home-evening-button": "View Evening Collection"
 
 
 
@@ -188,4 +188,37 @@ document.addEventListener("DOMContentLoaded", () => {
     // ================================
     if (langToggleEn) langToggleEn.addEventListener("click", () => setLanguage("en"));
     if (langToggleHe) langToggleHe.addEventListener("click", () => setLanguage("he"));
+});
+
+
+
+
+/*  זה קשור לכל העמודים אבל זה לא תרגום */
+document.addEventListener("click", function (event) {
+
+    const mobileNav = document.getElementById("mobile-nav");
+    const menuToggle = document.getElementById("menu-toggle");
+
+    const languageButtonEn = document.getElementById("language-toggle-en");
+    const languageButtonHe = document.getElementById("language-toggle-he");
+    const accessibilityButton = document.getElementById("accessibility-button");
+
+    // רק במסכים קטנים
+    if (window.innerWidth > 992) return;
+
+    // אם לוחצים על כפתור תפריט — אל תסגור
+    if (event.target === menuToggle) return;
+
+    // אם לוחצים על כפתורי שפה — אל תסגור
+    if (event.target === languageButtonEn || event.target === languageButtonHe) return;
+
+    // אם לוחצים על כפתור נגישות — אל תסגור
+    if (event.target === accessibilityButton) return;
+
+    // אם לוחצים בתוך התפריט — אל תסגור
+    if (mobileNav.contains(event.target)) return;
+
+    // אחרת — סגור את התפריט
+    mobileNav.classList.remove("open");
+
 });
