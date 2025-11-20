@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         slider([
             "/images/bridal/orea/img7.webp",
             "/images/bridal/orea/img9.webp",
-            "/images/bridal/orea/img10.webp",
+            "/images/bridal/orea/img11.webp",
             "/images/bridal/orea/img16.webp"
         ], bridalLayers);
     }

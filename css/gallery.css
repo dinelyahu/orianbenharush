@@ -85,7 +85,7 @@ html, body {
     right: 30px;
     width: 50px;
     height: 50px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(77, 62, 22, 0.39);
     color: #ffffff;
     border: none;
     border-radius: 50%;
@@ -116,32 +116,6 @@ html, body {
     }
 }
 
-/* עיצוב כפתור חזרה */
-.back-button {
-    position: fixed; /* קבוע בראש הדף */
-    bottom: 20px; /* מרווח מלמעלה */
-    left: 50%;
-    transform: translateX(-50%); /* ממרכז את הכפתור */
-    background-color: rgba(0, 0, 0, 0.372);
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 12px ;
-    border-radius: 4px;
-    transition: background 0.3s, transform 0.2s;
-    z-index: 1000; /* מבטיח שהכפתור תמיד יהיה מעל התמונות */
-}
-
-.back-button:hover {
-    color:#4b4942a8;
-    background: rgba(255, 255, 255, 0.9); /* רקע כהה חצי-שקוף */
-}
-
-@media (max-width:994px) {
-    .back-button {
-        display: none;
-}
-}
 
 
 @media (min-width: 994px) {
@@ -294,3 +268,56 @@ html, body {
 
 
 
+.pagination {
+    position: fixed;           /* כדי שיצוף */
+    bottom: 10px;              /* מרחק מהחלק התחתון */
+    transform: translateX(-50%);
+    left: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+
+    background: rgba(77, 62, 22, 0.39);  /* על התמונה */
+    backdrop-filter: blur(2px);       /* אפקט יוקרתי */
+    border-radius: 4px;
+    z-index: 500;                    /* מעל כל התמונות */
+
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 10px 10px;
+    margin:auto;
+    background-color: rgba(180, 163, 136, 0);
+    border-radius: 4px, 4px, 4px, 4px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 25px !important;
+    transition: 0.3s ease;
+    font-weight: 200;
+}
+
+.pagination a:hover {
+    background-color: rgba(236, 231, 219, 0.751);
+    color: white;
+}
+
+.pagination .active {
+    background-color: rgba(236, 231, 219, 0.751);
+    color: white;
+    cursor: default;
+}
+
+.pagination .disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
