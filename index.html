@@ -115,11 +115,11 @@
             <!-- תפריט הניווט המרכזי (יוסתר במסכים קטנים) -->
             <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/">דף הבית</a></li>
-                    <li class="nav-item"><a class="nav-link" href="collections.html">שמלות כלה</a></li>
-                    <li class="nav-item"><a class="nav-link" href="evening.html">שמלות ערב</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">אודות</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">צרו קשר</a></li>
+                  <li class="nav-item"><a class="nav-link" data-key="nav-home" href="/">דף הבית</a></li>
+                  <li class="nav-item"><a class="nav-link" data-key="nav-bridal" href="collections.html">שמלות כלה</a></li>
+                  <li class="nav-item"><a class="nav-link" data-key="nav-evening" href="evening.html">שמלות ערב</a></li>
+                  <li class="nav-item"><a class="nav-link" data-key="nav-about" href="about.html">אודות</a></li>
+                  <li class="nav-item"><a class="nav-link" data-key="nav-contact" href="contact.html">צרו קשר</a></li>
                 </ul>
             </div>
     
@@ -129,15 +129,16 @@
     </nav>
     
     <!-- תפריט צד למסכים קטנים -->
-    <div id="mobile-nav" class="mobile-nav">
+    <div id="mobile-nav" class="mobile-nav full-screen">
         <ul>
-            <li><a href="/">דף הבית</a></li>
-            <li><a href="collections.html">שמלות כלה</a></li>
-            <li><a href="evening.html">שמלות ערב</a></li>
-            <li><a href="about.html">אודות</a></li>
-            <li><a href="contact.html">צרו קשר</a></li>
+            <li><a data-key="nav-home" href="/">דף הבית</a></li>
+            <li><a data-key="nav-bridal" href="collections.html">שמלות כלה</a></li>
+            <li><a data-key="nav-evening" href="evening.html">שמלות ערב</a></li>
+            <li><a data-key="nav-about" href="about.html">אודות</a></li>
+            <li><a data-key="nav-contact" href="contact.html">צרו קשר</a></li>
         </ul>
     </div>
+
     
 
 <!-- Landing Section -->
@@ -164,8 +165,8 @@
 
         <!-- תוכן צף -->
         <div class="gallery-overlay">
-            <h2 class="gallery-title">קולקציית שמלות כלה</h2>
-            <a href="collections.html" class="view-more-button">לקולקציית שמלות הכלה</a>
+            <h2 class="gallery-title" data-key="home-bridal-title">קולקציות שמלות הכלה</h2>
+            <a href="collections.html" class="view-more-button" data-key="home-bridal-button">לקולקציות שמלות הכלה</a>
         </div>
     </div>
 </section>
@@ -177,8 +178,8 @@
 
         <!-- תוכן צף -->
         <div class="gallery-overlay">
-            <h2 class="gallery-title">Evening Collection</h2>
-            <a href="evening.html" class="view-more-button">לקולקציית שמלות הערב</a>
+            <h2 class="gallery-title" data-key="home-evening-title">קולקציית שמלות ערב</h2>
+            <a href="evening.html" class="view-more-button" data-key="home-evening-button">לקולקציית שמלות הערב</a>
         </div>
     </div>
 </section>
@@ -188,31 +189,31 @@
 
         
 <!-- Contact Section -->
-<section id="contact" class="contact-section">
-        <h2 class="contact-title">צרו קשר</h2>
+<section id="contact" class="contact-section full-screen">
+        <h2 class="contact-title" data-key="contact-title">צרו קשר</h2>
 
         <div class="contact-container">
                         <!-- טופס יצירת קשר -->
             <div class="contact-form">
                 <form id="form" >
                         <div class="mb-3">
-                            <input type="text" id="name" name="name" class="form-control" required placeholder="שם מלא">
+                            <input type="text" id="name" name="name" class="form-control" required placeholder="שם מלא" data-key="contact-name">
                         </div>
                         <div class="mb-3">
-                            <input type="text" id="phone" name="telephone" class="form-control" required placeholder="טלפון" pattern="[0-9]{10,11}">
+                            <input type="text" id="phone" name="telephone" class="form-control" required placeholder="טלפון" pattern="[0-9]{10,11}" data-key="contact-phone">
                         </div>
                         <div class="mb-3">
-                            <input type="email" id="email" name="email" class="form-control" required placeholder="אימייל">
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="אימייל" data-key="contact-email">
                         </div>
                         <div class="mb-3">
-                            <textarea id="message" name="message" rows="4" class="form-control" required placeholder="הודעה"></textarea>
+                            <textarea id="message" name="message" rows="4" class="form-control" required placeholder="הודעה" data-key="contact-message"></textarea>
                         </div>
                         <div class="mb-3 date-container">
-                            <label for="wedding-date" class="date-label">תאריך האירוע</label>
-                            <input type="date" id="wedding-date" name="wedding-date" class="form-control" required placeholder="תאריך החתונה">
+                            <label for="wedding-date" class="date-label" data-key="contact-event-date-label">תאריך האירוע</label>
+                            <input type="date" id="wedding-date" name="wedding-date" class="form-control" data-key="contact-event-date" required placeholder="תאריך החתונה">
                         </div>
                         
-                        <button type="submit" class="submit-btn btn btn-primary w-100">שלח</button>
+                        <button type="submit" class="submit-btn btn btn-primary w-100" data-key="contact-submit">שלח</button>
                 </form>
             </div>
             <div class="contact-text">
@@ -222,7 +223,7 @@
                     </div>
                     <div class="contact-item">
                         <img src="/images/logo/location_transparent.png" alt="Address Icon" loading="lazy">
-                        <p>שדרות אח"י אילת 5, חיפה</p>
+                        <p data-key="contact-address">שדרות אח"י אילת 5, חיפה</p>
                     </div>
                     <div class="contact-item">
                         <img src="/images/logo/email_transparent.png" alt="Email Icon" loading="lazy">
@@ -230,7 +231,7 @@
                     </div>
                     <div class="contact-item">
                         <a href="https://waze.com/ul?ll=32.82337,35.06589&navigate=yes" target="_blank"><img src="/images/logo/waze_transparent_waze.png" loading="lazy"></a>
-                        <p>נווט עם waze</p>
+                        <p data-key="contact-waze">נווט עם waze</p>
                     </div>
                     <div class="contact-item">
                         <a href="https://www.instagram.com/orian_benharush/" target="_blank">
@@ -242,7 +243,7 @@
                         <a href="https://www.facebook.com/p/Orian-Ben-Harush-100081599341616/" target="_blank">
                             <img src="/images/logo/facebook.png" alt="facebook"  loading="lazy">
                         </a>
-                        <p>עקבי אחרינו</p>
+                        <p data-key="contact-follow">עקבי אחרינו</p>
                     </div>
                                     <!-- מפה עם קישור ל-Waze -->
                 <div class="contact-map">
@@ -280,7 +281,7 @@
 
   
 <!-- כפתור נגישות -->
-<button id="accessibility-button">
+<button>
     <img src="/images/logo/acsesslogo.png" id="accessibility-button" loading="lazy">
 </button>
 
@@ -305,6 +306,7 @@
 
     
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="/js/lang.js"></script>
     <script defer src="/js/script.js"></script>
 
     <!-- WhatsApp Floating Button -->

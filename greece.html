@@ -16,6 +16,7 @@
     <meta name="twitter:title" content="Orian Ben Harush | Bridal & Evening Dresses">
     <meta name="twitter:description" content="Bridal and evening dress designs by Orian Ben Harush">
     <meta name="twitter:image" content="https://orianbenharush.com/images/logo/fav.png">
+
     <link rel="icon" type="image/png" href="/images/logo/fav.png">
 
 
@@ -112,11 +113,11 @@
             <!-- תפריט הניווט המרכזי (יוסתר במסכים קטנים) -->
             <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/">דף הבית</a></li>
-                    <li class="nav-item"><a class="nav-link" href="collections.html">שמלות כלה</a></li>
-                    <li class="nav-item"><a class="nav-link" href="evening.html">שמלות ערב</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">אודות</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">צרו קשר</a></li>
+                  <li class="nav-item"><a class="nav-link" data-key="nav-home" href="/">דף הבית</a></li>
+                  <li class="nav-item"><a class="nav-link" data-key="nav-bridal" href="collections.html">שמלות כלה</a></li>
+                  <li class="nav-item"><a class="nav-link" data-key="nav-evening" href="evening.html">שמלות ערב</a></li>
+                  <li class="nav-item"><a class="nav-link" data-key="nav-about" href="about.html">אודות</a></li>
+                  <li class="nav-item"><a class="nav-link" data-key="nav-contact" href="contact.html">צרו קשר</a></li>
                 </ul>
             </div>
     
@@ -124,17 +125,18 @@
         </div>
         
     </nav>
-    
+
     <!-- תפריט צד למסכים קטנים -->
     <div id="mobile-nav" class="mobile-nav full-screen">
         <ul>
-            <li><a href="/">דף הבית</a></li>
-            <li><a href="collections.html">שמלות כלה</a></li>
-            <li><a href="evening.html">שמלות ערב</a></li>
-            <li><a href="about.html">אודות</a></li>
-            <li><a href="contact.html">צרו קשר</a></li>
+            <li><a data-key="nav-home" href="/">דף הבית</a></li>
+            <li><a data-key="nav-bridal" href="collections.html">שמלות כלה</a></li>
+            <li><a data-key="nav-evening" href="evening.html">שמלות ערב</a></li>
+            <li><a data-key="nav-about" href="about.html">אודות</a></li>
+            <li><a data-key="nav-contact" href="contact.html">צרו קשר</a></li>
         </ul>
     </div>
+
 
     <section class="gallery">
         <div class="gallery-wrapper">
@@ -310,8 +312,9 @@
 
 
 <!-- כפתור נגישות -->
-<button id="accessibility-button"><img src="/images/logo/acsesslogo.png" id="accessibility-button" loading="lazy"></button>
-
+<button>
+  <img src="/images/logo/acsesslogo.png" id="accessibility-button" loading="lazy">
+</button>
 <!-- תפריט נגישות (מוסתר כברירת מחדל) -->
 <div id="accessibility-menu" class="hidden">
     <button onclick="increaseFontSize()">הגדלת פונט ➕</button>
@@ -349,6 +352,7 @@
 <button id="back-to-top">▲</button>
     
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="/js/lang.js"></script>
     <script defer src="/js/gallery.js"></script>
 
     <!-- WhatsApp Floating Button -->
@@ -356,12 +360,7 @@
     <img src="/images/logo/whatsapp.png" alt="WhatsApp">
 </a>
 
-<div id="viewer-overlay">
-  <span id="viewer-close">×</span>
-  <img id="viewer-image" src="">
-  <div id="viewer-prev">&#10094;</div>
-  <div id="viewer-next">&#10095;</div>
-</div>
+
 
 </body>
 </html>

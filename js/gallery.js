@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const mobileNav = document.getElementById("mobile-nav");
-    const languageButtonEn = document.getElementById("language-toggle-en");
-    const languageButtonHe = document.getElementById("language-toggle-he");
+
 
     // פונקציה לפתיחת/סגירת התפריט
     function toggleMenu(event) {
@@ -15,22 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
         menuToggle.addEventListener("click", toggleMenu);
     }
 
-    // סגירת התפריט בלחיצה מחוץ לתפריט (אבל לא על כפתורי השפה)
-    document.addEventListener("click", function (event) {
-        const isClickOnLanguageButton = (event.target === languageButtonEn || event.target === languageButtonHe);
-        if (!mobileNav.contains(event.target) && event.target !== menuToggle && !isClickOnLanguageButton) {
-            mobileNav.classList.remove("open");
-        }
-    });
 
-    // כפתורי השפה **לא** יסגרו את התפריט
-    languageButtonEn.addEventListener("click", function (event) {
-        event.stopPropagation(); // מונע סגירה לא רצויה
-    });
 
-    languageButtonHe.addEventListener("click", function (event) {
-        event.stopPropagation(); // מונע סגירה לא רצויה
-    });
 
     // סגירת התפריט אם לוחצים על אחד מהקישורים בתפריט
     document.querySelectorAll("#mobile-nav ul li a").forEach(link => {
@@ -40,27 +25,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const mobileNav = document.getElementById("mobile-nav");
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileNavLinks = document.querySelectorAll("#mobile-nav ul li a");
-
-    if (mobileNav && menuToggle) {
-        // הוספת אירוע לכל קישור בתפריט
-        mobileNavLinks.forEach(link => {
-            link.addEventListener("click", function () {
-                mobileNav.classList.remove("open"); // סגירת התפריט
-            });
-        });
-    }
-});
 
 document.addEventListener("DOMContentLoaded", function () {
     const accessibilityButton = document.getElementById("accessibility-button");
     const accessibilityMenu = document.getElementById("accessibility-menu");
-    const languageButtonEn = document.getElementById("language-toggle-en");
-    const languageButtonHe = document.getElementById("language-toggle-he");
-
     let fontSize = parseInt(localStorage.getItem("fontSize")) || 16; // שמירת גודל הפונט מהאחסון המקומי
     let highContrast = localStorage.getItem("highContrast") === "true";
     let monochromeMode = localStorage.getItem("monochromeMode") === "true";
@@ -88,14 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
     accessibilityButton.addEventListener("click", function (event) {
         event.stopPropagation();
         accessibilityMenu.style.display = (accessibilityMenu.style.display === "none" || accessibilityMenu.style.display === "") ? "flex" : "none";
-    });
-
-    // סגירה אוטומטית בלחיצה מחוץ לתפריט (אבל לא על כפתורי השפה)
-    document.addEventListener("click", function (event) {
-        const isClickOnLanguageButton = (event.target === languageButtonEn || event.target === languageButtonHe);
-        if (!accessibilityMenu.contains(event.target) && event.target !== accessibilityButton && !isClickOnLanguageButton) {
-            accessibilityMenu.style.display = "none";
-        }
     });
 
     // פונקציות הנגישות
@@ -190,137 +150,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const langToggleEn = document.getElementById("language-toggle-en");
-    const langToggleHe = document.getElementById("language-toggle-he");
-
-    // מילון טקסטים בשתי השפות
-    const translations = {
-        "he": {
-
-            "nav-home": "דף הבית",
-            "nav-bridal": "שמלות כלה",
-            "nav-evening": "שמלות ערב",
-            "nav-about": "אודות",
-            "nav-contact": "צרו קשר",
-            "accessibility-btn": "נגישות",
-            "increase-font": "הגדלת פונט ➕",
-            "decrease-font": "הקטנת פונט ➖",
-            "high-contrast": "ניגודיות גבוהה",
-            "highlight-links": "הדגשת קישורים",
-            "disable-animations": "חסימת אנימציות",
-            "monochrome": "מצב מונוכרום",
-            "bold-text": "הדגשת טקסט (Bold)",
-            "reset-accessibility": "איפוס הגדרות",
-            "back-button": "יציאה מהגלריה",
-            "accessibility-link": "הצהרת נגישות 📄"
-
-
-
-            
-        },
-        "en": {
-
-            "nav-home": "Home",
-            "nav-bridal": "Bridal Dresses",
-            "nav-evening": "Evening Dresses",
-            "nav-about": "About",
-            "nav-contact": "Contact",
-            "accessibility-btn": "Accessibility",
-            "increase-font": "Increase Font ➕",
-            "decrease-font": "Decrease Font ➖",
-            "high-contrast": "High Contrast",
-            "highlight-links": "Highlight Links",
-            "disable-animations": "Disable Animations",
-            "monochrome": "Monochrome Mode",
-            "bold-text": "Bold Text",
-            "reset-accessibility": "Reset Settings",
-            "back-button": "Exit Gallery",
-            "accessibility-link": "Accessibility Statement 📄"
-
-
-
-        }
-    };
-
-    function setLanguage(lang) {
-    document.documentElement.setAttribute("lang", lang);
-    document.body.dir = lang === "he" ? "rtl" : "ltr";
-
-    // עדכון תפריט הניווט (רק אם האלמנט קיים בעמוד)
-    const home1 = document.querySelector(".navbar-nav .nav-item a[href='/']");
-    if (home1) home1.textContent = translations[lang]["nav-home"];
-
-    const bridal1 = document.querySelector("a[href='collections.html']");
-    if (bridal1) bridal1.textContent = translations[lang]["nav-bridal"];
-
-    const evening1 = document.querySelector("a[href='evening.html']");
-    if (evening1) evening1.textContent = translations[lang]["nav-evening"];
-
-    const about1 = document.querySelector("a[href='about.html']");
-    if (about1) about1.textContent = translations[lang]["nav-about"];
-
-    const contact1 = document.querySelector("a[href='contact.html']");
-    if (contact1) contact1.textContent = translations[lang]["nav-contact"];
-
-    // תפריט צד (Mobile Nav)
-    const home2 = document.querySelector("#mobile-nav a[href='/']");
-    if (home2) home2.textContent = translations[lang]["nav-home"];
-
-    const bridal2 = document.querySelector("#mobile-nav a[href='collections.html']");
-    if (bridal2) bridal2.textContent = translations[lang]["nav-bridal"];
-
-    const evening2 = document.querySelector("#mobile-nav a[href='evening.html']");
-    if (evening2) evening2.textContent = translations[lang]["nav-evening"];
-
-    const about2 = document.querySelector("#mobile-nav a[href='about.html']");
-    if (about2) about2.textContent = translations[lang]["nav-about"];
-
-    const contact2 = document.querySelector("#mobile-nav a[href='contact.html']");
-    if (contact2) contact2.textContent = translations[lang]["nav-contact"];
-
-    // תפריט נגישות
-    const btn1 = document.querySelector("#accessibility-menu button:nth-child(1)");
-    if (btn1) btn1.textContent = translations[lang]["increase-font"];
-
-    const btn2 = document.querySelector("#accessibility-menu button:nth-child(2)");
-    if (btn2) btn2.textContent = translations[lang]["decrease-font"];
-
-    const btn3 = document.querySelector("#accessibility-menu button:nth-child(3)");
-    if (btn3) btn3.textContent = translations[lang]["high-contrast"];
-
-    const btn4 = document.querySelector("#accessibility-menu button:nth-child(4)");
-    if (btn4) btn4.textContent = translations[lang]["highlight-links"];
-
-    const btn5 = document.querySelector("#accessibility-menu button:nth-child(5)");
-    if (btn5) btn5.textContent = translations[lang]["disable-animations"];
-
-    const btn6 = document.querySelector("#accessibility-menu button:nth-child(6)");
-    if (btn6) btn6.textContent = translations[lang]["monochrome"];
-
-    const btn7 = document.querySelector("#accessibility-menu button:nth-child(7)");
-    if (btn7) btn7.textContent = translations[lang]["bold-text"];
-
-    const btn8 = document.querySelector("#accessibility-menu button:nth-child(8)");
-    if (btn8) btn8.textContent = translations[lang]["reset-accessibility"];
-    
-    const backBtn = document.querySelector(".back-button");
-    if (backBtn) backBtn.textContent = translations[lang]["back-button"];
-    
-    const accLink = document.querySelector("#accessibility-link");
-    if (accLink) accLink.textContent = translations[lang]["accessibility-link"];
-
-    localStorage.setItem("selectedLanguage", lang);
-}
-
-    // טעינת השפה שנבחרה בעבר אם קיימת, אחרת ברירת מחדל היא עברית
-    const savedLang = localStorage.getItem("selectedLanguage") || "he";
-    setLanguage(savedLang);
-
-    // האזנה ללחיצות על הכפתורים
-    langToggleEn.addEventListener("click", () => setLanguage("en"));
-    langToggleHe.addEventListener("click", () => setLanguage("he"));
-});
 
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
@@ -402,52 +231,3 @@ document.addEventListener("DOMContentLoaded", function () {
     updateActiveDot();
   });
 });
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.getElementById("collections-toggle");
-    const menu = document.getElementById("collections-mini");
-
-    toggle.addEventListener("click", (e) => {
-        e.stopPropagation();
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    });
-
-    document.addEventListener("click", () => {
-        menu.style.display = "none";
-    });
-});
-
-const images = document.querySelectorAll(".image-wrapper img");
-const overlay = document.getElementById("viewer-overlay");
-const viewerImg = document.getElementById("viewer-image");
-const closeBtn = document.getElementById("viewer-close");
-const prevBtn = document.getElementById("viewer-prev");
-const nextBtn = document.getElementById("viewer-next");
-
-let currentIndex = 0;
-
-images.forEach((img, index) => {
-    img.addEventListener("click", () => {
-        currentIndex = index;
-        viewerImg.src = img.src;
-        overlay.style.display = "flex";
-    });
-});
-
-// Close
-closeBtn.onclick = () => overlay.style.display = "none";
-
-// Prevent page reload on gestures
-overlay.addEventListener("touchstart", e => e.stopPropagation());
-viewerImg.addEventListener("touchstart", e => e.stopPropagation());
-
-// Next / Prev
-nextBtn.onclick = () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    viewerImg.src = images[currentIndex].src;
-};
-prevBtn.onclick = () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    viewerImg.src = images[currentIndex].src;
-};
