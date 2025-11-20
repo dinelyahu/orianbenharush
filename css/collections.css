@@ -85,7 +85,7 @@ body::before {
 /* צד ימין – טקסט */
 .collection-info {
     width: 40%;
-    background: rgba(0, 0, 0, 0.5); /* רקע כהה שקוף */
+    background: rgba(230, 210, 191, 0.27); /* רקע כהה שקוף */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,8 +95,8 @@ body::before {
 /* טקסט הקולקציה */
 .collection-info p {
     color: white;
-    font-size: 40px;
-    font-weight: 300;  /* דק */
+    font-size: 20px !important;
+    font-weight: 100;  /* דק */
     letter-spacing: 2px;
     text-align: center;
     line-height: 1.4;

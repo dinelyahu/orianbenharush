@@ -318,55 +318,7 @@
 
 
 
-/* עיצוב סרגל הניווט הצדדי */
-.mobile-nav {
-    position: fixed;
-    top: 0;
-    width: 150px;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    transition: right 0.4s ease-in-out;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-    opacity: 0.7;
-}
 
-/* כשהתפריט פתוח */
-.mobile-nav.open {
-    right: 0;
-}
-
-/* עיצוב הכפתורים */
-.mobile-nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-.mobile-nav ul li {
-    margin: 20px 0;
-    padding-bottom: 20px;
-}
-.mobile-nav ul li a:active {
-    color: #3c3939; /* אפור כהה */
-    font-weight: bold;
-    transition: color 0.9s ease-in-out;
-}
-
-
-.mobile-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    transition: color 0.3s;
-}
-
-.mobile-nav ul li a:hover {
-    color: #c1a6cb;
-}
 
 /* הסרת הניווט וכפתור ההמבורגר במסכים גדולים */
 @media (min-width: 994px) {
@@ -428,12 +380,13 @@
 }
 /* תפריט צד */
 .mobile-nav {
+    display: grid !important;
     position: fixed;
     top: 0;
     right: -250px; /* מוסתר כברירת מחדל */
     width: 180px;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgb(199 186 177 / 91%);
     backdrop-filter: blur(10px);
     transition: right 0.4s ease-in-out;
     z-index: 1000;
@@ -459,18 +412,16 @@
 }
 
 .mobile-nav ul li {
-    margin: 20px;
 
-    border-bottom: 1px solid rgba(74, 71, 71, 0.192);
-
+    border-top: 1px solid rgb(255, 255, 255);
+    padding-top: 40%;
 }
 
 .mobile-nav ul li a {
-    color: rgba(87, 77, 77, 0.984);
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    font-size: 15px;
+    font-size: 17px !important;
     transition: color 0.3s;
-    margin-bottom: 30px;
 }
 
 .mobile-nav ul li a:hover {
@@ -639,6 +590,7 @@
     .mobile-nav ul {
         padding: 10px 0; /* ריווח פנימי קטן יותר */
         margin-top: 80px !important;
+        display: grid !important;
     }
 
     .mobile-nav ul li {
