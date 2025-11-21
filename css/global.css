@@ -29,13 +29,18 @@
     height: 50px;
     background: transparent;
     color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border-radius: 50%;
     font-size: 50px;
     border: none;
     cursor: pointer;
     z-index: 9999 !important; /* וידוא שהכפתור יהיה מעל כל האלמנטים */
     
 }
-
+#accessibility-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
 #accessibility-toggle {
     position: fixed;
     bottom: 90px;   /* או מה שאתה רוצה */
@@ -49,16 +54,17 @@
 }
 
 #accessibility-toggle img {
-    width: 55px;
     height: auto;
+    width: 55px;
+    height: 55px;
 }
 
 /* תפריט נגישות - מוסתר כברירת מחדל */
 #accessibility-menu {
     position: fixed;
     bottom: 80px;
-    left: 20px;
-    background: white;
+    left: 70px;
+    background: rgba(216, 215, 196, 0.388);
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -66,15 +72,18 @@
     flex-direction: column;
     gap: 10px;
     z-index: 999;
+    width: 200px;
 }
 /* כפתורי התפריט */
 #accessibility-menu button {
-    background: #f5f5f5;
+    background: #d7ceb6cf;
     border: none;
     padding: 8px;
     cursor: pointer;
     font-size: 16px;
     width: 100%;
+    color: white;
+    font-weight: 400;
 }
 #accessibility-menu button:hover {
     background: #ddd;

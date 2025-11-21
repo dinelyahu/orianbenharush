@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
             "nav-contact": "צרו קשר",
 
             // Accessibility Menu
-            "increase-font": "הגדלת פונט ➕",
-            "decrease-font": "הקטנת פונט ➖",
+            "increase-font": "הגדלת פונט ✚",
+            "decrease-font": "הקטנת פונט —",
             "high-contrast": "ניגודיות גבוהה",
             "highlight-links": "הדגשת קישורים",
             "disable-animations": "חסימת אנימציות",
