@@ -164,3 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const video = document.querySelector(".landing-video");
+    if (video) {
+        video.load();
+        video.play().catch(() => {});
+    }
+});
