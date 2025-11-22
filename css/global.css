@@ -212,13 +212,30 @@
 
 /* Footer Styles */
 .site-footer {
-    background-color: #f4f4f4;
+    position: relative; /* חשוב!! */
+    background-image: url("/images/logo/collections_back.png");
     padding: 15px 0;
     text-align: center;
-    border-top: 1px solid #e1e1e1;
     font-size: 14px;
-    color: #555;
+    color: #ffffff;
+    border-top: 1px solid #e1e1e1;
 }
+
+/* Overlay */
+.site-footer::before {
+    content: ""; /* חובה */
+    position: absolute;
+    inset: 0; /* מכסה את כל הפוטר */
+    background-color: rgba(181, 179, 167, 0.194);
+    z-index: 1; /* מעל התמונה */
+}
+
+/* התוכן של הפוטר שלא ייכנס מתחת לאוברליי */
+.site-footer * {
+    position: relative;
+    z-index: 2;
+}
+
 
 .footer-container {
     display: flex;
@@ -236,7 +253,7 @@
 }
 
 .footer-links a {
-    color: #555;
+    color: #ffffffab;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -247,14 +264,14 @@
 }
 
 .footer-separator {
-    color: #ccc;
+    color: #ffffffab;
 }
 
 .footer-credit {
     margin-top: 5px;
     font-size: 13px;
     line-height: 1.5;
-    color: #777;
+    color: #ffffffab;
 }
 
 
@@ -269,7 +286,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.342);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -284,15 +301,23 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(198, 201, 180, 0.514); /* שכבה כהה עדינה */
+    background: rgb(199 186 177 / 61%); /* שכבה כהה עדינה */
     z-index: 100000;
 }
 
 /* עיצוב הלוגו */
 #preloader img {
-    width: 100%; /* גודל הלוגו */
+    width: 20% ; /* גודל הלוגו */
     height: auto;
     animation: fadeIn 1s ease-in-out;
+    z-index: 100005;
+}
+@media (min-width: 994px) {
+    #preloader img {
+        width: 20% !important; /* גודל הלוגו */
+        height: auto;
+
+    }
 }
 
 /* אנימציה ללוגו */
@@ -317,7 +342,7 @@
 }
 @media (max-width: 994px) {
     #preloader img {
-        width: 100%; /* גודל הלוגו */
+        width: 65%; /* גודל הלוגו */
         height: auto;
 
     }

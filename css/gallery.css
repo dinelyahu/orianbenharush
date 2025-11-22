@@ -280,7 +280,7 @@ html, body {
     align-items: center;
     gap: 2px;
 
-    background-color: rgba(49, 48, 47, 0.114);
+    background-color: rgba(171, 161, 142, 0.708);
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         backdrop-filter: blur(2px);       /* אפקט יוקרתי */
     border-radius: 4px;
@@ -305,7 +305,7 @@ html, body {
     text-decoration: none;
     font-size: 25px !important;
     transition: 0.3s ease;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 .pagination a:hover {

@@ -109,10 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const bridalLayers = document.querySelectorAll(".bridal-bg-layer");
     if (bridalLayers.length > 0) {
         slider([
-            "/images/bridal/orea/img7.webp",
-            "/images/bridal/orea/img9.webp",
-            "/images/bridal/orea/img11.webp",
-            "/images/bridal/orea/img16.webp"
+            "/images/bridal/orea/7.webp",
+            "/images/bridal/orea/9.webp",
+            "/images/bridal/orea/11.webp",
+            "/images/bridal/orea/16.webp"
         ], bridalLayers);
     }
 
