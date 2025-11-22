@@ -85,7 +85,8 @@ html, body {
     right: 30px;
     width: 50px;
     height: 50px;
-    background-color: rgba(77, 62, 22, 0.39);
+    background-color: rgba(49, 48, 47, 0.114);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     color: #ffffff;
     border: none;
     border-radius: 50%;
@@ -279,8 +280,9 @@ html, body {
     align-items: center;
     gap: 2px;
 
-    background: rgba(77, 62, 22, 0.39);  /* על התמונה */
-    backdrop-filter: blur(2px);       /* אפקט יוקרתי */
+    background-color: rgba(49, 48, 47, 0.114);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        backdrop-filter: blur(2px);       /* אפקט יוקרתי */
     border-radius: 4px;
     z-index: 500;                    /* מעל כל התמונות */
 
